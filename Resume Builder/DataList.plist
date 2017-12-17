@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Department</key>
+	<array>
+		<string>Computer Science</string>
+		<string>Computer Engineering</string>
+		<string>Electrical Engineering</string>
+		<string>Human Computer Interface</string>
+		<string>Mechanical Engineering</string>
+		<string>Civil Engineering</string>
+		<string>Environmental Engineering</string>
+		<string>Biotechnology</string>
+	</array>
+	<key>Degree</key>
+	<array>
+		<string>Associate</string>
+		<string>Bachelors</string>
+		<string>Masters</string>
+		<string>Doctorate</string>
+	</array>
+	<key>Year</key>
+	<array>
+		<string>2000</string>
+		<string>2001</string>
+		<string>2002</string>
+		<string>2003</string>
+		<string>2004</string>
+		<string>2005</string>
+		<string>2006</string>
+		<string>2007</string>
+		<string>2008</string>
+		<string>2009</string>
+		<string>2010</string>
+		<string>2011</string>
+		<string>2012</string>
+		<string>2013</string>
+		<string>2014</string>
+		<string>2015</string>
+		<string>2016</string>
+		<string>2017</string>
+	</array>
+</dict>
+</plist>
