@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5595AC8BD4AF1B799B628EDB /* Pods_Resume_BuilderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67C4AD0DB93F68DE41B378D7 /* Pods_Resume_BuilderTests.framework */; };
 		65CA1EDE2008DD5AE634A496 /* Pods_Resume_BuilderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87D46490D61B41837DEB04AF /* Pods_Resume_BuilderUITests.framework */; };
+		F809328C1FE687DF004F45B7 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F809328B1FE687DF004F45B7 /* DatabaseService.swift */; };
 		F8432BCA1FE4ABE2004DA63D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8432BC91FE4ABE2004DA63D /* GoogleService-Info.plist */; };
 		F8432BCB1FE4ABE2004DA63D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8432BC91FE4ABE2004DA63D /* GoogleService-Info.plist */; };
 		F8432BCC1FE4ABE2004DA63D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8432BC91FE4ABE2004DA63D /* GoogleService-Info.plist */; };
@@ -59,6 +60,7 @@
 		8965E0AEE8F22AEA3DBC0D5C /* Pods-Resume BuilderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Resume BuilderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Resume BuilderTests/Pods-Resume BuilderTests.release.xcconfig"; sourceTree = "<group>"; };
 		8D88B2448949E9F3364D5E35 /* Pods-Resume BuilderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Resume BuilderUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Resume BuilderUITests/Pods-Resume BuilderUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9D5345916663033AD452219E /* Pods-Resume BuilderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Resume BuilderUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Resume BuilderUITests/Pods-Resume BuilderUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F809328B1FE687DF004F45B7 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		F8432BC91FE4ABE2004DA63D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F8432BCD1FE4AE5A004DA63D /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		F890930C1FE475D300C5A165 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				F8DED2651FE46C670096DA60 /* SignIn.swift */,
 				F890930E1FE475F000C5A165 /* MainView.swift */,
 				F890930C1FE475D300C5A165 /* SignUp.swift */,
+				F809328B1FE687DF004F45B7 /* DatabaseService.swift */,
 				F8D020841FE60D5F0043D5C0 /* DataList.plist */,
 				F8432BCD1FE4AE5A004DA63D /* AlertController.swift */,
 				F8DED2671FE46C670096DA60 /* Main.storyboard */,
@@ -356,7 +359,7 @@
 		};
 		276D146A795459C4C231BF57 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -505,6 +508,7 @@
 				F890930F1FE475F000C5A165 /* MainView.swift in Sources */,
 				F8D020831FE5CFE50043D5C0 /* MoreExpSection.swift in Sources */,
 				F8D0207F1FE5CF850043D5C0 /* NextSection2.swift in Sources */,
+				F809328C1FE687DF004F45B7 /* DatabaseService.swift in Sources */,
 				F8D020811FE5CFA80043D5C0 /* MoreProSection.swift in Sources */,
 				F890930D1FE475D300C5A165 /* SignUp.swift in Sources */,
 				F8DED2641FE46C670096DA60 /* AppDelegate.swift in Sources */,

@@ -9,6 +9,7 @@ target 'Resume Builder' do
 	pod 'Firebase/Core'
 	pod 'Firebase/Database'
 	pod 'Firebase/Auth'
+    pod 'Firebase/Storage'
 
   target 'Resume BuilderTests' do
     inherit! :search_paths
