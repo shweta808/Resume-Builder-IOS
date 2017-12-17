@@ -137,15 +137,15 @@ class NextSection2: UIViewController, UIImagePickerControllerDelegate, UINavigat
         let fileName = parent.emailValue
         guard let image = imageView.image else {return}
         guard let imageData = UIImageJPEGRepresentation(image, 1) else { return }
-        let uploadImage = DatabaseService.shared.resumeImages.child(fileName)
-        let uploadTask = uploadImage.putData(imageData, metadata: nil) { (metadata, error) in
-            self.activityIndicator.stopAnimating()
-            self.performSegue(withIdentifier: "signupSegue", sender: nil)
-        }
-        uploadTask.observe(.progress) { (snapshot) in
-            print(snapshot.progress ?? "No progress")
-        }
-        uploadTask.resume()
+        //let uploadImage = DatabaseService.shared.resumeImages.child(fileName)
+//        let uploadTask = uploadImage.putData(imageData, metadata: nil) { (metadata, error) in
+//            self.activityIndicator.stopAnimating()
+//            self.performSegue(withIdentifier: "signupSegue", sender: nil)
+//        }
+//        uploadTask.observe(.progress) { (snapshot) in
+//            print(snapshot.progress ?? "No progress")
+//        }
+//        uploadTask.resume()
     }
     
     @IBAction func cancelPressed(_ sender: UIButton) {

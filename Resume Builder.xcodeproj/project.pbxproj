@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0360CBF51FE70D990024CFF7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0360CBF31FE70D990024CFF7 /* ProfileViewController.swift */; };
+		0360CBF61FE70D990024CFF7 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0360CBF41FE70D990024CFF7 /* ProfileViewController.xib */; };
+		0360CBF91FE70DB10024CFF7 /* ExperienceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0360CBF71FE70DB10024CFF7 /* ExperienceViewController.swift */; };
+		0360CBFA1FE70DB10024CFF7 /* ExperienceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0360CBF81FE70DB10024CFF7 /* ExperienceViewController.xib */; };
+		0360CBFD1FE70DC30024CFF7 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0360CBFB1FE70DC30024CFF7 /* ProjectsViewController.swift */; };
+		0360CBFE1FE70DC30024CFF7 /* ProjectsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0360CBFC1FE70DC30024CFF7 /* ProjectsViewController.xib */; };
+		0360CC011FE70DD60024CFF7 /* EducationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0360CBFF1FE70DD60024CFF7 /* EducationViewController.swift */; };
+		0360CC021FE70DD60024CFF7 /* EducationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0360CC001FE70DD60024CFF7 /* EducationViewController.xib */; };
+		0360CC041FE763C50024CFF7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0360CC031FE763C50024CFF7 /* User.swift */; };
 		5595AC8BD4AF1B799B628EDB /* Pods_Resume_BuilderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67C4AD0DB93F68DE41B378D7 /* Pods_Resume_BuilderTests.framework */; };
 		65CA1EDE2008DD5AE634A496 /* Pods_Resume_BuilderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87D46490D61B41837DEB04AF /* Pods_Resume_BuilderUITests.framework */; };
 		F809328C1FE687DF004F45B7 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F809328B1FE687DF004F45B7 /* DatabaseService.swift */; };
@@ -51,6 +60,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0360CBF31FE70D990024CFF7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		0360CBF41FE70D990024CFF7 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		0360CBF71FE70DB10024CFF7 /* ExperienceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceViewController.swift; sourceTree = "<group>"; };
+		0360CBF81FE70DB10024CFF7 /* ExperienceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExperienceViewController.xib; sourceTree = "<group>"; };
+		0360CBFB1FE70DC30024CFF7 /* ProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
+		0360CBFC1FE70DC30024CFF7 /* ProjectsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectsViewController.xib; sourceTree = "<group>"; };
+		0360CBFF1FE70DD60024CFF7 /* EducationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationViewController.swift; sourceTree = "<group>"; };
+		0360CC001FE70DD60024CFF7 /* EducationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EducationViewController.xib; sourceTree = "<group>"; };
+		0360CC031FE763C50024CFF7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1B65CBEE2E679238F8C34AB2 /* Pods_Resume_Builder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Resume_Builder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D83775076DD574158584D58 /* Pods-Resume BuilderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Resume BuilderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Resume BuilderTests/Pods-Resume BuilderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3D6517A7E313305DA8899571 /* Pods-Resume Builder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Resume Builder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Resume Builder/Pods-Resume Builder.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,6 +131,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0360CBF21FE70D690024CFF7 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				0360CBF31FE70D990024CFF7 /* ProfileViewController.swift */,
+				0360CBF41FE70D990024CFF7 /* ProfileViewController.xib */,
+				0360CBF71FE70DB10024CFF7 /* ExperienceViewController.swift */,
+				0360CBF81FE70DB10024CFF7 /* ExperienceViewController.xib */,
+				0360CBFB1FE70DC30024CFF7 /* ProjectsViewController.swift */,
+				0360CBFC1FE70DC30024CFF7 /* ProjectsViewController.xib */,
+				0360CBFF1FE70DD60024CFF7 /* EducationViewController.swift */,
+				0360CC001FE70DD60024CFF7 /* EducationViewController.xib */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		18AE081E2E76C1685130B47F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +194,7 @@
 		F8DED2621FE46C670096DA60 /* Resume Builder */ = {
 			isa = PBXGroup;
 			children = (
+				0360CBF21FE70D690024CFF7 /* New Group */,
 				F8DED2631FE46C670096DA60 /* AppDelegate.swift */,
 				F8DED2651FE46C670096DA60 /* SignIn.swift */,
 				F890930E1FE475F000C5A165 /* MainView.swift */,
@@ -177,6 +211,7 @@
 				F8432BC91FE4ABE2004DA63D /* GoogleService-Info.plist */,
 				F8DED26F1FE46C670096DA60 /* Info.plist */,
 				F8D0207E1FE5CF850043D5C0 /* NextSection2.swift */,
+				0360CC031FE763C50024CFF7 /* User.swift */,
 			);
 			path = "Resume Builder";
 			sourceTree = "<group>";
@@ -315,9 +350,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0360CBF61FE70D990024CFF7 /* ProfileViewController.xib in Resources */,
 				F8D020851FE60D600043D5C0 /* DataList.plist in Resources */,
 				F8DED26E1FE46C670096DA60 /* LaunchScreen.storyboard in Resources */,
 				F8432BCA1FE4ABE2004DA63D /* GoogleService-Info.plist in Resources */,
+				0360CBFE1FE70DC30024CFF7 /* ProjectsViewController.xib in Resources */,
+				0360CC021FE70DD60024CFF7 /* EducationViewController.xib in Resources */,
+				0360CBFA1FE70DB10024CFF7 /* ExperienceViewController.xib in Resources */,
 				F8DED26B1FE46C670096DA60 /* Assets.xcassets in Resources */,
 				F8DED2691FE46C670096DA60 /* Main.storyboard in Resources */,
 			);
@@ -502,15 +541,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0360CBF91FE70DB10024CFF7 /* ExperienceViewController.swift in Sources */,
 				F8D0207D1FE5C3020043D5C0 /* NextSection1.swift in Sources */,
 				F8DED2661FE46C670096DA60 /* SignIn.swift in Sources */,
 				F8432BCE1FE4AE5A004DA63D /* AlertController.swift in Sources */,
 				F890930F1FE475F000C5A165 /* MainView.swift in Sources */,
 				F8D020831FE5CFE50043D5C0 /* MoreExpSection.swift in Sources */,
 				F8D0207F1FE5CF850043D5C0 /* NextSection2.swift in Sources */,
+				0360CBF51FE70D990024CFF7 /* ProfileViewController.swift in Sources */,
+				0360CC041FE763C50024CFF7 /* User.swift in Sources */,
 				F809328C1FE687DF004F45B7 /* DatabaseService.swift in Sources */,
+				0360CC011FE70DD60024CFF7 /* EducationViewController.swift in Sources */,
 				F8D020811FE5CFA80043D5C0 /* MoreProSection.swift in Sources */,
 				F890930D1FE475D300C5A165 /* SignUp.swift in Sources */,
+				0360CBFD1FE70DC30024CFF7 /* ProjectsViewController.swift in Sources */,
 				F8DED2641FE46C670096DA60 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
