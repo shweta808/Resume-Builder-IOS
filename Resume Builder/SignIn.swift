@@ -16,6 +16,8 @@ class SignIn: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textFieldDesign()
+
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -42,6 +44,13 @@ class SignIn: UIViewController, UITextFieldDelegate {
             guard let user = user else { return }
             self.performSegue(withIdentifier: "signinSegue", sender: nil)
         }
+    }
+    
+    func textFieldDesign() {
+        email.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        email.textColor = UIColor.white
+        password.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        password.textColor = UIColor.white
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

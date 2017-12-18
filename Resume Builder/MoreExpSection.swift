@@ -34,6 +34,7 @@ class MoreExpSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textFieldDesign()
         let data = Bundle.main
         let dataList:String? = data.path(forResource: "DataList", ofType: "plist")
         if dataList != nil {
@@ -264,6 +265,25 @@ class MoreExpSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         UIView.setAnimationDuration(moveDuration)
         self.view.frame = (self.view.frame).offsetBy(dx: 0, dy: movement)
         UIView.commitAnimations()
+    }
+    
+    func textFieldDesign() {
+        e1CName.attributedPlaceholder = NSAttributedString(string: "Company Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        e1CName.textColor = UIColor.white
+        e1CAdd.attributedPlaceholder = NSAttributedString(string: "Company Address", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        e1CAdd.textColor = UIColor.white
+        e1Position.attributedPlaceholder = NSAttributedString(string: "Position", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        e1Position.textColor = UIColor.white
+        e1Res.attributedPlaceholder = NSAttributedString(string: "Responsibilities", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        e1Res.textColor = UIColor.white
+        e2CName.attributedPlaceholder = NSAttributedString(string: "Company Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        e2CName.textColor = UIColor.white
+        e2CAdd.attributedPlaceholder = NSAttributedString(string: "Company Address", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        e2CAdd.textColor = UIColor.white
+        e2Position.attributedPlaceholder = NSAttributedString(string: "Position", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        e2Position.textColor = UIColor.white
+        e2Res.attributedPlaceholder = NSAttributedString(string: "Responsibilities", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        e2Res.textColor = UIColor.white
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

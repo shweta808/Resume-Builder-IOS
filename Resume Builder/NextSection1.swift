@@ -51,6 +51,7 @@ class NextSection1: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         moreProjView.isHidden = true
         moreExpView.isHidden = true
         nextSectionView.isHidden = true
+        textFieldDesign()
         let data = Bundle.main
         let dataList:String? = data.path(forResource: "DataList", ofType: "plist")
         if dataList != nil {
@@ -338,6 +339,25 @@ class NextSection1: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         UIView.setAnimationDuration(moveDuration)
         self.view.frame = (self.view.frame).offsetBy(dx: 0, dy: movement)
         UIView.commitAnimations()
+    }
+    
+    func textFieldDesign() {
+        projName.attributedPlaceholder = NSAttributedString(string: "Project Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        projName.textColor = UIColor.white
+        projDesc.attributedPlaceholder = NSAttributedString(string: "Project Description", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        projDesc.textColor = UIColor.white
+        projTech.attributedPlaceholder = NSAttributedString(string: "Technologies Used", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        projTech.textColor = UIColor.white
+        projOrg.attributedPlaceholder = NSAttributedString(string: "Organization Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        projOrg.textColor = UIColor.white
+        expCompanyName.attributedPlaceholder = NSAttributedString(string: "Company Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        expCompanyName.textColor = UIColor.white
+        expCompanyAddress.attributedPlaceholder = NSAttributedString(string: "Company Address", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        expCompanyAddress.textColor = UIColor.white
+        expPosition.attributedPlaceholder = NSAttributedString(string: "Position", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        expPosition.textColor = UIColor.white
+        expResp.attributedPlaceholder = NSAttributedString(string: "Responsibilities", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        expResp.textColor = UIColor.white
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -40,6 +40,7 @@ class SignUp: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         nextSectionView.isHidden = true
+        textFieldDesign()
         let data = Bundle.main
         let dataList:String? = data.path(forResource: "DataList", ofType: "plist")
         if dataList != nil {
@@ -292,6 +293,25 @@ class SignUp: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UI
         UIView.setAnimationDuration(moveDuration)
         self.view.frame = (self.view.frame).offsetBy(dx: 0, dy: movement)
         UIView.commitAnimations()
+    }
+    
+    func textFieldDesign() {
+        fullName.attributedPlaceholder = NSAttributedString(string: "Name: e.g. XYZ ABC", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        fullName.textColor = UIColor.white
+        fullAddress.attributedPlaceholder = NSAttributedString(string: "Full Address", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        fullAddress.textColor = UIColor.white
+        contactNumber.attributedPlaceholder = NSAttributedString(string: "Contact Number: e.g. 000-000-0000", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        contactNumber.textColor = UIColor.white
+            email.attributedPlaceholder = NSAttributedString(string: "Email: e.g. abc@gmail.com", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        email.textColor = UIColor.white
+            password.attributedPlaceholder = NSAttributedString(string: "Password >= 6 characters", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        password.textColor = UIColor.white
+            profSummary.attributedPlaceholder = NSAttributedString(string: "Professional Summary", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        profSummary.textColor = UIColor.white
+            uniName.attributedPlaceholder = NSAttributedString(string: "Name of University", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        uniName.textColor = UIColor.white
+            gpa.attributedPlaceholder = NSAttributedString(string: "GPA", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        gpa.textColor = UIColor.white
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

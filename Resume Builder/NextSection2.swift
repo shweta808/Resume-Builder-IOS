@@ -20,6 +20,7 @@ class NextSection2: UIViewController, UIImagePickerControllerDelegate, UINavigat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textFieldDesign()
         activityIndicator.stopAnimating()
         // Do any additional setup after loading the view.
     }
@@ -181,6 +182,15 @@ class NextSection2: UIViewController, UIImagePickerControllerDelegate, UINavigat
         view.endEditing(false)
     }
 
+    func textFieldDesign() {
+        pubName.attributedPlaceholder = NSAttributedString(string: "Publication Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        pubName.textColor = UIColor.white
+        pubDesc.attributedPlaceholder = NSAttributedString(string: "Description", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        pubDesc.textColor = UIColor.white
+        pubLink.attributedPlaceholder = NSAttributedString(string: "Publication Link", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        pubLink.textColor = UIColor.white
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
             nextField.becomeFirstResponder()
