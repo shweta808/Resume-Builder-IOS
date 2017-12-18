@@ -268,22 +268,39 @@ class MoreProSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func textFieldDesign() {
-        p1Name.attributedPlaceholder = NSAttributedString(string: "Project Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        p1Name.textColor = UIColor.white
-        p1Desc.attributedPlaceholder = NSAttributedString(string: "Project Description", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        p1Desc.textColor = UIColor.white
-        p1Tech.attributedPlaceholder = NSAttributedString(string: "Technologies Used", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        p1Tech.textColor = UIColor.white
-        p1Org.attributedPlaceholder = NSAttributedString(string: "Organization Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        p1Org.textColor = UIColor.white
-        p2Name.attributedPlaceholder = NSAttributedString(string: "Project Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        p2Name.textColor = UIColor.white
-        p2Desc.attributedPlaceholder = NSAttributedString(string: "Project Description", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        p2Desc.textColor = UIColor.white
-        p2Tech.attributedPlaceholder = NSAttributedString(string: "Technologies Used", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        p2Tech.textColor = UIColor.white
-        p2Org.attributedPlaceholder = NSAttributedString(string: "Organization Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        p2Org.textColor = UIColor.white
+        p1Name.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        p1Desc.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        p1Tech.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        p1Org.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        p2Name.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        p2Desc.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        p2Tech.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        p2Org.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        
+        p1Name.layer.borderWidth = 1.0
+        p1Desc.layer.borderWidth = 1.0
+        p1Tech.layer.borderWidth = 1.0
+        p1Org.layer.borderWidth = 1.0
+        p2Name.layer.borderWidth = 1.0
+        p2Desc.layer.borderWidth = 1.0
+        p2Tech.layer.borderWidth = 1.0
+        p2Org.layer.borderWidth = 1.0
+//        p1Name.attributedPlaceholder = NSAttributedString(string: "Project Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+//        p1Name.textColor = UIColor.white
+//        p1Desc.attributedPlaceholder = NSAttributedString(string: "Project Description", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+//        p1Desc.textColor = UIColor.white
+//        p1Tech.attributedPlaceholder = NSAttributedString(string: "Technologies Used", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+//        p1Tech.textColor = UIColor.white
+//        p1Org.attributedPlaceholder = NSAttributedString(string: "Organization Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+//        p1Org.textColor = UIColor.white
+//        p2Name.attributedPlaceholder = NSAttributedString(string: "Project Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+//        p2Name.textColor = UIColor.white
+//        p2Desc.attributedPlaceholder = NSAttributedString(string: "Project Description", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+//        p2Desc.textColor = UIColor.white
+//        p2Tech.attributedPlaceholder = NSAttributedString(string: "Technologies Used", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+//        p2Tech.textColor = UIColor.white
+//        p2Org.attributedPlaceholder = NSAttributedString(string: "Organization Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+//        p2Org.textColor = UIColor.white
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

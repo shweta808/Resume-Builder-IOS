@@ -268,22 +268,39 @@ class MoreExpSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func textFieldDesign() {
-        e1CName.attributedPlaceholder = NSAttributedString(string: "Company Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        e1CName.textColor = UIColor.white
-        e1CAdd.attributedPlaceholder = NSAttributedString(string: "Company Address", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        e1CAdd.textColor = UIColor.white
-        e1Position.attributedPlaceholder = NSAttributedString(string: "Position", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        e1Position.textColor = UIColor.white
-        e1Res.attributedPlaceholder = NSAttributedString(string: "Responsibilities", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        e1Res.textColor = UIColor.white
-        e2CName.attributedPlaceholder = NSAttributedString(string: "Company Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        e2CName.textColor = UIColor.white
-        e2CAdd.attributedPlaceholder = NSAttributedString(string: "Company Address", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        e2CAdd.textColor = UIColor.white
-        e2Position.attributedPlaceholder = NSAttributedString(string: "Position", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        e2Position.textColor = UIColor.white
-        e2Res.attributedPlaceholder = NSAttributedString(string: "Responsibilities", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        e2Res.textColor = UIColor.white
+        e1CName.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        e1CAdd.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        e1Position.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        e1Res.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        e2CName.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        e2CAdd.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        e2Position.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        e2Res.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        
+        e1CName.layer.borderWidth = 1.0
+        e1CAdd.layer.borderWidth = 1.0
+        e1Position.layer.borderWidth = 1.0
+        e1Res.layer.borderWidth = 1.0
+        e2CName.layer.borderWidth = 1.0
+        e2CAdd.layer.borderWidth = 1.0
+        e2Position.layer.borderWidth = 1.0
+        e2Res.layer.borderWidth = 1.0
+//        e1CName.attributedPlaceholder = NSAttributedString(string: "Company Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+//        e1CName.textColor = UIColor.white
+//        e1CAdd.attributedPlaceholder = NSAttributedString(string: "Company Address", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+//        e1CAdd.textColor = UIColor.white
+//        e1Position.attributedPlaceholder = NSAttributedString(string: "Position", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+//        e1Position.textColor = UIColor.white
+//        e1Res.attributedPlaceholder = NSAttributedString(string: "Responsibilities", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+//        e1Res.textColor = UIColor.white
+//        e2CName.attributedPlaceholder = NSAttributedString(string: "Company Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+//        e2CName.textColor = UIColor.white
+//        e2CAdd.attributedPlaceholder = NSAttributedString(string: "Company Address", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+//        e2CAdd.textColor = UIColor.white
+//        e2Position.attributedPlaceholder = NSAttributedString(string: "Position", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+//        e2Position.textColor = UIColor.white
+//        e2Res.attributedPlaceholder = NSAttributedString(string: "Responsibilities", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+//        e2Res.textColor = UIColor.white
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

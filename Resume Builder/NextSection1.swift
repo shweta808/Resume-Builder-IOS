@@ -342,22 +342,39 @@ class NextSection1: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     }
     
     func textFieldDesign() {
-        projName.attributedPlaceholder = NSAttributedString(string: "Project Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        projName.textColor = UIColor.white
-        projDesc.attributedPlaceholder = NSAttributedString(string: "Project Description", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        projDesc.textColor = UIColor.white
-        projTech.attributedPlaceholder = NSAttributedString(string: "Technologies Used", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        projTech.textColor = UIColor.white
-        projOrg.attributedPlaceholder = NSAttributedString(string: "Organization Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        projOrg.textColor = UIColor.white
-        expCompanyName.attributedPlaceholder = NSAttributedString(string: "Company Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        expCompanyName.textColor = UIColor.white
-        expCompanyAddress.attributedPlaceholder = NSAttributedString(string: "Company Address", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        expCompanyAddress.textColor = UIColor.white
-        expPosition.attributedPlaceholder = NSAttributedString(string: "Position", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        expPosition.textColor = UIColor.white
-        expResp.attributedPlaceholder = NSAttributedString(string: "Responsibilities", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        expResp.textColor = UIColor.white
+        projName.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        projDesc.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        projTech.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        projOrg.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        expCompanyName.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        expCompanyAddress.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        expPosition.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        expResp.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        
+        projName.layer.borderWidth = 1.0
+        projDesc.layer.borderWidth = 1.0
+        projTech.layer.borderWidth = 1.0
+        projOrg.layer.borderWidth = 1.0
+        expCompanyName.layer.borderWidth = 1.0
+        expCompanyAddress.layer.borderWidth = 1.0
+        expPosition.layer.borderWidth = 1.0
+        expResp.layer.borderWidth = 1.0
+//        projName.attributedPlaceholder = NSAttributedString(string: "Project Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+//        projName.textColor = UIColor.white
+//        projDesc.attributedPlaceholder = NSAttributedString(string: "Project Description", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+//        projDesc.textColor = UIColor.white
+//        projTech.attributedPlaceholder = NSAttributedString(string: "Technologies Used", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+//        projTech.textColor = UIColor.white
+//        projOrg.attributedPlaceholder = NSAttributedString(string: "Organization Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+//        projOrg.textColor = UIColor.white
+//        expCompanyName.attributedPlaceholder = NSAttributedString(string: "Company Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+//        expCompanyName.textColor = UIColor.white
+//        expCompanyAddress.attributedPlaceholder = NSAttributedString(string: "Company Address", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+//        expCompanyAddress.textColor = UIColor.white
+//        expPosition.attributedPlaceholder = NSAttributedString(string: "Position", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+//        expPosition.textColor = UIColor.white
+//        expResp.attributedPlaceholder = NSAttributedString(string: "Responsibilities", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+//        expResp.textColor = UIColor.white
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

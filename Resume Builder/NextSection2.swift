@@ -183,12 +183,19 @@ class NextSection2: UIViewController, UIImagePickerControllerDelegate, UINavigat
     }
 
     func textFieldDesign() {
-        pubName.attributedPlaceholder = NSAttributedString(string: "Publication Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        pubName.textColor = UIColor.white
-        pubDesc.attributedPlaceholder = NSAttributedString(string: "Description", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        pubDesc.textColor = UIColor.white
-        pubLink.attributedPlaceholder = NSAttributedString(string: "Publication Link", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        pubLink.textColor = UIColor.white
+        pubName.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        pubDesc.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        pubLink.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        
+        pubName.layer.borderWidth = 1.0
+        pubDesc.layer.borderWidth = 1.0
+        pubLink.layer.borderWidth = 1.0
+//        pubName.attributedPlaceholder = NSAttributedString(string: "Publication Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+//        pubName.textColor = UIColor.white
+//        pubDesc.attributedPlaceholder = NSAttributedString(string: "Description", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+//        pubDesc.textColor = UIColor.white
+//        pubLink.attributedPlaceholder = NSAttributedString(string: "Publication Link", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+//        pubLink.textColor = UIColor.white
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
