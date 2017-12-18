@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseStorage
 
-class NextSection2: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class NextSection2: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var pubName: UITextField!
     @IBOutlet weak var pubDesc: UITextField!
@@ -41,6 +41,7 @@ class NextSection2: UIViewController, UIImagePickerControllerDelegate, UINavigat
     }
     
     @IBAction func profilPicPressed(_ sender: UIButton) {
+        hideKeyboard()
         let controller = UIImagePickerController()
         controller.delegate = self
         controller.sourceType = .photoLibrary
@@ -48,6 +49,7 @@ class NextSection2: UIViewController, UIImagePickerControllerDelegate, UINavigat
     }
     
     @IBAction func save(_ sender: UIButton) {
+        hideKeyboard()
         let parent = self.parent as! NextSection1
         if pubName.text == "", pubDesc.text == "", pubLink.text == "" {}
         else {
@@ -67,7 +69,14 @@ class NextSection2: UIViewController, UIImagePickerControllerDelegate, UINavigat
         let parent = self.parent as! NextSection1
         Auth.auth().createUser(withEmail: parent.emailValue, password: parent.passwordValue) { (user, error) in
             guard error == nil else{
-                AlertController.displayAlert(self, title: "Error", message: error!.localizedDescription)
+                let alert = UIAlertController(title:"Error", message: error!.localizedDescription, preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Edit Username/Password!", style: .default) {
+                    (result : UIAlertAction) -> Void in
+                     let parent = self.parent as! NextSection1
+                    parent.hideSelfView()
+                }
+                alert.addAction(ok)
+                self.present(alert, animated: true, completion: nil)
                 return
             }
             self.saveData()
@@ -149,6 +158,7 @@ class NextSection2: UIViewController, UIImagePickerControllerDelegate, UINavigat
     }
     
     @IBAction func cancelPressed(_ sender: UIButton) {
+        hideKeyboard()
         clearData()
         hideView()
     }
@@ -169,5 +179,15 @@ class NextSection2: UIViewController, UIImagePickerControllerDelegate, UINavigat
     
     func hideKeyboard() {
         view.endEditing(false)
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        }
+        else {
+            textField.resignFirstResponder()
+        }
+        return false
     }
 }

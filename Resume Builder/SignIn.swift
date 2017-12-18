@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class SignIn: UIViewController {
+class SignIn: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -42,7 +42,16 @@ class SignIn: UIViewController {
             guard let user = user else { return }
             self.performSegue(withIdentifier: "signinSegue", sender: nil)
         }
-        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        }
+        else {
+            textField.resignFirstResponder()
+        }
+        return false
     }
     
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MoreExpSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class MoreExpSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var e1CName: UITextField!
     @IBOutlet weak var e1CAdd: UITextField!
@@ -51,6 +51,8 @@ class MoreExpSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     @IBAction func save(_ sender: UIButton) {
+        hideKeyboard()
+        hidePicker()
         let parent = self.parent as! NextSection1
         if e1CName.text == "", e1CAdd.text == "", e1Position.text == "", e1Res.text == "" {}
         else {
@@ -104,6 +106,8 @@ class MoreExpSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     @IBAction func cancelPressed(_ sender: UIButton) {
+        hideKeyboard()
+        hidePicker()
         clearData()
         hideView()
     }
@@ -169,18 +173,22 @@ class MoreExpSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     @IBAction func e1sYearPressed(_ sender: UIButton) {
+        hideKeyboard()
         yearPicker.isHidden = false
         yFlag = 0
     }
     @IBAction func e1eYearPressed(_ sender: UIButton) {
+        hideKeyboard()
         yearPicker.isHidden = false
         yFlag = 1
     }
     @IBAction func e2sYearPressed(_ sender: UIButton) {
+        hideKeyboard()
         yFlag = 2
         yearPicker.isHidden = false
     }
     @IBAction func e2eYearPressed(_ sender: UIButton) {
+        hideKeyboard()
         yFlag = 3
         yearPicker.isHidden = false
     }
@@ -216,6 +224,56 @@ class MoreExpSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         e1eYearBtn.setTitle("Select End Year", for: .normal)
         e2sYearBtn.setTitle("Select Start Year", for: .normal)
         e2eYearBtn.setTitle("Select End Year", for: .normal)
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        switch textField.tag {
+        case 4:
+            moveTextField(textField: textField, moveDistance: -50, up: true)
+        case 5:
+            moveTextField(textField: textField, moveDistance: -60, up: true)
+        case 6:
+            moveTextField(textField: textField, moveDistance: -70, up: true)
+        case 7:
+            moveTextField(textField: textField, moveDistance: -80, up: true)
+        default:
+            break
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        switch textField.tag {
+        case 4:
+            moveTextField(textField: textField, moveDistance: -50, up: false)
+        case 5:
+            moveTextField(textField: textField, moveDistance: -60, up: false)
+        case 6:
+            moveTextField(textField: textField, moveDistance: -70, up: false)
+        case 7:
+            moveTextField(textField: textField, moveDistance: -80, up: false)
+        default:
+            break
+        }
+    }
+    
+    func moveTextField(textField: UITextField, moveDistance: Int, up: Bool) {
+        let moveDuration = 0.3
+        let movement: CGFloat = CGFloat(up ? moveDistance: -moveDistance)
+        UIView.beginAnimations("animateTF", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(moveDuration)
+        self.view.frame = (self.view.frame).offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        }
+        else {
+            textField.resignFirstResponder()
+        }
+        return false
     }
     
 }

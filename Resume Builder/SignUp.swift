@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-class SignUp: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class SignUp: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var fullName: UITextField!
     @IBOutlet weak var fullAddress: UITextField!
@@ -152,64 +152,78 @@ class SignUp: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     @IBAction func nextSectionPressed(_ sender: UIButton) {
-        if fullName.text == "" {
-            AlertController.displayAlert(self, title: "Alert", message: "Full Name Required!")
-        }
-        else if fullAddress.text == "" {
-            AlertController.displayAlert(self, title: "Alert", message: "Full Address Required!")
-        }
-        else if contactNumber.text == "" {
-            AlertController.displayAlert(self, title: "Alert", message: "Contact Number Required!")
-        }
-        else if !numberValid(contactNumber.text!) {
-            AlertController.displayAlert(self, title: "Alert", message: "Enter valid contact number!")
-        }
-        else if email.text == "" {
-            AlertController.displayAlert(self, title: "Alert", message: "Email Required!")
-        }
-        else if !emailValid(email.text!) {
-            AlertController.displayAlert(self, title: "Alert", message: "Enter valid email!")
-        }
-        else if password.text == "" {
-            AlertController.displayAlert(self, title: "Alert", message: "Password Required!")
-        }
-        else if (password.text?.count)! < 6 {
-            AlertController.displayAlert(self, title: "Alert", message: "Password should have atleast 6 characters!")
-        }
-        else if degreeBtn.titleLabel?.text == "Select Degree" {
-            AlertController.displayAlert(self, title: "Alert", message: "Degree Required!")
-        }
-        else if departmentBtn.titleLabel?.text == "Select Department" {
-            AlertController.displayAlert(self, title: "Alert", message: "Department Required!")
-        }
-        else if uniName.text == "" {
-            AlertController.displayAlert(self, title: "Alert", message: "University Name Required!")
-        }
-        else if gpa.text == "" {
-            AlertController.displayAlert(self, title: "Alert", message: "GPA Required!")
-        }
-        else if sYearBtn.titleLabel?.text == "Select Start Year" {
-            AlertController.displayAlert(self, title: "Alert", message: "Start Year Required!")
-        }
-        else if eYearBtn.titleLabel?.text == "Select End Year" {
-            AlertController.displayAlert(self, title: "Alert", message: "End Year Required!")
-        }
-        else {
-            fName = fullName.text!
-            fAddress = fullAddress.text!
-            cNumber = contactNumber.text!
-            emailValue = email.text!
-            passwordValue = password.text!
-            pSummary = profSummary.text!
-            uName = uniName.text!
-            uGPA = gpa.text!
-            department = (departmentBtn.titleLabel?.text)!
-            degree = (degreeBtn.titleLabel?.text)!
-            sYear = (sYearBtn.titleLabel?.text)!
-            eYear = (eYearBtn.titleLabel?.text)!
-            nextSectionView.isHidden = false
-            nextSectionView.isHidden = false
-        }
+        hideKeyboard()
+        hidePicker()
+//        if fullName.text == "" {
+//            AlertController.displayAlert(self, title: "Alert", message: "Full Name Required!")
+//        }
+//        else if fullAddress.text == "" {
+//            AlertController.displayAlert(self, title: "Alert", message: "Full Address Required!")
+//        }
+//        else if contactNumber.text == "" {
+//            AlertController.displayAlert(self, title: "Alert", message: "Contact Number Required!")
+//        }
+//        else if !numberValid(contactNumber.text!) {
+//            AlertController.displayAlert(self, title: "Alert", message: "Enter valid contact number!")
+//        }
+//        else if email.text == "" {
+//            AlertController.displayAlert(self, title: "Alert", message: "Email Required!")
+//        }
+//        else if !emailValid(email.text!) {
+//            AlertController.displayAlert(self, title: "Alert", message: "Enter valid email!")
+//        }
+//        else if password.text == "" {
+//            AlertController.displayAlert(self, title: "Alert", message: "Password Required!")
+//        }
+//        else if (password.text?.count)! < 6 {
+//            AlertController.displayAlert(self, title: "Alert", message: "Password should have atleast 6 characters!")
+//        }
+//        else if degreeBtn.titleLabel?.text == "Select Degree" {
+//            AlertController.displayAlert(self, title: "Alert", message: "Degree Required!")
+//        }
+//        else if departmentBtn.titleLabel?.text == "Select Department" {
+//            AlertController.displayAlert(self, title: "Alert", message: "Department Required!")
+//        }
+//        else if uniName.text == "" {
+//            AlertController.displayAlert(self, title: "Alert", message: "University Name Required!")
+//        }
+//        else if gpa.text == "" {
+//            AlertController.displayAlert(self, title: "Alert", message: "GPA Required!")
+//        }
+//        else if sYearBtn.titleLabel?.text == "Select Start Year" {
+//            AlertController.displayAlert(self, title: "Alert", message: "Start Year Required!")
+//        }
+//        else if eYearBtn.titleLabel?.text == "Select End Year" {
+//            AlertController.displayAlert(self, title: "Alert", message: "End Year Required!")
+//        }
+//        else {
+//            fName = fullName.text!
+//            fAddress = fullAddress.text!
+//            cNumber = contactNumber.text!
+//            emailValue = email.text!
+//            passwordValue = password.text!
+//            pSummary = profSummary.text!
+//            uName = uniName.text!
+//            uGPA = gpa.text!
+//            department = (departmentBtn.titleLabel?.text)!
+//            degree = (degreeBtn.titleLabel?.text)!
+//            sYear = (sYearBtn.titleLabel?.text)!
+//            eYear = (eYearBtn.titleLabel?.text)!
+//            nextSectionView.isHidden = false
+//        }
+        fName = fullName.text!
+        fAddress = fullAddress.text!
+        cNumber = contactNumber.text!
+        emailValue = email.text!
+        passwordValue = password.text!
+        pSummary = profSummary.text!
+        uName = uniName.text!
+        uGPA = gpa.text!
+        department = (departmentBtn.titleLabel?.text)!
+        degree = (degreeBtn.titleLabel?.text)!
+        sYear = (sYearBtn.titleLabel?.text)!
+        eYear = (eYearBtn.titleLabel?.text)!
+        nextSectionView.isHidden = false
     }
     @IBAction func degreePressed(_ sender: UIButton) {
         degreePicker.isHidden = false
@@ -246,6 +260,48 @@ class SignUp: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         let regex = "^\\d{3}\\d{3}\\d{4}$"
         let numberTest = NSPredicate(format: "SELF MATCHES %@", regex)
         return numberTest.evaluate(with: number)
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        switch textField.tag {
+        case 6:
+            moveTextField(textField: textField, moveDistance: -70, up: true)
+        case 7:
+            moveTextField(textField: textField, moveDistance: -80, up: true)
+        default:
+            break
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        switch textField.tag {
+        case 6:
+            moveTextField(textField: textField, moveDistance: -70, up: false)
+        case 7:
+            moveTextField(textField: textField, moveDistance: -80, up: false)
+        default:
+            break
+        }
+    }
+    
+    func moveTextField(textField: UITextField, moveDistance: Int, up: Bool) {
+        let moveDuration = 0.3
+        let movement: CGFloat = CGFloat(up ? moveDistance: -moveDistance)
+        UIView.beginAnimations("animateTF", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(moveDuration)
+        self.view.frame = (self.view.frame).offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        }
+        else {
+            textField.resignFirstResponder()
+        }
+        return false
     }
     
 }
