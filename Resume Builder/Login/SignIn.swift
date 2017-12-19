@@ -11,6 +11,7 @@ import Firebase
 
 class SignIn: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
@@ -29,7 +30,7 @@ class SignIn: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func loginPressed(_ sender: UIButton) {
-        
+        activityIndicator.startAnimating()
         guard let email = email.text,
             email != "",
             let password = password.text,
@@ -44,6 +45,7 @@ class SignIn: UIViewController, UITextFieldDelegate {
                 return
             }
             guard let user = user else { return }
+            self.activityIndicator.stopAnimating()
             self.performSegue(withIdentifier: "signinSegue", sender: nil)
         }
     }
