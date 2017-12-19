@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MoreExpSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class MoreExpSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var e1CName: UITextField!
     @IBOutlet weak var e1CAdd: UITextField!
@@ -22,6 +22,8 @@ class MoreExpSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var e1eYearBtn: UIButton!
     @IBOutlet weak var e2sYearBtn: UIButton!
     @IBOutlet weak var e2eYearBtn: UIButton!
+    @IBOutlet weak var saveBtn: UIButton!
+    @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var yearPicker: UIPickerView!
     var yFlag = 0
     var e1sYearSelected: Int?
@@ -34,6 +36,7 @@ class MoreExpSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        designUI()
         let data = Bundle.main
         let dataList:String? = data.path(forResource: "DataList", ofType: "plist")
         if dataList != nil {
@@ -51,6 +54,8 @@ class MoreExpSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     @IBAction func save(_ sender: UIButton) {
+        hideKeyboard()
+        hidePicker()
         let parent = self.parent as! NextSection1
         if e1CName.text == "", e1CAdd.text == "", e1Position.text == "", e1Res.text == "" {}
         else {
@@ -104,6 +109,8 @@ class MoreExpSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     @IBAction func cancelPressed(_ sender: UIButton) {
+        hideKeyboard()
+        hidePicker()
         clearData()
         hideView()
     }
@@ -169,18 +176,22 @@ class MoreExpSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     @IBAction func e1sYearPressed(_ sender: UIButton) {
+        hideKeyboard()
         yearPicker.isHidden = false
         yFlag = 0
     }
     @IBAction func e1eYearPressed(_ sender: UIButton) {
+        hideKeyboard()
         yearPicker.isHidden = false
         yFlag = 1
     }
     @IBAction func e2sYearPressed(_ sender: UIButton) {
+        hideKeyboard()
         yFlag = 2
         yearPicker.isHidden = false
     }
     @IBAction func e2eYearPressed(_ sender: UIButton) {
+        hideKeyboard()
         yFlag = 3
         yearPicker.isHidden = false
     }
@@ -216,6 +227,120 @@ class MoreExpSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         e1eYearBtn.setTitle("Select End Year", for: .normal)
         e2sYearBtn.setTitle("Select Start Year", for: .normal)
         e2eYearBtn.setTitle("Select End Year", for: .normal)
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        switch textField.tag {
+        case 4:
+            moveTextField(textField: textField, moveDistance: -50, up: true)
+        case 5:
+            moveTextField(textField: textField, moveDistance: -60, up: true)
+        case 6:
+            moveTextField(textField: textField, moveDistance: -70, up: true)
+        case 7:
+            moveTextField(textField: textField, moveDistance: -80, up: true)
+        default:
+            break
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        switch textField.tag {
+        case 4:
+            moveTextField(textField: textField, moveDistance: -50, up: false)
+        case 5:
+            moveTextField(textField: textField, moveDistance: -60, up: false)
+        case 6:
+            moveTextField(textField: textField, moveDistance: -70, up: false)
+        case 7:
+            moveTextField(textField: textField, moveDistance: -80, up: false)
+        default:
+            break
+        }
+    }
+    
+    func moveTextField(textField: UITextField, moveDistance: Int, up: Bool) {
+        let moveDuration = 0.3
+        let movement: CGFloat = CGFloat(up ? moveDistance: -moveDistance)
+        UIView.beginAnimations("animateTF", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(moveDuration)
+        self.view.frame = (self.view.frame).offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
+    }
+    
+    func designUI() {
+        e1CName.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        e1CAdd.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        e1Position.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        e1Res.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        e2CName.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        e2CAdd.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        e2Position.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        e2Res.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        e1CName.layer.cornerRadius = 5.0
+        e1CName.layer.masksToBounds = true
+        e1CName.layer.borderWidth = 2.0
+        e1CAdd.layer.cornerRadius = 5.0
+        e1CAdd.layer.masksToBounds = true
+        e1CAdd.layer.borderWidth = 2.0
+        e1Position.layer.cornerRadius = 5.0
+        e1Position.layer.masksToBounds = true
+        e1Position.layer.borderWidth = 2.0
+        e1Res.layer.cornerRadius = 5.0
+        e1Res.layer.masksToBounds = true
+        e1Res.layer.borderWidth = 2.0
+        e2CName.layer.cornerRadius = 5.0
+        e2CName.layer.masksToBounds = true
+        e2CName.layer.borderWidth = 2.0
+        e2CAdd.layer.cornerRadius = 5.0
+        e2CAdd.layer.masksToBounds = true
+        e2CAdd.layer.borderWidth = 2.0
+        e2Position.layer.cornerRadius = 5.0
+        e2Position.layer.masksToBounds = true
+        e2Position.layer.borderWidth = 2.0
+        e2Res.layer.cornerRadius = 5.0
+        e2Res.layer.masksToBounds = true
+        e2Res.layer.borderWidth = 2.0
+        e1sYearBtn.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        e1sYearBtn.layer.borderWidth = 2
+        e1sYearBtn.layer.cornerRadius = 5.0
+        e1sYearBtn.layer.masksToBounds = true
+        e1eYearBtn.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        e1eYearBtn.layer.borderWidth = 2
+        e1eYearBtn.layer.cornerRadius = 5.0
+        e1eYearBtn.layer.masksToBounds = true
+        e2sYearBtn.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        e2sYearBtn.layer.borderWidth = 2
+        e2sYearBtn.layer.cornerRadius = 5.0
+        e2sYearBtn.layer.masksToBounds = true
+        e2eYearBtn.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        e2eYearBtn.layer.borderWidth = 2
+        e2eYearBtn.layer.cornerRadius = 5.0
+        e2eYearBtn.layer.masksToBounds = true
+        cancelBtn.layer.borderColor = UIColor(red: 198/255, green: 0, blue: 0, alpha: 1.0).cgColor
+        cancelBtn.layer.borderWidth = 2
+        cancelBtn.layer.cornerRadius = 5.0
+        cancelBtn.layer.masksToBounds = true
+        saveBtn.layer.borderColor = UIColor(red: 82/255, green: 170/255, blue: 0, alpha: 1.0).cgColor
+        saveBtn.layer.borderWidth = 2
+        saveBtn.layer.cornerRadius = 5.0
+        saveBtn.layer.masksToBounds = true
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        hidePicker()
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        }
+        else {
+            textField.resignFirstResponder()
+        }
+        return false
     }
     
 }
