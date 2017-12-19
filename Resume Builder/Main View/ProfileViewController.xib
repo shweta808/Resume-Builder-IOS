@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="Resume_Builder" customModuleProvider="target">
             <connections>
+                <outlet property="editBtn" destination="6a5-9u-5Kv" id="Rhc-BI-jPQ"/>
                 <outlet property="profSummaryText" destination="9IO-Fp-lVI" id="DSH-fT-iF4"/>
                 <outlet property="techSkillsText" destination="Pvm-IG-dDf" id="YaK-Ps-6Cl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -31,7 +32,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9IO-Fp-lVI">
-                    <rect key="frame" x="6" y="78" width="353" height="139"/>
+                    <rect key="frame" x="6" y="78" width="363" height="139"/>
                     <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="139" id="bW1-Hl-wk0"/>
@@ -59,7 +60,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Pvm-IG-dDf">
-                    <rect key="frame" x="6" y="268" width="353" height="139"/>
+                    <rect key="frame" x="6" y="268" width="363" height="139"/>
                     <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -71,14 +72,14 @@
                 <constraint firstItem="ZyF-Un-SoI" firstAttribute="top" secondItem="9IO-Fp-lVI" secondAttribute="bottom" constant="22" id="ASu-kk-HrR"/>
                 <constraint firstItem="ZyF-Un-SoI" firstAttribute="leading" secondItem="Pvm-IG-dDf" secondAttribute="leading" id="EDC-YN-jkv"/>
                 <constraint firstItem="6a5-9u-5Kv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="287" id="IV0-46-apC"/>
-                <constraint firstItem="7ir-3v-cCM" firstAttribute="trailing" secondItem="9IO-Fp-lVI" secondAttribute="trailing" constant="16" id="Ivn-VF-3R8"/>
+                <constraint firstItem="7ir-3v-cCM" firstAttribute="trailing" secondItem="9IO-Fp-lVI" secondAttribute="trailing" constant="6" id="Ivn-VF-3R8"/>
                 <constraint firstItem="7ir-3v-cCM" firstAttribute="top" secondItem="6a5-9u-5Kv" secondAttribute="bottom" constant="2" id="Mcz-nS-K8t"/>
                 <constraint firstItem="Pvm-IG-dDf" firstAttribute="top" secondItem="ZyF-Un-SoI" secondAttribute="bottom" constant="8" symbolic="YES" id="Qgb-Ob-cIs"/>
-                <constraint firstItem="ZyF-Un-SoI" firstAttribute="trailing" secondItem="Pvm-IG-dDf" secondAttribute="trailing" constant="16" id="USi-6a-a0B"/>
+                <constraint firstItem="ZyF-Un-SoI" firstAttribute="trailing" secondItem="Pvm-IG-dDf" secondAttribute="trailing" constant="6" id="USi-6a-a0B"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Pvm-IG-dDf" secondAttribute="bottom" constant="371" id="UYq-F6-rrM"/>
                 <constraint firstItem="7ir-3v-cCM" firstAttribute="leading" secondItem="9IO-Fp-lVI" secondAttribute="leading" id="ZfY-vI-AEt"/>
                 <constraint firstAttribute="trailing" secondItem="6a5-9u-5Kv" secondAttribute="trailing" constant="24" id="eO7-nJ-eqa"/>
-                <constraint firstItem="9IO-Fp-lVI" firstAttribute="trailing" secondItem="ZyF-Un-SoI" secondAttribute="trailing" constant="-16" id="iSw-YV-ZdC"/>
+                <constraint firstItem="9IO-Fp-lVI" firstAttribute="trailing" secondItem="ZyF-Un-SoI" secondAttribute="trailing" constant="-6" id="iSw-YV-ZdC"/>
                 <constraint firstAttribute="trailing" secondItem="7ir-3v-cCM" secondAttribute="trailing" id="pKI-T6-TFc"/>
                 <constraint firstItem="9IO-Fp-lVI" firstAttribute="leading" secondItem="ZyF-Un-SoI" secondAttribute="leading" id="s7D-rk-vwz"/>
                 <constraint firstItem="9IO-Fp-lVI" firstAttribute="top" secondItem="7ir-3v-cCM" secondAttribute="bottom" constant="9" id="vPR-Xq-394"/>

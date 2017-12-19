@@ -180,47 +180,48 @@
                                 </state>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="chf-Zh-0br">
-                                <rect key="frame" x="6" y="281" width="362" height="497"/>
+                                <rect key="frame" x="0.0" y="281" width="375" height="497"/>
                                 <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZGX-a8-nfa">
+                                        <rect key="frame" x="0.0" y="36" width="375" height="461"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KNS-wB-kWa">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="461"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="KNS-wB-kWa" firstAttribute="bottom" secondItem="ZGX-a8-nfa" secondAttribute="bottomMargin" constant="8" id="0gV-42-6B9"/>
+                                            <constraint firstItem="KNS-wB-kWa" firstAttribute="trailing" secondItem="ZGX-a8-nfa" secondAttribute="trailingMargin" constant="8" id="1XG-vh-u2u"/>
+                                            <constraint firstItem="KNS-wB-kWa" firstAttribute="centerY" secondItem="ZGX-a8-nfa" secondAttribute="centerY" id="Eh7-eC-UBe"/>
+                                            <constraint firstItem="KNS-wB-kWa" firstAttribute="centerX" secondItem="ZGX-a8-nfa" secondAttribute="centerX" id="aih-AY-Tq6"/>
+                                            <constraint firstItem="KNS-wB-kWa" firstAttribute="top" secondItem="ZGX-a8-nfa" secondAttribute="topMargin" constant="-8" id="yPf-zD-IPT"/>
+                                            <constraint firstItem="KNS-wB-kWa" firstAttribute="leading" secondItem="ZGX-a8-nfa" secondAttribute="leadingMargin" constant="-8" id="zmD-ij-0kL"/>
+                                        </constraints>
+                                    </scrollView>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Qde-Op-C6A">
-                                        <rect key="frame" x="0.0" y="10" width="364" height="29"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="29"/>
                                         <segments>
                                             <segment title="Profile"/>
                                             <segment title="Experience"/>
                                             <segment title="Projects"/>
                                             <segment title="Education"/>
                                         </segments>
+                                        <color key="tintColor" red="0.34349933290000001" green="0.53465144279999999" blue="0.70911326139999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <action selector="switchViews:" destination="WDh-O3-3Cg" eventType="valueChanged" id="DTN-Ew-y77"/>
                                         </connections>
                                     </segmentedControl>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZGX-a8-nfa">
-                                        <rect key="frame" x="0.0" y="53" width="362" height="444"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KNS-wB-kWa">
-                                                <rect key="frame" x="0.0" y="0.0" width="362" height="436"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="KNS-wB-kWa" firstAttribute="bottom" secondItem="ZGX-a8-nfa" secondAttribute="bottomMargin" id="0gV-42-6B9"/>
-                                            <constraint firstItem="KNS-wB-kWa" firstAttribute="trailing" secondItem="ZGX-a8-nfa" secondAttribute="trailingMargin" constant="8" id="1XG-vh-u2u"/>
-                                            <constraint firstItem="KNS-wB-kWa" firstAttribute="centerY" secondItem="ZGX-a8-nfa" secondAttribute="centerY" constant="-4" id="Eh7-eC-UBe"/>
-                                            <constraint firstItem="KNS-wB-kWa" firstAttribute="centerX" secondItem="ZGX-a8-nfa" secondAttribute="centerX" id="aih-AY-Tq6"/>
-                                            <constraint firstItem="KNS-wB-kWa" firstAttribute="top" secondItem="ZGX-a8-nfa" secondAttribute="topMargin" constant="-8" id="yPf-zD-IPT"/>
-                                            <constraint firstItem="KNS-wB-kWa" firstAttribute="leading" secondItem="ZGX-a8-nfa" secondAttribute="leadingMargin" constant="-8" id="zmD-ij-0kL"/>
-                                        </constraints>
-                                    </scrollView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.92043796850000004" green="0.95799394500000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="Qde-Op-C6A" firstAttribute="leading" secondItem="ZGX-a8-nfa" secondAttribute="leading" id="6hU-qg-h1B"/>
                                     <constraint firstAttribute="trailing" secondItem="ZGX-a8-nfa" secondAttribute="trailing" id="Cue-sf-Mlt"/>
-                                    <constraint firstAttribute="trailing" secondItem="Qde-Op-C6A" secondAttribute="trailing" constant="-2" id="Nf1-Lz-VSM"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qde-Op-C6A" secondAttribute="trailing" id="Nf1-Lz-VSM"/>
                                     <constraint firstAttribute="bottom" secondItem="ZGX-a8-nfa" secondAttribute="bottom" id="Pfd-5z-rdo"/>
                                     <constraint firstItem="Qde-Op-C6A" firstAttribute="leading" secondItem="chf-Zh-0br" secondAttribute="leading" id="VeF-np-KEF"/>
-                                    <constraint firstItem="Qde-Op-C6A" firstAttribute="top" secondItem="chf-Zh-0br" secondAttribute="top" constant="10" id="W9G-pi-qUT"/>
-                                    <constraint firstItem="ZGX-a8-nfa" firstAttribute="top" secondItem="Qde-Op-C6A" secondAttribute="bottom" constant="15" id="WEZ-aV-cyR"/>
+                                    <constraint firstItem="Qde-Op-C6A" firstAttribute="top" secondItem="chf-Zh-0br" secondAttribute="top" id="W9G-pi-qUT"/>
+                                    <constraint firstItem="ZGX-a8-nfa" firstAttribute="top" secondItem="Qde-Op-C6A" secondAttribute="bottom" constant="8" id="WEZ-aV-cyR"/>
                                 </constraints>
                             </view>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="hRt-EW-cXg">
@@ -228,7 +229,7 @@
                                 <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="7Yp-aU-KPJ" firstAttribute="trailing" secondItem="bf2-5M-Uer" secondAttribute="trailing" id="1M3-UE-fAR"/>
                             <constraint firstItem="chf-Zh-0br" firstAttribute="bottom" secondItem="YIw-oq-KSn" secondAttribute="bottom" id="1aO-MI-ypx"/>
@@ -236,7 +237,7 @@
                             <constraint firstItem="chf-Zh-0br" firstAttribute="top" secondItem="bf2-5M-Uer" secondAttribute="bottom" constant="6" id="CmQ-TR-A42"/>
                             <constraint firstItem="9FR-Dz-3c1" firstAttribute="trailing" secondItem="aqW-R4-pWN" secondAttribute="trailingMargin" id="FM2-hJ-aWF"/>
                             <constraint firstItem="hRt-EW-cXg" firstAttribute="centerY" secondItem="aqW-R4-pWN" secondAttribute="centerY" constant="-145.5" id="MK3-bc-nFe"/>
-                            <constraint firstItem="chf-Zh-0br" firstAttribute="leading" secondItem="YIw-oq-KSn" secondAttribute="leading" constant="6" id="Rm2-yy-dKX"/>
+                            <constraint firstItem="chf-Zh-0br" firstAttribute="leading" secondItem="YIw-oq-KSn" secondAttribute="leading" id="Rm2-yy-dKX"/>
                             <constraint firstItem="XGZ-08-X7H" firstAttribute="centerY" secondItem="Mrr-NT-fYb" secondAttribute="centerY" id="SKD-5f-7Rg"/>
                             <constraint firstItem="9FR-Dz-3c1" firstAttribute="top" secondItem="YIw-oq-KSn" secondAttribute="top" constant="15" id="WAA-UM-W0f"/>
                             <constraint firstItem="chf-Zh-0br" firstAttribute="centerX" secondItem="aqW-R4-pWN" secondAttribute="centerX" id="Xf8-TU-duV"/>

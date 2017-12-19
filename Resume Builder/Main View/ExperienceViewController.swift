@@ -12,6 +12,13 @@ import Firebase
 class ExperienceViewController: UIViewController {
 
 
+    @IBOutlet weak var eeYear1: UIButton!
+    @IBOutlet weak var esYear1: UIButton!
+    @IBOutlet weak var eeYear2: UIButton!
+    @IBOutlet weak var esYear2: UIButton!
+    @IBOutlet weak var eeYear3: UIButton!
+    @IBOutlet weak var esYear3: UIButton!
+    @IBOutlet weak var editBtn: UIButton!
     @IBOutlet weak var companyName1: UITextField!
     @IBOutlet weak var companyAddr1: UITextField!
     @IBOutlet weak var companyPosition1: UITextField!
@@ -30,6 +37,7 @@ class ExperienceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchData()
+        designUI()
         // Do any additional setup after loading the view.
     }
 
@@ -65,6 +73,85 @@ class ExperienceViewController: UIViewController {
                 }
             }
         })
+    }
+    
+    func designUI() {
+        companyName1.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        companyAddr1.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        companyPosition1.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        resp1.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        companyName2.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        companyAddr2.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        companyPosition2.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        resp2.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        companyName3.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        companyAddr3.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        companyPosition3.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        resp3.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        companyName1.layer.cornerRadius = 5.0
+        companyName1.layer.masksToBounds = true
+        companyName1.layer.borderWidth = 2.0
+        companyAddr1.layer.cornerRadius = 5.0
+        companyAddr1.layer.masksToBounds = true
+        companyAddr1.layer.borderWidth = 2.0
+        companyPosition1.layer.cornerRadius = 5.0
+        companyPosition1.layer.masksToBounds = true
+        companyPosition1.layer.borderWidth = 2.0
+        resp1.layer.cornerRadius = 5.0
+        resp1.layer.masksToBounds = true
+        resp1.layer.borderWidth = 2.0
+        companyName2.layer.cornerRadius = 5.0
+        companyName2.layer.masksToBounds = true
+        companyName2.layer.borderWidth = 2.0
+        companyAddr2.layer.cornerRadius = 5.0
+        companyAddr2.layer.masksToBounds = true
+        companyAddr2.layer.borderWidth = 2.0
+        companyPosition2.layer.cornerRadius = 5.0
+        companyPosition2.layer.masksToBounds = true
+        companyPosition2.layer.borderWidth = 2.0
+        resp2.layer.cornerRadius = 5.0
+        resp2.layer.masksToBounds = true
+        resp2.layer.borderWidth = 2.0
+        companyName3.layer.cornerRadius = 5.0
+        companyName3.layer.masksToBounds = true
+        companyName3.layer.borderWidth = 2.0
+        companyAddr3.layer.cornerRadius = 5.0
+        companyAddr3.layer.masksToBounds = true
+        companyAddr3.layer.borderWidth = 2.0
+        companyPosition3.layer.cornerRadius = 5.0
+        companyPosition3.layer.masksToBounds = true
+        companyPosition3.layer.borderWidth = 2.0
+        resp3.layer.cornerRadius = 5.0
+        resp3.layer.masksToBounds = true
+        resp3.layer.borderWidth = 2.0
+        editBtn.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        editBtn.layer.borderWidth = 2
+        editBtn.layer.cornerRadius = 5.0
+        editBtn.layer.masksToBounds = true
+        esYear1.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        esYear1.layer.borderWidth = 2
+        esYear1.layer.cornerRadius = 5.0
+        esYear1.layer.masksToBounds = true
+        eeYear1.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        eeYear1.layer.borderWidth = 2
+        eeYear1.layer.cornerRadius = 5.0
+        eeYear1.layer.masksToBounds = true
+        esYear2.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        esYear2.layer.borderWidth = 2
+        esYear2.layer.cornerRadius = 5.0
+        esYear2.layer.masksToBounds = true
+        eeYear2.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        eeYear2.layer.borderWidth = 2
+        eeYear2.layer.cornerRadius = 5.0
+        eeYear2.layer.masksToBounds = true
+        esYear3.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        esYear3.layer.borderWidth = 2
+        esYear3.layer.cornerRadius = 5.0
+        esYear3.layer.masksToBounds = true
+        eeYear3.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        eeYear3.layer.borderWidth = 2
+        eeYear3.layer.cornerRadius = 5.0
+        eeYear3.layer.masksToBounds = true
     }
 
     public func setText(value:String , sender : UITextField){

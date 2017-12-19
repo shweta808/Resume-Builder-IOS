@@ -11,6 +11,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EducationViewController" customModule="Resume_Builder" customModuleProvider="target">
             <connections>
+                <outlet property="degreeBtn" destination="ewM-Ym-bP9" id="Qgm-W6-ou3"/>
+                <outlet property="departmentBtn" destination="Qc0-YG-vGl" id="75G-pK-pjG"/>
+                <outlet property="editBtn" destination="G5C-zz-8qt" id="mWd-20-Bch"/>
+                <outlet property="edueYear" destination="36m-wc-qOU" id="WaB-Iq-TIC"/>
+                <outlet property="edusYear" destination="du8-zL-HmX" id="K41-M2-HMi"/>
                 <outlet property="gpa" destination="sED-7m-nfS" id="V5M-q4-jAg"/>
                 <outlet property="univName" destination="cUk-K1-g5a" id="ner-6N-qpt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -44,42 +49,42 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewM-Ym-bP9">
-                    <rect key="frame" x="6" y="88" width="353" height="30"/>
+                    <rect key="frame" x="6" y="88" width="363" height="30"/>
                     <color key="backgroundColor" red="0.34349933290000001" green="0.53465144279999999" blue="0.70911326139999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <state key="normal" title="Degree">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qc0-YG-vGl">
-                    <rect key="frame" x="6" y="126" width="353" height="30"/>
+                    <rect key="frame" x="6" y="126" width="363" height="30"/>
                     <color key="backgroundColor" red="0.34349933290000001" green="0.53465144279999999" blue="0.70911326139999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <state key="normal" title="Department">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="du8-zL-HmX">
-                    <rect key="frame" x="6" y="202" width="353" height="30"/>
+                    <rect key="frame" x="6" y="202" width="363" height="30"/>
                     <color key="backgroundColor" red="0.34349933290000001" green="0.53465144279999999" blue="0.70911326139999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <state key="normal" title="Start Year">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cUk-K1-g5a">
-                    <rect key="frame" x="178" y="50" width="181" height="30"/>
+                    <rect key="frame" x="178" y="50" width="191" height="30"/>
                     <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sED-7m-nfS">
-                    <rect key="frame" x="178" y="164" width="181" height="30"/>
+                    <rect key="frame" x="178" y="164" width="191" height="30"/>
                     <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36m-wc-qOU">
-                    <rect key="frame" x="6" y="240" width="353" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36m-wc-qOU">
+                    <rect key="frame" x="6" y="240" width="363" height="30"/>
                     <color key="backgroundColor" red="0.34349933290000001" green="0.53465144279999999" blue="0.70911326139999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <state key="normal" title="End Year">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -90,12 +95,12 @@
             <constraints>
                 <constraint firstItem="du8-zL-HmX" firstAttribute="top" secondItem="7lZ-Q6-jma" secondAttribute="bottom" constant="12" id="0fn-TP-BTo"/>
                 <constraint firstItem="sED-7m-nfS" firstAttribute="top" secondItem="Qc0-YG-vGl" secondAttribute="bottom" constant="8" symbolic="YES" id="0z9-sl-9YX"/>
-                <constraint firstAttribute="trailing" secondItem="cUk-K1-g5a" secondAttribute="trailing" constant="16" id="1Xu-XL-8In"/>
+                <constraint firstAttribute="trailing" secondItem="cUk-K1-g5a" secondAttribute="trailing" constant="6" id="1Xu-XL-8In"/>
                 <constraint firstItem="7lZ-Q6-jma" firstAttribute="centerY" secondItem="sED-7m-nfS" secondAttribute="centerY" id="1zI-eC-9wz"/>
                 <constraint firstItem="sED-7m-nfS" firstAttribute="leading" secondItem="7lZ-Q6-jma" secondAttribute="trailing" constant="8" symbolic="YES" id="2xz-uK-Jcs"/>
                 <constraint firstAttribute="trailing" secondItem="G5C-zz-8qt" secondAttribute="trailing" constant="24" id="4ht-k4-3Tf"/>
-                <constraint firstItem="sED-7m-nfS" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-16" id="99j-CV-hCI"/>
-                <constraint firstItem="ewM-Ym-bP9" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-16" id="AeO-ph-kOu"/>
+                <constraint firstItem="sED-7m-nfS" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-6" id="99j-CV-hCI"/>
+                <constraint firstItem="ewM-Ym-bP9" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-6" id="AeO-ph-kOu"/>
                 <constraint firstItem="du8-zL-HmX" firstAttribute="top" secondItem="sED-7m-nfS" secondAttribute="bottom" constant="8" symbolic="YES" id="B2H-Xl-wIc"/>
                 <constraint firstItem="du8-zL-HmX" firstAttribute="leading" secondItem="36m-wc-qOU" secondAttribute="leading" id="Baw-RR-AgX"/>
                 <constraint firstItem="k9Q-Yz-bYh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="6" id="C0d-6p-yjG"/>
@@ -106,21 +111,21 @@
                 <constraint firstItem="Qc0-YG-vGl" firstAttribute="trailing" secondItem="sED-7m-nfS" secondAttribute="trailing" id="Qgr-Th-DmS"/>
                 <constraint firstItem="7lZ-Q6-jma" firstAttribute="leading" secondItem="du8-zL-HmX" secondAttribute="leading" id="Qxh-S0-wE7"/>
                 <constraint firstItem="cUk-K1-g5a" firstAttribute="top" secondItem="G5C-zz-8qt" secondAttribute="bottom" constant="4" id="RAL-ax-YXe"/>
-                <constraint firstItem="36m-wc-qOU" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-16" id="VyY-8n-iIn"/>
+                <constraint firstItem="36m-wc-qOU" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-3" id="VyY-8n-iIn"/>
                 <constraint firstItem="G5C-zz-8qt" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="Xbi-fw-7yA"/>
                 <constraint firstItem="Qc0-YG-vGl" firstAttribute="leading" secondItem="7lZ-Q6-jma" secondAttribute="leading" id="Z3a-yQ-kCB"/>
                 <constraint firstItem="k9Q-Yz-bYh" firstAttribute="centerY" secondItem="cUk-K1-g5a" secondAttribute="centerY" id="aOR-Bt-y5k"/>
                 <constraint firstItem="Qc0-YG-vGl" firstAttribute="top" secondItem="ewM-Ym-bP9" secondAttribute="bottom" constant="8" symbolic="YES" id="abM-QK-fVH"/>
                 <constraint firstItem="ewM-Ym-bP9" firstAttribute="top" secondItem="k9Q-Yz-bYh" secondAttribute="bottom" constant="12" id="b0B-8Q-7HT"/>
                 <constraint firstItem="G5C-zz-8qt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="287" id="cIZ-vo-YA4"/>
-                <constraint firstItem="du8-zL-HmX" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-16" id="er0-4C-Spc"/>
+                <constraint firstItem="du8-zL-HmX" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-6" id="er0-4C-Spc"/>
                 <constraint firstItem="ewM-Ym-bP9" firstAttribute="leading" secondItem="Qc0-YG-vGl" secondAttribute="leading" id="fpX-vM-Mn5"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="36m-wc-qOU" secondAttribute="bottom" constant="508" id="hBs-lu-r3W"/>
-                <constraint firstItem="cUk-K1-g5a" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-16" id="hOu-bT-0Cv"/>
+                <constraint firstItem="cUk-K1-g5a" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-6" id="hOu-bT-0Cv"/>
                 <constraint firstItem="cUk-K1-g5a" firstAttribute="leading" secondItem="k9Q-Yz-bYh" secondAttribute="trailing" constant="8" symbolic="YES" id="inr-dY-irW"/>
-                <constraint firstItem="Qc0-YG-vGl" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-16" id="irz-Gr-34K"/>
+                <constraint firstItem="Qc0-YG-vGl" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-6" id="irz-Gr-34K"/>
                 <constraint firstItem="ewM-Ym-bP9" firstAttribute="trailing" secondItem="Qc0-YG-vGl" secondAttribute="trailing" id="kTi-1F-dCl"/>
-                <constraint firstItem="du8-zL-HmX" firstAttribute="trailing" secondItem="36m-wc-qOU" secondAttribute="trailing" id="taX-xf-fGg"/>
+                <constraint firstItem="du8-zL-HmX" firstAttribute="trailing" secondItem="36m-wc-qOU" secondAttribute="trailing" constant="-3" id="taX-xf-fGg"/>
                 <constraint firstItem="36m-wc-qOU" firstAttribute="top" secondItem="du8-zL-HmX" secondAttribute="bottom" constant="8" symbolic="YES" id="v5A-5f-Vye"/>
                 <constraint firstItem="cUk-K1-g5a" firstAttribute="leading" secondItem="sED-7m-nfS" secondAttribute="leading" id="xyz-U3-Ysh"/>
             </constraints>

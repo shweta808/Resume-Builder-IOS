@@ -11,6 +11,13 @@ import Firebase
 
 class ProjectsViewController: UIViewController {
 
+    @IBOutlet weak var editBtn: UIButton!
+    @IBOutlet weak var psYear1: UIButton!
+    @IBOutlet weak var peYear1: UIButton!
+    @IBOutlet weak var psYear2: UIButton!
+    @IBOutlet weak var peYear2: UIButton!
+    @IBOutlet weak var psYear3: UIButton!
+    @IBOutlet weak var peYear3: UIButton!
     var ref:DatabaseReference!
     @IBOutlet weak var org1: UITextField!
     @IBOutlet weak var projectDesc2: UITextView!
@@ -29,7 +36,7 @@ class ProjectsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        designUI()
         // Do any additional setup after loading the view.
         fetchData()
     }
@@ -64,6 +71,85 @@ class ProjectsViewController: UIViewController {
                 }
             }
         })
+    }
+    
+    func designUI() {
+        projectName1.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        projectDesc1.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        org1.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        tech1.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        projName2.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        projectDesc2.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        org2.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        tech2.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        projectName3.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        projectDesc3.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        org3.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        tech3.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        projectName1.layer.cornerRadius = 5.0
+        projectName1.layer.masksToBounds = true
+        projectName1.layer.borderWidth = 2.0
+        projectDesc1.layer.cornerRadius = 5.0
+        projectDesc1.layer.masksToBounds = true
+        projectDesc1.layer.borderWidth = 2.0
+        org1.layer.cornerRadius = 5.0
+        org1.layer.masksToBounds = true
+        org1.layer.borderWidth = 2.0
+        tech1.layer.cornerRadius = 5.0
+        tech1.layer.masksToBounds = true
+        tech1.layer.borderWidth = 2.0
+        projName2.layer.cornerRadius = 5.0
+        projName2.layer.masksToBounds = true
+        projName2.layer.borderWidth = 2.0
+        projectDesc2.layer.cornerRadius = 5.0
+        projectDesc2.layer.masksToBounds = true
+        projectDesc2.layer.borderWidth = 2.0
+        org2.layer.cornerRadius = 5.0
+        org2.layer.masksToBounds = true
+        org2.layer.borderWidth = 2.0
+        tech2.layer.cornerRadius = 5.0
+        tech2.layer.masksToBounds = true
+        tech2.layer.borderWidth = 2.0
+        projectDesc3.layer.cornerRadius = 5.0
+        projectDesc3.layer.masksToBounds = true
+        projectDesc3.layer.borderWidth = 2.0
+        projectName3.layer.cornerRadius = 5.0
+        projectName3.layer.masksToBounds = true
+        projectName3.layer.borderWidth = 2.0
+        org3.layer.cornerRadius = 5.0
+        org3.layer.masksToBounds = true
+        org3.layer.borderWidth = 2.0
+        tech3.layer.cornerRadius = 5.0
+        tech3.layer.masksToBounds = true
+        tech3.layer.borderWidth = 2.0
+        editBtn.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        editBtn.layer.borderWidth = 2
+        editBtn.layer.cornerRadius = 5.0
+        editBtn.layer.masksToBounds = true
+        psYear1.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        psYear1.layer.borderWidth = 2
+        psYear1.layer.cornerRadius = 5.0
+        psYear1.layer.masksToBounds = true
+        peYear1.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        peYear1.layer.borderWidth = 2
+        peYear1.layer.cornerRadius = 5.0
+        peYear1.layer.masksToBounds = true
+        psYear2.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        psYear2.layer.borderWidth = 2
+        psYear2.layer.cornerRadius = 5.0
+        psYear2.layer.masksToBounds = true
+        peYear2.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        peYear2.layer.borderWidth = 2
+        peYear2.layer.cornerRadius = 5.0
+        peYear2.layer.masksToBounds = true
+        psYear3.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        psYear3.layer.borderWidth = 2
+        psYear3.layer.cornerRadius = 5.0
+        psYear3.layer.masksToBounds = true
+        peYear3.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        peYear3.layer.borderWidth = 2
+        peYear3.layer.cornerRadius = 5.0
+        peYear3.layer.masksToBounds = true
     }
 
     public func setText(value:String , sender : UITextField){

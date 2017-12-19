@@ -128,10 +128,14 @@ class MainView: UIViewController {
         imageView.layer.borderWidth = 2
         imageView.layer.cornerRadius = self.imageView.frame.size.width / 2;
         imageView.layer.masksToBounds = true
-        segmentedControl.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        segmentedControl.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
         segmentedControl.layer.borderWidth = 2
         segmentedControl.layer.cornerRadius = 5.0
         segmentedControl.layer.masksToBounds = true
+        let textAttributeNormal = [NSAttributedStringKey.foregroundColor: UIColor.black]
+        let textAttributeSelected = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        segmentedControl.setTitleTextAttributes(textAttributeNormal, for: .normal)
+        segmentedControl.setTitleTextAttributes(textAttributeSelected, for: .selected)
     }
 
     public func setProfile(Name:String , Email:String ,Contact:String){

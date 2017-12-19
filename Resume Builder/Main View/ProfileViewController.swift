@@ -14,10 +14,11 @@ class ProfileViewController: UIViewController {
     var ref: DatabaseReference!
     @IBOutlet weak var techSkillsText: UITextView!
     @IBOutlet weak var profSummaryText: UITextView!
-
+    @IBOutlet weak var editBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        designUI()
         // Do any additional setup after loading the view.
         fetchData()
     }
@@ -43,6 +44,21 @@ class ProfileViewController: UIViewController {
                 }
             }
         })
+    }
+    
+    func designUI() {
+        profSummaryText.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        techSkillsText.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        profSummaryText.layer.cornerRadius = 5.0
+        profSummaryText.layer.masksToBounds = true
+        profSummaryText.layer.borderWidth = 2.0
+        techSkillsText.layer.cornerRadius = 5.0
+        techSkillsText.layer.masksToBounds = true
+        techSkillsText.layer.borderWidth = 2.0
+        editBtn.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        editBtn.layer.borderWidth = 2
+        editBtn.layer.cornerRadius = 5.0
+        editBtn.layer.masksToBounds = true
     }
 
     public func setProfileDetails(proffSummary:String,techSkills:String){
