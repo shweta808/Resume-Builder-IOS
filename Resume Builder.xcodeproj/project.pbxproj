@@ -25,8 +25,8 @@
 		F8432BCE1FE4AE5A004DA63D /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8432BCD1FE4AE5A004DA63D /* AlertController.swift */; };
 		F890930D1FE475D300C5A165 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F890930C1FE475D300C5A165 /* SignUp.swift */; };
 		F890930F1FE475F000C5A165 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F890930E1FE475F000C5A165 /* MainView.swift */; };
+		F89977851FE920020020187D /* NextSection2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89977841FE920020020187D /* NextSection2.swift */; };
 		F8D0207D1FE5C3020043D5C0 /* NextSection1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D0207C1FE5C3020043D5C0 /* NextSection1.swift */; };
-		F8D0207F1FE5CF850043D5C0 /* NextSection2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D0207E1FE5CF850043D5C0 /* NextSection2.swift */; };
 		F8D020811FE5CFA80043D5C0 /* MoreProSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D020801FE5CFA80043D5C0 /* MoreProSection.swift */; };
 		F8D020831FE5CFE50043D5C0 /* MoreExpSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D020821FE5CFE50043D5C0 /* MoreExpSection.swift */; };
 		F8D020851FE60D600043D5C0 /* DataList.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8D020841FE60D5F0043D5C0 /* DataList.plist */; };
@@ -82,8 +82,8 @@
 		F8432BCD1FE4AE5A004DA63D /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		F890930C1FE475D300C5A165 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		F890930E1FE475F000C5A165 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		F89977841FE920020020187D /* NextSection2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NextSection2.swift; path = "../../../../Backup/Resume-Builder-IOS/Resume Builder/Registration/NextSection2.swift"; sourceTree = "<group>"; };
 		F8D0207C1FE5C3020043D5C0 /* NextSection1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextSection1.swift; sourceTree = "<group>"; };
-		F8D0207E1FE5CF850043D5C0 /* NextSection2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextSection2.swift; sourceTree = "<group>"; };
 		F8D020801FE5CFA80043D5C0 /* MoreProSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreProSection.swift; sourceTree = "<group>"; };
 		F8D020821FE5CFE50043D5C0 /* MoreExpSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreExpSection.swift; sourceTree = "<group>"; };
 		F8D020841FE60D5F0043D5C0 /* DataList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DataList.plist; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 				F8D020801FE5CFA80043D5C0 /* MoreProSection.swift */,
 				F8D020821FE5CFE50043D5C0 /* MoreExpSection.swift */,
 				F8D0207C1FE5C3020043D5C0 /* NextSection1.swift */,
-				F8D0207E1FE5CF850043D5C0 /* NextSection2.swift */,
+				F89977841FE920020020187D /* NextSection2.swift */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -236,7 +236,6 @@
 				F8DED26C1FE46C670096DA60 /* LaunchScreen.storyboard */,
 				F8432BC91FE4ABE2004DA63D /* GoogleService-Info.plist */,
 				F8DED26F1FE46C670096DA60 /* Info.plist */,
-				F8D0207E1FE5CF850043D5C0 /* NextSection2.swift */,
 				0360CC031FE763C50024CFF7 /* User.swift */,
 			);
 			path = "Resume Builder";
@@ -571,10 +570,10 @@
 				0360CBF91FE70DB10024CFF7 /* ExperienceViewController.swift in Sources */,
 				F8D0207D1FE5C3020043D5C0 /* NextSection1.swift in Sources */,
 				F8DED2661FE46C670096DA60 /* SignIn.swift in Sources */,
+				F89977851FE920020020187D /* NextSection2.swift in Sources */,
 				F8432BCE1FE4AE5A004DA63D /* AlertController.swift in Sources */,
 				F890930F1FE475F000C5A165 /* MainView.swift in Sources */,
 				F8D020831FE5CFE50043D5C0 /* MoreExpSection.swift in Sources */,
-				F8D0207F1FE5CF850043D5C0 /* NextSection2.swift in Sources */,
 				0360CBF51FE70D990024CFF7 /* ProfileViewController.swift in Sources */,
 				0360CC041FE763C50024CFF7 /* User.swift in Sources */,
 				F809328C1FE687DF004F45B7 /* DatabaseService.swift in Sources */,
