@@ -38,7 +38,7 @@ class ProfileViewController: UIViewController {
                     //getting values
                     let userObject = user.value as? [String: AnyObject]
                     let proffSummary  = userObject?["Professional Summary"]
-                    let techSkills = userObject?["Email"]
+                    let techSkills = userObject?["Technical Skills"]
                     self.setProfileDetails(proffSummary:proffSummary as! String ,techSkills:techSkills as! String)
                 }
             }

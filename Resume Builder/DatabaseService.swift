@@ -15,7 +15,7 @@ class DatabaseService {
     private init() {}
     
     let resumeData = Database.database().reference().child("Resume Data")
-    //let resumeImages = Storage.storage().reference().child("Resume Images")
+    let resumeImages = Storage.storage().reference().child("Resume Images")
 }
     
 

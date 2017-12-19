@@ -29,13 +29,13 @@ class ExperienceViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchData()
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-        fetchData()
     }
 
     public func fetchData() {
@@ -47,16 +47,31 @@ class ExperienceViewController: UIViewController {
                 //iterating through all the values
                 for user in snapshot.children.allObjects as! [DataSnapshot] {
                     //getting values
-                    let company1 = user.value as? [String: AnyObject]
-                    if !(company1?.isEmpty)!{
-//                        self.setText(value: String(describing: company1), sender: self.companyName1)
-                    }
+                    let userObject = user.value as? [String: AnyObject]
+                    self.setText(value: userObject?["Experience 1 Company Name"] as! String, sender: self.companyName1)
+                    self.setText(value: userObject?["Experience 1 Company Address"] as! String, sender: self.companyAddr1)
+                    self.setText(value: userObject?["Experience 1 Position"] as! String, sender: self.companyPosition1)
+                    self.setTextView(value: userObject?["Experience 1 Responsibilities"] as! String, sender: self.resp1)
+
+                    self.setText(value: userObject?["Experience 2 Company Name"] as! String, sender: self.companyName2)
+                    //self.setText(value: userObject?["Experience 2 Company Address"] as! String, sender: self.companyAddr2)
+                    self.setText(value: userObject?["Experience 2 Position"] as! String, sender: self.companyPosition2)
+                    self.setTextView(value: userObject?["Experience 2 Responsibilities"] as! String, sender: self.resp2)
+
+                    self.setText(value: userObject?["Experience 3 Company Name"] as! String, sender: self.companyName3)
+                    self.setText(value: userObject?["Experience 3 Company Address"] as! String, sender: self.companyAddr3)
+                    self.setText(value: userObject?["Experience 3 Position"] as! String, sender: self.companyPosition3)
+                    self.setTextView(value: userObject?["Experience 3 Responsibilities"] as! String, sender: self.resp3)
                 }
             }
         })
     }
 
-    public func setText(value:String , sender : UITextView){
+    public func setText(value:String , sender : UITextField){
+        sender.text = value
+    }
+
+    public func setTextView(value:String , sender : UITextView){
         sender.text = value
     }
 }

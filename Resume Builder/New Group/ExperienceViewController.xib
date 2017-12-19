@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExperienceViewController" customModule="Resume_Builder" customModuleProvider="target">
             <connections>
                 <outlet property="companyAddr1" destination="rwO-nE-TYn" id="Tv3-wL-970"/>
+                <outlet property="companyAddr2" destination="tAM-Qo-2MY" id="moZ-FP-Qp8"/>
                 <outlet property="companyAddr3" destination="9mR-IT-ukd" id="gdd-8t-az8"/>
                 <outlet property="companyName1" destination="Bkm-no-jJL" id="6zp-iN-C7g"/>
                 <outlet property="companyName2" destination="oKC-YA-9CA" id="qQK-W1-Syv"/>
