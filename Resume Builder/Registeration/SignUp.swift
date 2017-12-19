@@ -157,76 +157,63 @@ class SignUp: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UI
     @IBAction func nextSectionPressed(_ sender: UIButton) {
         hideKeyboard()
         hidePicker()
-//        if fullName.text == "" {
-//            AlertController.displayAlert(self, title: "Alert", message: "Full Name Required!")
-//        }
-//        else if fullAddress.text == "" {
-//            AlertController.displayAlert(self, title: "Alert", message: "Full Address Required!")
-//        }
-//        else if contactNumber.text == "" {
-//            AlertController.displayAlert(self, title: "Alert", message: "Contact Number Required!")
-//        }
-//        else if !numberValid(contactNumber.text!) {
-//            AlertController.displayAlert(self, title: "Alert", message: "Enter valid contact number!")
-//        }
-//        else if email.text == "" {
-//            AlertController.displayAlert(self, title: "Alert", message: "Email Required!")
-//        }
-//        else if !emailValid(email.text!) {
-//            AlertController.displayAlert(self, title: "Alert", message: "Enter valid email!")
-//        }
-//        else if password.text == "" {
-//            AlertController.displayAlert(self, title: "Alert", message: "Password Required!")
-//        }
-//        else if (password.text?.count)! < 6 {
-//            AlertController.displayAlert(self, title: "Alert", message: "Password should have atleast 6 characters!")
-//        }
-//        else if degreeBtn.titleLabel?.text == "Select Degree" {
-//            AlertController.displayAlert(self, title: "Alert", message: "Degree Required!")
-//        }
-//        else if departmentBtn.titleLabel?.text == "Select Department" {
-//            AlertController.displayAlert(self, title: "Alert", message: "Department Required!")
-//        }
-//        else if uniName.text == "" {
-//            AlertController.displayAlert(self, title: "Alert", message: "University Name Required!")
-//        }
-//        else if gpa.text == "" {
-//            AlertController.displayAlert(self, title: "Alert", message: "GPA Required!")
-//        }
-//        else if sYearBtn.titleLabel?.text == "Select Start Year" {
-//            AlertController.displayAlert(self, title: "Alert", message: "Start Year Required!")
-//        }
-//        else if eYearBtn.titleLabel?.text == "Select End Year" {
-//            AlertController.displayAlert(self, title: "Alert", message: "End Year Required!")
-//        }
-//        else {
-//            fName = fullName.text!
-//            fAddress = fullAddress.text!
-//            cNumber = contactNumber.text!
-//            emailValue = email.text!
-//            passwordValue = password.text!
-//            pSummary = profSummary.text!
-//            uName = uniName.text!
-//            uGPA = gpa.text!
-//            department = (departmentBtn.titleLabel?.text)!
-//            degree = (degreeBtn.titleLabel?.text)!
-//            sYear = (sYearBtn.titleLabel?.text)!
-//            eYear = (eYearBtn.titleLabel?.text)!
-//            nextSectionView.isHidden = false
-//        }
-        fName = fullName.text!
-        fAddress = fullAddress.text!
-        cNumber = contactNumber.text!
-        emailValue = email.text!
-        passwordValue = password.text!
-        pSummary = profSummary.text!
-        uName = uniName.text!
-        uGPA = gpa.text!
-        department = (departmentBtn.titleLabel?.text)!
-        degree = (degreeBtn.titleLabel?.text)!
-        sYear = (sYearBtn.titleLabel?.text)!
-        eYear = (eYearBtn.titleLabel?.text)!
-        nextSectionView.isHidden = false
+        if fullName.text == "" {
+            AlertController.displayAlert(self, title: "Alert", message: "Full Name Required!")
+        }
+        else if fullAddress.text == "" {
+            AlertController.displayAlert(self, title: "Alert", message: "Full Address Required!")
+        }
+        else if contactNumber.text == "" {
+            AlertController.displayAlert(self, title: "Alert", message: "Contact Number Required!")
+        }
+        else if !numberValid(contactNumber.text!) {
+            AlertController.displayAlert(self, title: "Alert", message: "Enter valid contact number!")
+        }
+        else if email.text == "" {
+            AlertController.displayAlert(self, title: "Alert", message: "Email Required!")
+        }
+        else if !emailValid(email.text!) {
+            AlertController.displayAlert(self, title: "Alert", message: "Enter valid email!")
+        }
+        else if password.text == "" {
+            AlertController.displayAlert(self, title: "Alert", message: "Password Required!")
+        }
+        else if (password.text?.count)! < 6 {
+            AlertController.displayAlert(self, title: "Alert", message: "Password should have atleast 6 characters!")
+        }
+        else if degreeBtn.titleLabel?.text == "Select Degree" {
+            AlertController.displayAlert(self, title: "Alert", message: "Degree Required!")
+        }
+        else if departmentBtn.titleLabel?.text == "Select Department" {
+            AlertController.displayAlert(self, title: "Alert", message: "Department Required!")
+        }
+        else if uniName.text == "" {
+            AlertController.displayAlert(self, title: "Alert", message: "University Name Required!")
+        }
+        else if gpa.text == "" {
+            AlertController.displayAlert(self, title: "Alert", message: "GPA Required!")
+        }
+        else if sYearBtn.titleLabel?.text == "Select Start Year" {
+            AlertController.displayAlert(self, title: "Alert", message: "Start Year Required!")
+        }
+        else if eYearBtn.titleLabel?.text == "Select End Year" {
+            AlertController.displayAlert(self, title: "Alert", message: "End Year Required!")
+        }
+        else {
+            fName = fullName.text!
+            fAddress = fullAddress.text!
+            cNumber = contactNumber.text!
+            emailValue = email.text!
+            passwordValue = password.text!
+            pSummary = profSummary.text!
+            uName = uniName.text!
+            uGPA = gpa.text!
+            department = (departmentBtn.titleLabel?.text)!
+            degree = (degreeBtn.titleLabel?.text)!
+            sYear = (sYearBtn.titleLabel?.text)!
+            eYear = (eYearBtn.titleLabel?.text)!
+            nextSectionView.isHidden = false
+        }
     }
     @IBAction func degreePressed(_ sender: UIButton) {
         degreePicker.isHidden = false
@@ -306,7 +293,6 @@ class SignUp: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UI
         profSummary.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
         uniName.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
         gpa.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
-        
         fullName.layer.cornerRadius = 5.0
         fullName.layer.masksToBounds = true
         fullName.layer.borderWidth = 2.0
