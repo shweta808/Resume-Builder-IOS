@@ -17,3 +17,5 @@ class DatabaseService {
     let resumeData = Database.database().reference().child("Resume Data")
     let resumeImages = Storage.storage().reference().child("Resume Images")
 }
+    
+
