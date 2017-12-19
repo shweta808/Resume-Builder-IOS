@@ -131,9 +131,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0360CBF21FE70D690024CFF7 /* New Group */ = {
+		0360CBF21FE70D690024CFF7 /* Main View */ = {
 			isa = PBXGroup;
 			children = (
+				F890930E1FE475F000C5A165 /* MainView.swift */,
 				0360CBF31FE70D990024CFF7 /* ProfileViewController.swift */,
 				0360CBF41FE70D990024CFF7 /* ProfileViewController.xib */,
 				0360CBF71FE70DB10024CFF7 /* ExperienceViewController.swift */,
@@ -143,7 +144,7 @@
 				0360CBFF1FE70DD60024CFF7 /* EducationViewController.swift */,
 				0360CC001FE70DD60024CFF7 /* EducationViewController.xib */,
 			);
-			path = "New Group";
+			path = "Main View";
 			sourceTree = "<group>";
 		};
 		18AE081E2E76C1685130B47F /* Frameworks */ = {
@@ -193,6 +194,7 @@
 		F80B0C4E1FE8A6230074328A /* Class Files */ = {
 			isa = PBXGroup;
 			children = (
+				0360CC031FE763C50024CFF7 /* User.swift */,
 				F809328B1FE687DF004F45B7 /* DatabaseService.swift */,
 				F8432BCD1FE4AE5A004DA63D /* AlertController.swift */,
 			);
@@ -224,19 +226,17 @@
 		F8DED2621FE46C670096DA60 /* Resume Builder */ = {
 			isa = PBXGroup;
 			children = (
-				0360CBF21FE70D690024CFF7 /* New Group */,
+				0360CBF21FE70D690024CFF7 /* Main View */,
 				F80B0C4E1FE8A6230074328A /* Class Files */,
 				F80B0C4D1FE8A60A0074328A /* Login */,
 				F80B0C4C1FE8A5950074328A /* Registration */,
 				F8DED2631FE46C670096DA60 /* AppDelegate.swift */,
-				F890930E1FE475F000C5A165 /* MainView.swift */,
 				F8D020841FE60D5F0043D5C0 /* DataList.plist */,
 				F8DED2671FE46C670096DA60 /* Main.storyboard */,
 				F8DED26A1FE46C670096DA60 /* Assets.xcassets */,
 				F8DED26C1FE46C670096DA60 /* LaunchScreen.storyboard */,
 				F8432BC91FE4ABE2004DA63D /* GoogleService-Info.plist */,
 				F8DED26F1FE46C670096DA60 /* Info.plist */,
-				0360CC031FE763C50024CFF7 /* User.swift */,
 			);
 			path = "Resume Builder";
 			sourceTree = "<group>";
