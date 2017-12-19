@@ -22,6 +22,8 @@ class MoreProSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var p1eYearBtn: UIButton!
     @IBOutlet weak var p2sYearBtn: UIButton!
     @IBOutlet weak var p2eYearBtn: UIButton!
+    @IBOutlet weak var saveBtn: UIButton!
+    @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var yearPicker: UIPickerView!
     var yFlag = 0
     var p1sYearSelected: Int?
@@ -34,7 +36,7 @@ class MoreProSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textFieldDesign()
+        designUI()
         let data = Bundle.main
         let dataList:String? = data.path(forResource: "DataList", ofType: "plist")
         if dataList != nil {
@@ -267,7 +269,7 @@ class MoreProSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         UIView.commitAnimations()
     }
     
-    func textFieldDesign() {
+    func designUI() {
         p1Name.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
         p1Desc.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
         p1Tech.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
@@ -276,31 +278,59 @@ class MoreProSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         p2Desc.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
         p2Tech.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
         p2Org.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
-        
-        p1Name.layer.borderWidth = 1.0
-        p1Desc.layer.borderWidth = 1.0
-        p1Tech.layer.borderWidth = 1.0
-        p1Org.layer.borderWidth = 1.0
-        p2Name.layer.borderWidth = 1.0
-        p2Desc.layer.borderWidth = 1.0
-        p2Tech.layer.borderWidth = 1.0
-        p2Org.layer.borderWidth = 1.0
-//        p1Name.attributedPlaceholder = NSAttributedString(string: "Project Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        p1Name.textColor = UIColor.white
-//        p1Desc.attributedPlaceholder = NSAttributedString(string: "Project Description", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        p1Desc.textColor = UIColor.white
-//        p1Tech.attributedPlaceholder = NSAttributedString(string: "Technologies Used", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        p1Tech.textColor = UIColor.white
-//        p1Org.attributedPlaceholder = NSAttributedString(string: "Organization Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        p1Org.textColor = UIColor.white
-//        p2Name.attributedPlaceholder = NSAttributedString(string: "Project Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        p2Name.textColor = UIColor.white
-//        p2Desc.attributedPlaceholder = NSAttributedString(string: "Project Description", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        p2Desc.textColor = UIColor.white
-//        p2Tech.attributedPlaceholder = NSAttributedString(string: "Technologies Used", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        p2Tech.textColor = UIColor.white
-//        p2Org.attributedPlaceholder = NSAttributedString(string: "Organization Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        p2Org.textColor = UIColor.white
+        p1Name.layer.cornerRadius = 5.0
+        p1Name.layer.masksToBounds = true
+        p1Name.layer.borderWidth = 2.0
+        p1Desc.layer.cornerRadius = 5.0
+        p1Desc.layer.masksToBounds = true
+        p1Desc.layer.borderWidth = 2.0
+        p1Tech.layer.cornerRadius = 5.0
+        p1Tech.layer.masksToBounds = true
+        p1Tech.layer.borderWidth = 2.0
+        p1Org.layer.cornerRadius = 5.0
+        p1Org.layer.masksToBounds = true
+        p1Org.layer.borderWidth = 2.0
+        p2Name.layer.cornerRadius = 5.0
+        p2Name.layer.masksToBounds = true
+        p2Name.layer.borderWidth = 2.0
+        p2Desc.layer.cornerRadius = 5.0
+        p2Desc.layer.masksToBounds = true
+        p2Desc.layer.borderWidth = 2.0
+        p2Tech.layer.cornerRadius = 5.0
+        p2Tech.layer.masksToBounds = true
+        p2Tech.layer.borderWidth = 2.0
+        p2Org.layer.cornerRadius = 5.0
+        p2Org.layer.masksToBounds = true
+        p2Org.layer.borderWidth = 2.0
+        p1sYearBtn.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        p1sYearBtn.layer.borderWidth = 2
+        p1sYearBtn.layer.cornerRadius = 5.0
+        p1sYearBtn.layer.masksToBounds = true
+        p1eYearBtn.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        p1eYearBtn.layer.borderWidth = 2
+        p1eYearBtn.layer.cornerRadius = 5.0
+        p1eYearBtn.layer.masksToBounds = true
+        p2sYearBtn.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        p2sYearBtn.layer.borderWidth = 2
+        p2sYearBtn.layer.cornerRadius = 5.0
+        p2sYearBtn.layer.masksToBounds = true
+        p2eYearBtn.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        p2eYearBtn.layer.borderWidth = 2
+        p2eYearBtn.layer.cornerRadius = 5.0
+        p2eYearBtn.layer.masksToBounds = true
+        cancelBtn.layer.borderColor = UIColor(red: 198/255, green: 0, blue: 0, alpha: 1.0).cgColor
+        cancelBtn.layer.borderWidth = 2
+        cancelBtn.layer.cornerRadius = 5.0
+        cancelBtn.layer.masksToBounds = true
+        saveBtn.layer.borderColor = UIColor(red: 82/255, green: 170/255, blue: 0, alpha: 1.0).cgColor
+        saveBtn.layer.borderWidth = 2
+        saveBtn.layer.cornerRadius = 5.0
+        saveBtn.layer.masksToBounds = true
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        hidePicker()
+        return true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

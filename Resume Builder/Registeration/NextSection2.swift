@@ -16,11 +16,14 @@ class NextSection2: UIViewController, UIImagePickerControllerDelegate, UINavigat
     @IBOutlet weak var pubDesc: UITextField!
     @IBOutlet weak var pubLink: UITextField!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var setProfBtn: UIButton!
+    @IBOutlet weak var signupBtn: UIButton!
+    @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textFieldDesign()
+        designUI()
         activityIndicator.stopAnimating()
         // Do any additional setup after loading the view.
     }
@@ -173,6 +176,7 @@ class NextSection2: UIViewController, UIImagePickerControllerDelegate, UINavigat
         pubName.text=""
         pubDesc.text=""
         pubLink.text=""
+        imageView.image = nil
     }
     @IBAction func backgroundTap(_ sender: UIControl) {
         hideKeyboard()
@@ -182,20 +186,36 @@ class NextSection2: UIViewController, UIImagePickerControllerDelegate, UINavigat
         view.endEditing(false)
     }
 
-    func textFieldDesign() {
+    func designUI() {
         pubName.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
         pubDesc.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
         pubLink.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        pubName.layer.cornerRadius = 5.0
+        pubName.layer.masksToBounds = true
+        pubName.layer.borderWidth = 2.0
+        pubDesc.layer.cornerRadius = 5.0
+        pubDesc.layer.masksToBounds = true
+        pubDesc.layer.borderWidth = 2.0
+        pubLink.layer.cornerRadius = 5.0
+        pubLink.layer.masksToBounds = true
+        pubLink.layer.borderWidth = 2.0
+        setProfBtn.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        setProfBtn.layer.borderWidth = 2
+        setProfBtn.layer.cornerRadius = 5.0
+        setProfBtn.layer.masksToBounds = true
+        cancelBtn.layer.borderColor = UIColor(red: 198/255, green: 0, blue: 0, alpha: 1.0).cgColor
+        cancelBtn.layer.borderWidth = 2
+        cancelBtn.layer.cornerRadius = 5.0
+        cancelBtn.layer.masksToBounds = true
+        signupBtn.layer.borderColor = UIColor(red: 82/255, green: 170/255, blue: 0, alpha: 1.0).cgColor
+        signupBtn.layer.borderWidth = 2
+        signupBtn.layer.cornerRadius = 5.0
+        signupBtn.layer.masksToBounds = true
+        imageView.layer.borderColor = UIColor.black.cgColor
+        imageView.layer.borderWidth = 2
+        imageView.layer.cornerRadius = self.imageView.frame.size.width / 2;
+        imageView.layer.masksToBounds = true
         
-        pubName.layer.borderWidth = 1.0
-        pubDesc.layer.borderWidth = 1.0
-        pubLink.layer.borderWidth = 1.0
-//        pubName.attributedPlaceholder = NSAttributedString(string: "Publication Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        pubName.textColor = UIColor.white
-//        pubDesc.attributedPlaceholder = NSAttributedString(string: "Description", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        pubDesc.textColor = UIColor.white
-//        pubLink.attributedPlaceholder = NSAttributedString(string: "Publication Link", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        pubLink.textColor = UIColor.white
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

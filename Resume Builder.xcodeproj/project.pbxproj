@@ -14,8 +14,6 @@
 		F8432BCB1FE4ABE2004DA63D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8432BC91FE4ABE2004DA63D /* GoogleService-Info.plist */; };
 		F8432BCC1FE4ABE2004DA63D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8432BC91FE4ABE2004DA63D /* GoogleService-Info.plist */; };
 		F8432BCE1FE4AE5A004DA63D /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8432BCD1FE4AE5A004DA63D /* AlertController.swift */; };
-		F8432BCF1FE4AE5A004DA63D /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8432BCD1FE4AE5A004DA63D /* AlertController.swift */; };
-		F8432BD01FE4AE5A004DA63D /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8432BCD1FE4AE5A004DA63D /* AlertController.swift */; };
 		F890930D1FE475D300C5A165 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F890930C1FE475D300C5A165 /* SignUp.swift */; };
 		F890930F1FE475F000C5A165 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F890930E1FE475F000C5A165 /* MainView.swift */; };
 		F8D0207D1FE5C3020043D5C0 /* NextSection1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D0207C1FE5C3020043D5C0 /* NextSection1.swift */; };
@@ -138,6 +136,36 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F80B0C4C1FE8A5950074328A /* Registeration */ = {
+			isa = PBXGroup;
+			children = (
+				F890930C1FE475D300C5A165 /* SignUp.swift */,
+				F8D971B11FE77801001D3FBF /* logo.png */,
+				F8D020801FE5CFA80043D5C0 /* MoreProSection.swift */,
+				F8D020821FE5CFE50043D5C0 /* MoreExpSection.swift */,
+				F8D0207C1FE5C3020043D5C0 /* NextSection1.swift */,
+				F8D0207E1FE5CF850043D5C0 /* NextSection2.swift */,
+			);
+			path = Registeration;
+			sourceTree = "<group>";
+		};
+		F80B0C4D1FE8A60A0074328A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F8DED2651FE46C670096DA60 /* SignIn.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		F80B0C4E1FE8A6230074328A /* Class Files */ = {
+			isa = PBXGroup;
+			children = (
+				F809328B1FE687DF004F45B7 /* DatabaseService.swift */,
+				F8432BCD1FE4AE5A004DA63D /* AlertController.swift */,
+			);
+			path = "Class Files";
+			sourceTree = "<group>";
+		};
 		F8DED2571FE46C670096DA60 = {
 			isa = PBXGroup;
 			children = (
@@ -163,23 +191,17 @@
 		F8DED2621FE46C670096DA60 /* Resume Builder */ = {
 			isa = PBXGroup;
 			children = (
+				F80B0C4E1FE8A6230074328A /* Class Files */,
+				F80B0C4D1FE8A60A0074328A /* Login */,
+				F80B0C4C1FE8A5950074328A /* Registeration */,
 				F8DED2631FE46C670096DA60 /* AppDelegate.swift */,
-				F8DED2651FE46C670096DA60 /* SignIn.swift */,
 				F890930E1FE475F000C5A165 /* MainView.swift */,
-				F890930C1FE475D300C5A165 /* SignUp.swift */,
-				F809328B1FE687DF004F45B7 /* DatabaseService.swift */,
 				F8D020841FE60D5F0043D5C0 /* DataList.plist */,
-				F8432BCD1FE4AE5A004DA63D /* AlertController.swift */,
-				F8D971B11FE77801001D3FBF /* logo.png */,
 				F8DED2671FE46C670096DA60 /* Main.storyboard */,
-				F8D020801FE5CFA80043D5C0 /* MoreProSection.swift */,
-				F8D020821FE5CFE50043D5C0 /* MoreExpSection.swift */,
-				F8D0207C1FE5C3020043D5C0 /* NextSection1.swift */,
 				F8DED26A1FE46C670096DA60 /* Assets.xcassets */,
 				F8DED26C1FE46C670096DA60 /* LaunchScreen.storyboard */,
 				F8432BC91FE4ABE2004DA63D /* GoogleService-Info.plist */,
 				F8DED26F1FE46C670096DA60 /* Info.plist */,
-				F8D0207E1FE5CF850043D5C0 /* NextSection2.swift */,
 			);
 			path = "Resume Builder";
 			sourceTree = "<group>";
@@ -523,7 +545,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8432BCF1FE4AE5A004DA63D /* AlertController.swift in Sources */,
 				F8DED2791FE46C670096DA60 /* Resume_BuilderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -532,7 +553,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8432BD01FE4AE5A004DA63D /* AlertController.swift in Sources */,
 				F8DED2841FE46C670096DA60 /* Resume_BuilderUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

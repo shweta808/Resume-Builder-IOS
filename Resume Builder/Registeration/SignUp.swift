@@ -33,6 +33,8 @@ class SignUp: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UI
     @IBOutlet weak var departmentBtn: UIButton!
     @IBOutlet weak var sYearBtn: UIButton!
     @IBOutlet weak var eYearBtn: UIButton!
+    @IBOutlet weak var nextSecBtn: UIButton!
+    @IBOutlet weak var goLoginBtn: UIButton!
     var sYearSelected: Int?
     var eYearSelected: Int?
     var yFlag = 0
@@ -40,7 +42,7 @@ class SignUp: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         nextSectionView.isHidden = true
-        textFieldDesign()
+        designUI()
         let data = Bundle.main
         let dataList:String? = data.path(forResource: "DataList", ofType: "plist")
         if dataList != nil {
@@ -295,7 +297,7 @@ class SignUp: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UI
         UIView.commitAnimations()
     }
     
-    func textFieldDesign() {
+    func designUI() {
         fullName.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
         fullAddress.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
         contactNumber.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
@@ -305,30 +307,59 @@ class SignUp: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UI
         uniName.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
         gpa.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
         
-        fullName.layer.borderWidth = 1.0
-        fullAddress.layer.borderWidth = 1.0
-        contactNumber.layer.borderWidth = 1.0
-        email.layer.borderWidth = 1.0
-        password.layer.borderWidth = 1.0
-        profSummary.layer.borderWidth = 1.0
-        uniName.layer.borderWidth = 1.0
-        gpa.layer.borderWidth = 1.0
-//        fullName.attributedPlaceholder = NSAttributedString(string: "Name: e.g. XYZ ABC", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        fullName.textColor = UIColor.white
-//        fullAddress.attributedPlaceholder = NSAttributedString(string: "Full Address", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        fullAddress.textColor = UIColor.white
-//        contactNumber.attributedPlaceholder = NSAttributedString(string: "Contact Number: e.g. 000-000-0000", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        contactNumber.textColor = UIColor.white
-//            email.attributedPlaceholder = NSAttributedString(string: "Email: e.g. abc@gmail.com", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        email.textColor = UIColor.white
-//            password.attributedPlaceholder = NSAttributedString(string: "Password >= 6 characters", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        password.textColor = UIColor.white
-//            profSummary.attributedPlaceholder = NSAttributedString(string: "Professional Summary", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        profSummary.textColor = UIColor.white
-//            uniName.attributedPlaceholder = NSAttributedString(string: "Name of University", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        uniName.textColor = UIColor.white
-//            gpa.attributedPlaceholder = NSAttributedString(string: "GPA", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        gpa.textColor = UIColor.white
+        fullName.layer.cornerRadius = 5.0
+        fullName.layer.masksToBounds = true
+        fullName.layer.borderWidth = 2.0
+        fullAddress.layer.cornerRadius = 5.0
+        fullAddress.layer.masksToBounds = true
+        fullAddress.layer.borderWidth = 2.0
+        contactNumber.layer.cornerRadius = 5.0
+        contactNumber.layer.masksToBounds = true
+        contactNumber.layer.borderWidth = 2.0
+        email.layer.cornerRadius = 5.0
+        email.layer.masksToBounds = true
+        email.layer.borderWidth = 2.0
+        password.layer.cornerRadius = 5.0
+        password.layer.masksToBounds = true
+        password.layer.borderWidth = 2.0
+        profSummary.layer.cornerRadius = 5.0
+        profSummary.layer.masksToBounds = true
+        profSummary.layer.borderWidth = 2.0
+        uniName.layer.cornerRadius = 5.0
+        uniName.layer.masksToBounds = true
+        uniName.layer.borderWidth = 2.0
+        gpa.layer.cornerRadius = 5.0
+        gpa.layer.masksToBounds = true
+        gpa.layer.borderWidth = 2.0
+        degreeBtn.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        degreeBtn.layer.borderWidth = 2
+        degreeBtn.layer.cornerRadius = 5.0
+        degreeBtn.layer.masksToBounds = true
+        departmentBtn.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        departmentBtn.layer.borderWidth = 2
+        departmentBtn.layer.cornerRadius = 5.0
+        departmentBtn.layer.masksToBounds = true
+        sYearBtn.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        sYearBtn.layer.borderWidth = 2
+        sYearBtn.layer.cornerRadius = 5.0
+        sYearBtn.layer.masksToBounds = true
+        eYearBtn.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        eYearBtn.layer.borderWidth = 2
+        eYearBtn.layer.cornerRadius = 5.0
+        eYearBtn.layer.masksToBounds = true
+        goLoginBtn.layer.borderColor = UIColor(red: 198/255, green: 0, blue: 0, alpha: 1.0).cgColor
+        goLoginBtn.layer.borderWidth = 2
+        goLoginBtn.layer.cornerRadius = 5.0
+        goLoginBtn.layer.masksToBounds = true
+        nextSecBtn.layer.borderColor = UIColor(red: 82/255, green: 170/255, blue: 0, alpha: 1.0).cgColor
+        nextSecBtn.layer.borderWidth = 2
+        nextSecBtn.layer.cornerRadius = 5.0
+        nextSecBtn.layer.masksToBounds = true
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        hidePicker()
+        return true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -13,10 +13,12 @@ class SignIn: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var loginBtn: UIButton!
+    @IBOutlet weak var registerBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textFieldDesign()
+        designUI()
 
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -33,7 +35,7 @@ class SignIn: UIViewController, UITextFieldDelegate {
             let password = password.text,
             password != ""
             else {
-                AlertController.displayAlert(self, title: "Error", message: "Please fill both the fields!")
+                AlertController.displayAlert(self, title: "Error", message: "Enter Email/Password!")
                 return
             }
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
@@ -46,16 +48,23 @@ class SignIn: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func textFieldDesign() {
+    func designUI() {
         email.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
         password.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
-        
-        email.layer.borderWidth = 1.0
-        password.layer.borderWidth = 1.0
-//        email.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        email.textColor = UIColor.white
-//        password.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        password.textColor = UIColor.white
+        email.layer.cornerRadius = 5.0
+        email.layer.masksToBounds = true
+        email.layer.borderWidth = 2.0
+        password.layer.cornerRadius = 5.0
+        password.layer.masksToBounds = true
+        password.layer.borderWidth = 2.0
+        loginBtn.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        loginBtn.layer.borderWidth = 2
+        loginBtn.layer.cornerRadius = 5.0
+        loginBtn.layer.masksToBounds = true
+        registerBtn.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        registerBtn.layer.borderWidth = 2
+        registerBtn.layer.cornerRadius = 5.0
+        registerBtn.layer.masksToBounds = true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -26,6 +26,10 @@ class NextSection1: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     @IBOutlet weak var esYearBtn: UIButton!
     @IBOutlet weak var eeYearBtn: UIButton!
     @IBOutlet weak var yearPicker: UIPickerView!
+    @IBOutlet weak var nextSecBtn: UIButton!
+    @IBOutlet weak var addExp: UIButton!
+    @IBOutlet weak var addProj: UIButton!
+    @IBOutlet weak var cancelBtn: UIButton!
     var pName = ""; var pDesc = ""; var pTech = ""; var pOrg = ""; var psYear = ""; var peYear = "";
     var eCName = ""; var eCAdd = ""; var ePosition = ""; var eRes = ""; var esYear = ""; var eeYear = "";
     var p1Name = ""; var p1Desc = ""; var p1Tech = ""; var p1Org = ""; var p2Name = ""; var p2Desc = ""; var p2Tech = ""; var p2Org = ""
@@ -51,7 +55,7 @@ class NextSection1: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         moreProjView.isHidden = true
         moreExpView.isHidden = true
         nextSectionView.isHidden = true
-        textFieldDesign()
+        designUI()
         let data = Bundle.main
         let dataList:String? = data.path(forResource: "DataList", ofType: "plist")
         if dataList != nil {
@@ -341,7 +345,7 @@ class NextSection1: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         UIView.commitAnimations()
     }
     
-    func textFieldDesign() {
+    func designUI() {
         projName.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
         projDesc.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
         projTech.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
@@ -350,31 +354,67 @@ class NextSection1: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         expCompanyAddress.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
         expPosition.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
         expResp.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
-        
-        projName.layer.borderWidth = 1.0
-        projDesc.layer.borderWidth = 1.0
-        projTech.layer.borderWidth = 1.0
-        projOrg.layer.borderWidth = 1.0
-        expCompanyName.layer.borderWidth = 1.0
-        expCompanyAddress.layer.borderWidth = 1.0
-        expPosition.layer.borderWidth = 1.0
-        expResp.layer.borderWidth = 1.0
-//        projName.attributedPlaceholder = NSAttributedString(string: "Project Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        projName.textColor = UIColor.white
-//        projDesc.attributedPlaceholder = NSAttributedString(string: "Project Description", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        projDesc.textColor = UIColor.white
-//        projTech.attributedPlaceholder = NSAttributedString(string: "Technologies Used", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        projTech.textColor = UIColor.white
-//        projOrg.attributedPlaceholder = NSAttributedString(string: "Organization Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        projOrg.textColor = UIColor.white
-//        expCompanyName.attributedPlaceholder = NSAttributedString(string: "Company Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        expCompanyName.textColor = UIColor.white
-//        expCompanyAddress.attributedPlaceholder = NSAttributedString(string: "Company Address", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        expCompanyAddress.textColor = UIColor.white
-//        expPosition.attributedPlaceholder = NSAttributedString(string: "Position", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        expPosition.textColor = UIColor.white
-//        expResp.attributedPlaceholder = NSAttributedString(string: "Responsibilities", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-//        expResp.textColor = UIColor.white
+        projName.layer.cornerRadius = 5.0
+        projName.layer.masksToBounds = true
+        projName.layer.borderWidth = 2.0
+        projDesc.layer.cornerRadius = 5.0
+        projDesc.layer.masksToBounds = true
+        projDesc.layer.borderWidth = 2.0
+        projTech.layer.cornerRadius = 5.0
+        projTech.layer.masksToBounds = true
+        projTech.layer.borderWidth = 2.0
+        projOrg.layer.cornerRadius = 5.0
+        projOrg.layer.masksToBounds = true
+        projOrg.layer.borderWidth = 2.0
+        expCompanyName.layer.cornerRadius = 5.0
+        expCompanyName.layer.masksToBounds = true
+        expCompanyName.layer.borderWidth = 2.0
+        expCompanyAddress.layer.cornerRadius = 5.0
+        expCompanyAddress.layer.masksToBounds = true
+        expCompanyAddress.layer.borderWidth = 2.0
+        expPosition.layer.cornerRadius = 5.0
+        expPosition.layer.masksToBounds = true
+        expPosition.layer.borderWidth = 2.0
+        expResp.layer.cornerRadius = 5.0
+        expResp.layer.masksToBounds = true
+        expResp.layer.borderWidth = 2.0
+        addExp.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        addExp.layer.borderWidth = 2
+        addExp.layer.cornerRadius = 5.0
+        addExp.layer.masksToBounds = true
+        addProj.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        addProj.layer.borderWidth = 2
+        addProj.layer.cornerRadius = 5.0
+        addProj.layer.masksToBounds = true
+        psYearBtn.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        psYearBtn.layer.borderWidth = 2
+        psYearBtn.layer.cornerRadius = 5.0
+        psYearBtn.layer.masksToBounds = true
+        peYearBtn.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        peYearBtn.layer.borderWidth = 2
+        peYearBtn.layer.cornerRadius = 5.0
+        peYearBtn.layer.masksToBounds = true
+        esYearBtn.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        esYearBtn.layer.borderWidth = 2
+        esYearBtn.layer.cornerRadius = 5.0
+        esYearBtn.layer.masksToBounds = true
+        eeYearBtn.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        eeYearBtn.layer.borderWidth = 2
+        eeYearBtn.layer.cornerRadius = 5.0
+        eeYearBtn.layer.masksToBounds = true
+        cancelBtn.layer.borderColor = UIColor(red: 198/255, green: 0, blue: 0, alpha: 1.0).cgColor
+        cancelBtn.layer.borderWidth = 2
+        cancelBtn.layer.cornerRadius = 5.0
+        cancelBtn.layer.masksToBounds = true
+        nextSecBtn.layer.borderColor = UIColor(red: 82/255, green: 170/255, blue: 0, alpha: 1.0).cgColor
+        nextSecBtn.layer.borderWidth = 2
+        nextSecBtn.layer.cornerRadius = 5.0
+        nextSecBtn.layer.masksToBounds = true
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        hidePicker()
+        return true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
