@@ -29,7 +29,7 @@
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xat-Z5-3UD">
                                 <rect key="frame" x="42" y="156" width="291" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
@@ -39,7 +39,7 @@
                             </textField>
                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Aya-SD-9xT">
                                 <rect key="frame" x="42" y="220" width="291" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
@@ -124,7 +124,7 @@
             <objects>
                 <viewController id="WDh-O3-3Cg" customClass="MainView" customModule="Resume_Builder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aqW-R4-pWN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="372" height="734"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9FR-Dz-3c1">
@@ -166,7 +166,7 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name: e.g. XYZ ABC" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xgN-2t-MCE">
                                 <rect key="frame" x="16" y="123" width="343" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" textContentType="name"/>
@@ -176,7 +176,7 @@
                             </textField>
                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Address" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="M7W-K9-Vvq">
                                 <rect key="frame" x="16" y="161" width="343" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next" textContentType="street-address"/>
@@ -186,7 +186,7 @@
                             </textField>
                             <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contact Number: e.g. 000-000-0000" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aHU-qC-McM">
                                 <rect key="frame" x="16" y="199" width="343" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="tel"/>
@@ -196,7 +196,7 @@
                             </textField>
                             <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email: e.g. abc@gmail.com" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="V0b-cP-xOV">
                                 <rect key="frame" x="16" y="237" width="343" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
@@ -206,7 +206,7 @@
                             </textField>
                             <textField opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password &gt;= 6 characters" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ggs-IF-X66">
                                 <rect key="frame" x="16" y="275" width="343" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES" textContentType="password"/>
@@ -216,7 +216,7 @@
                             </textField>
                             <textField opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Professional Summary" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="r4H-QF-7Dy">
                                 <rect key="frame" x="16" y="313" width="343" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
@@ -255,7 +255,7 @@
                             </button>
                             <textField opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of University" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gzN-gM-wN7">
                                 <rect key="frame" x="16" y="480" width="343" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
@@ -265,7 +265,7 @@
                             </textField>
                             <textField opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="GPA" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="g3w-cz-RSJ">
                                 <rect key="frame" x="16" y="518" width="343" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
@@ -458,7 +458,7 @@
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Project Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="U3v-uN-6a7">
                                 <rect key="frame" x="16" y="122" width="340" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
@@ -500,7 +500,7 @@
                             </button>
                             <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Organization Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Rmf-f6-beO">
                                 <rect key="frame" x="16" y="236" width="340" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="reI-OC-KkD"/>
                                 </constraints>
@@ -513,7 +513,7 @@
                             </textField>
                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Project Description" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="MCa-fo-Vj4">
                                 <rect key="frame" x="16" y="160" width="340" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
@@ -543,7 +543,7 @@
                             </button>
                             <textField opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0og-Ud-4Iw">
                                 <rect key="frame" x="16" y="425" width="340" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="miA-0v-N6Z"/>
                                 </constraints>
@@ -588,7 +588,7 @@
                             </button>
                             <textField opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company Address" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zrU-kS-25N">
                                 <rect key="frame" x="16" y="463" width="340" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="tMY-WP-14t"/>
                                 </constraints>
@@ -601,7 +601,7 @@
                             </textField>
                             <textField opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Position" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fcv-B1-qEV">
                                 <rect key="frame" x="16" y="501" width="340" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
@@ -611,7 +611,7 @@
                             </textField>
                             <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Technologies Used" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="VaD-hh-9R9">
                                 <rect key="frame" x="16" y="198" width="340" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
@@ -644,7 +644,7 @@
                             </pickerView>
                             <textField opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Responsibilities" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0es-xy-Zrc">
                                 <rect key="frame" x="16" y="539" width="340" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
@@ -803,7 +803,7 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Project Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="27v-fy-srf">
                                 <rect key="frame" x="15" y="111" width="340" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="6z7-l9-LjS"/>
                                 </constraints>
@@ -816,7 +816,7 @@
                             </textField>
                             <textField opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Project Description" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fKo-ul-q55">
                                 <rect key="frame" x="15" y="149" width="340" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="EHc-w0-8Zp"/>
                                 </constraints>
@@ -829,7 +829,7 @@
                             </textField>
                             <textField opaque="NO" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Technologies Used" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bcn-kB-k2U">
                                 <rect key="frame" x="15" y="187" width="340" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="0ge-E8-sFr"/>
                                 </constraints>
@@ -842,8 +842,7 @@
                             </textField>
                             <textField opaque="NO" tag="3" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Organization Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="X1D-69-ift">
                                 <rect key="frame" x="15" y="225" width="340" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" red="0.6208954632" green="0.6208954632" blue="0.6208954632" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="xqp-Ma-8JL"/>
                                 </constraints>
@@ -890,7 +889,7 @@
                             </label>
                             <textField opaque="NO" tag="4" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Project Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="48f-Rf-GCI">
                                 <rect key="frame" x="15" y="406" width="340" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="4nP-PW-k6h"/>
                                 </constraints>
@@ -903,7 +902,7 @@
                             </textField>
                             <textField opaque="NO" tag="5" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Project Description" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JzR-2z-rnk">
                                 <rect key="frame" x="15" y="444" width="340" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="U9r-V7-yzn"/>
                                 </constraints>
@@ -916,7 +915,7 @@
                             </textField>
                             <textField opaque="NO" tag="6" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Technologies Used" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xfd-ep-Yvq">
                                 <rect key="frame" x="16" y="482" width="340" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Eaj-sO-ZNp"/>
                                 </constraints>
@@ -929,7 +928,7 @@
                             </textField>
                             <textField opaque="NO" tag="7" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Organization Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="LyL-j1-uh4">
                                 <rect key="frame" x="15" y="520" width="340" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="V2i-cI-BZO"/>
                                 </constraints>
@@ -1108,7 +1107,7 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="a9E-lP-nRY">
                                 <rect key="frame" x="16" y="123" width="340" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
@@ -1118,7 +1117,7 @@
                             </textField>
                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company Address" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vBm-0T-ENx">
                                 <rect key="frame" x="16" y="161" width="340" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
@@ -1128,7 +1127,7 @@
                             </textField>
                             <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Position" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Se3-nA-FfQ">
                                 <rect key="frame" x="16" y="199" width="340" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
@@ -1138,7 +1137,7 @@
                             </textField>
                             <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Responsibilities" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qSt-4E-05w">
                                 <rect key="frame" x="16" y="237" width="340" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
@@ -1177,7 +1176,7 @@
                             </label>
                             <textField opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YSQ-pV-bGV">
                                 <rect key="frame" x="16" y="405" width="340" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
@@ -1187,7 +1186,7 @@
                             </textField>
                             <textField opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company Address" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="k9v-6L-yUc">
                                 <rect key="frame" x="16" y="443" width="340" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
@@ -1197,7 +1196,7 @@
                             </textField>
                             <textField opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Position" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OQ3-6A-oCk">
                                 <rect key="frame" x="16" y="481" width="340" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
@@ -1207,7 +1206,7 @@
                             </textField>
                             <textField opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Responsibilities" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xQV-lV-eSt">
                                 <rect key="frame" x="16" y="519" width="340" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
@@ -1360,7 +1359,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PUBLICATIONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qan-LL-LPX">
-                                <rect key="frame" x="51" y="55" width="269" height="60"/>
+                                <rect key="frame" x="51" y="161" width="269" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="6JX-oa-bF9"/>
                                 </constraints>
@@ -1368,9 +1367,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Publication Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="G4a-pg-9vb">
-                                <rect key="frame" x="16" y="123" width="340" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Publication Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="G4a-pg-9vb">
+                                <rect key="frame" x="16" y="229" width="340" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
@@ -1378,9 +1377,9 @@
                                     <outlet property="delegate" destination="TQ0-4s-bN7" id="KTH-on-K7O"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1n1-Q0-gh8">
-                                <rect key="frame" x="16" y="161" width="340" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1n1-Q0-gh8">
+                                <rect key="frame" x="16" y="267" width="340" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
@@ -1388,9 +1387,9 @@
                                     <outlet property="delegate" destination="TQ0-4s-bN7" id="Rny-HX-u4p"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Publication Link" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yWL-sq-f6U">
-                                <rect key="frame" x="16" y="199" width="340" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Publication Link" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yWL-sq-f6U">
+                                <rect key="frame" x="16" y="305" width="340" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
@@ -1399,15 +1398,11 @@
                                 </connections>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LUh-9D-bwA">
-                                <rect key="frame" x="56.569985569956771" y="253" width="257.99999999999977" height="258"/>
-                                <color key="backgroundColor" red="0.54139073999999998" green="0.54139073999999998" blue="0.54139073999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <rect key="frame" x="75" y="359" width="220" height="220"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095409999999" blue="0.82487309639999995" alpha="0.1074486301" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
-                            <activityIndicatorView hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="F7d-A1-U7b">
-                                <rect key="frame" x="168" y="350" width="37" height="37"/>
-                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="msg-NW-I30">
-                                <rect key="frame" x="16" y="571" width="168" height="30"/>
+                                <rect key="frame" x="16" y="642" width="168" height="30"/>
                                 <color key="backgroundColor" red="0.40874786950000003" green="1" blue="0.43324254439999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="168" id="7d5-sb-pi5"/>
@@ -1420,7 +1415,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dW-X6-QXr">
-                                <rect key="frame" x="191" y="571" width="165" height="30"/>
+                                <rect key="frame" x="191" y="642" width="165" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.6595802234" blue="0.55409575040000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Clear/Cancel">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1430,7 +1425,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJz-o0-XgN">
-                                <rect key="frame" x="16" y="533" width="340" height="30"/>
+                                <rect key="frame" x="16" y="604" width="340" height="30"/>
                                 <color key="backgroundColor" red="0.34349933290000001" green="0.53465144279999999" blue="0.70911326139999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="SET PROFILE PICTURE">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1439,32 +1434,62 @@
                                     <action selector="profilPicPressed:" destination="TQ0-4s-bN7" eventType="touchUpInside" id="xn0-ci-CPg"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TECHNICAL SKILLS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDu-dD-z22">
+                                <rect key="frame" x="16" y="62" width="340" height="39"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Example: Python, Java, android, iOS" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="w03-hw-2Qm">
+                                <rect key="frame" x="16" y="116" width="340" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47678095406723198" blue="0.82487309644670048" alpha="0.1074486301369863" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="SoA-rF-urd"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
+                                <connections>
+                                    <outlet property="delegate" destination="TQ0-4s-bN7" id="rZP-H5-ZAV"/>
+                                </connections>
+                            </textField>
+                            <activityIndicatorView hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="F7d-A1-U7b">
+                                <rect key="frame" x="166.33333333333303" y="349.66666666666652" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qan-LL-LPX" firstAttribute="top" secondItem="Xru-xv-b3t" secondAttribute="topMargin" constant="11" id="4oa-rS-WFa"/>
+                            <constraint firstItem="w03-hw-2Qm" firstAttribute="top" secondItem="PDu-dD-z22" secondAttribute="bottom" constant="15" id="2NT-UV-Mvh"/>
+                            <constraint firstItem="qan-LL-LPX" firstAttribute="top" secondItem="Xru-xv-b3t" secondAttribute="topMargin" constant="117" id="4oa-rS-WFa"/>
                             <constraint firstItem="msg-NW-I30" firstAttribute="baseline" secondItem="6dW-X6-QXr" secondAttribute="baseline" id="6A2-Ld-HIw"/>
                             <constraint firstItem="msg-NW-I30" firstAttribute="top" secondItem="pJz-o0-XgN" secondAttribute="bottom" constant="8" id="809-vF-9jC"/>
                             <constraint firstItem="1n1-Q0-gh8" firstAttribute="top" secondItem="G4a-pg-9vb" secondAttribute="bottom" constant="8" symbolic="YES" id="Cr6-Id-sls"/>
                             <constraint firstItem="1n1-Q0-gh8" firstAttribute="leading" secondItem="yWL-sq-f6U" secondAttribute="leading" id="Fdn-Qn-dYb"/>
-                            <constraint firstItem="LUh-9D-bwA" firstAttribute="leading" secondItem="yWL-sq-f6U" secondAttribute="leading" constant="40.569985569956771" id="FlT-wn-g1V"/>
-                            <constraint firstItem="F7d-A1-U7b" firstAttribute="centerX" secondItem="pJz-o0-XgN" secondAttribute="centerX" id="GN8-Ij-Jf5"/>
+                            <constraint firstItem="LUh-9D-bwA" firstAttribute="leading" secondItem="yWL-sq-f6U" secondAttribute="leading" constant="59.000000000000455" id="FlT-wn-g1V"/>
+                            <constraint firstItem="F7d-A1-U7b" firstAttribute="centerX" secondItem="pJz-o0-XgN" secondAttribute="centerX" constant="-1.1666666666669698" id="GN8-Ij-Jf5"/>
                             <constraint firstItem="6dW-X6-QXr" firstAttribute="leading" secondItem="msg-NW-I30" secondAttribute="trailing" constant="7" id="Ivb-yq-9hq"/>
-                            <constraint firstItem="pJz-o0-XgN" firstAttribute="top" secondItem="LUh-9D-bwA" secondAttribute="bottom" constant="22" id="JXD-PR-SiZ"/>
+                            <constraint firstItem="qan-LL-LPX" firstAttribute="top" secondItem="w03-hw-2Qm" secondAttribute="bottom" constant="15" id="JCs-VT-fY2"/>
+                            <constraint firstItem="pJz-o0-XgN" firstAttribute="top" secondItem="LUh-9D-bwA" secondAttribute="bottom" constant="25" id="JXD-PR-SiZ"/>
+                            <constraint firstItem="w03-hw-2Qm" firstAttribute="leading" secondItem="G4a-pg-9vb" secondAttribute="leading" id="MmR-JN-9nV"/>
                             <constraint firstItem="pJz-o0-XgN" firstAttribute="trailing" secondItem="6dW-X6-QXr" secondAttribute="trailing" id="OWV-g7-cpT"/>
                             <constraint firstItem="1n1-Q0-gh8" firstAttribute="trailing" secondItem="yWL-sq-f6U" secondAttribute="trailing" id="PJp-6P-ieK"/>
                             <constraint firstItem="G4a-pg-9vb" firstAttribute="trailing" secondItem="1n1-Q0-gh8" secondAttribute="trailing" id="R0f-Cu-Yni"/>
                             <constraint firstItem="qan-LL-LPX" firstAttribute="leading" secondItem="Xru-xv-b3t" secondAttribute="leadingMargin" constant="35" id="RXs-dQ-Qy3"/>
-                            <constraint firstItem="pJz-o0-XgN" firstAttribute="top" secondItem="F7d-A1-U7b" secondAttribute="bottom" constant="146" id="S9S-lf-fhv"/>
+                            <constraint firstItem="pJz-o0-XgN" firstAttribute="top" secondItem="F7d-A1-U7b" secondAttribute="bottom" constant="217.33333333333348" id="S9S-lf-fhv"/>
                             <constraint firstItem="LUh-9D-bwA" firstAttribute="top" secondItem="yWL-sq-f6U" secondAttribute="bottom" constant="24" id="aUS-ma-WKU"/>
+                            <constraint firstItem="PDu-dD-z22" firstAttribute="trailing" secondItem="w03-hw-2Qm" secondAttribute="trailing" id="csu-GN-kay"/>
                             <constraint firstItem="qan-LL-LPX" firstAttribute="centerX" secondItem="G4a-pg-9vb" secondAttribute="centerX" id="eda-5h-UjL"/>
+                            <constraint firstItem="PDu-dD-z22" firstAttribute="top" secondItem="ITl-qo-54y" secondAttribute="top" constant="18" id="foz-pe-Tfw"/>
                             <constraint firstItem="yWL-sq-f6U" firstAttribute="trailing" secondItem="pJz-o0-XgN" secondAttribute="trailing" id="hZL-fd-QbH"/>
-                            <constraint firstItem="pJz-o0-XgN" firstAttribute="top" secondItem="yWL-sq-f6U" secondAttribute="bottom" constant="304" id="kdp-kS-daN"/>
+                            <constraint firstItem="PDu-dD-z22" firstAttribute="leading" secondItem="w03-hw-2Qm" secondAttribute="leading" id="jmd-TI-Xi4"/>
+                            <constraint firstItem="pJz-o0-XgN" firstAttribute="top" secondItem="yWL-sq-f6U" secondAttribute="bottom" constant="269" id="kdp-kS-daN"/>
                             <constraint firstItem="G4a-pg-9vb" firstAttribute="leading" secondItem="1n1-Q0-gh8" secondAttribute="leading" id="ky0-4f-1db"/>
                             <constraint firstItem="pJz-o0-XgN" firstAttribute="leading" secondItem="msg-NW-I30" secondAttribute="leading" id="nx6-hT-iSh"/>
                             <constraint firstItem="G4a-pg-9vb" firstAttribute="top" secondItem="qan-LL-LPX" secondAttribute="bottom" constant="8" id="pgl-i2-BSI"/>
-                            <constraint firstItem="LUh-9D-bwA" firstAttribute="trailing" secondItem="yWL-sq-f6U" secondAttribute="trailing" constant="-41.430014430043457" id="sbf-mn-mDy"/>
+                            <constraint firstItem="LUh-9D-bwA" firstAttribute="trailing" secondItem="yWL-sq-f6U" secondAttribute="trailing" constant="-60.999999999999545" id="sbf-mn-mDy"/>
                             <constraint firstItem="G4a-pg-9vb" firstAttribute="leading" secondItem="Xru-xv-b3t" secondAttribute="leadingMargin" id="tle-sE-XPP"/>
+                            <constraint firstItem="w03-hw-2Qm" firstAttribute="trailing" secondItem="G4a-pg-9vb" secondAttribute="trailing" id="uLd-6P-OaR"/>
                             <constraint firstItem="yWL-sq-f6U" firstAttribute="top" secondItem="1n1-Q0-gh8" secondAttribute="bottom" constant="8" symbolic="YES" id="un6-cN-lFf"/>
                             <constraint firstItem="G4a-pg-9vb" firstAttribute="trailing" secondItem="Xru-xv-b3t" secondAttribute="trailingMargin" id="yQj-Ai-r5h"/>
                             <constraint firstItem="yWL-sq-f6U" firstAttribute="leading" secondItem="pJz-o0-XgN" secondAttribute="leading" id="zkh-PG-VUG"/>
@@ -1483,6 +1508,7 @@
                         <outlet property="pubName" destination="G4a-pg-9vb" id="0Nb-tu-BdD"/>
                         <outlet property="setProfBtn" destination="pJz-o0-XgN" id="GNq-7I-sfD"/>
                         <outlet property="signupBtn" destination="msg-NW-I30" id="0xw-3e-ccs"/>
+                        <outlet property="techSkills" destination="w03-hw-2Qm" id="mcg-Cu-xMR"/>
                         <segue destination="WDh-O3-3Cg" kind="show" identifier="signupSegue" id="GJl-eQ-aXc"/>
                     </connections>
                 </viewController>
@@ -1495,7 +1521,7 @@
         <image name="logo.png" width="800" height="600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bw7-Ve-0JT"/>
+        <segue reference="GJl-eQ-aXc"/>
         <segue reference="3RO-6a-8cI"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -36,7 +36,7 @@ class NextSection1: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     var p1sYear = ""; var p1eYear = ""; var p2sYear = ""; var p2eYear = ""
     var e1CName = ""; var e1CAdd = ""; var e1Position = ""; var e1Res = ""; var e2CName = ""; var e2CAdd = ""; var e2Position = ""; var e2Res = ""
     var e1sYear = ""; var e1eYear = ""; var e2sYear = ""; var e2eYear = ""
-    var pubName = ""; var pubDesc = ""; var pubLink = ""
+    var techSkills = ""; var pubName = ""; var pubDesc = ""; var pubLink = ""
     var fName = ""; var fAddress = ""; var cNumber = ""; var emailValue = ""; var passwordValue = ""; var pSummary = ""
     var uName = ""; var uGPA = ""; var department = ""; var degree = ""; var sYear = ""; var eYear = ""
     var yFlag = 0

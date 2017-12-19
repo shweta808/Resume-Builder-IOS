@@ -12,6 +12,7 @@ import FirebaseStorage
 
 class NextSection2: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
+    @IBOutlet weak var techSkills: UITextField!
     @IBOutlet weak var pubName: UITextField!
     @IBOutlet weak var pubDesc: UITextField!
     @IBOutlet weak var pubLink: UITextField!
@@ -55,18 +56,22 @@ class NextSection2: UIViewController, UIImagePickerControllerDelegate, UINavigat
     @IBAction func save(_ sender: UIButton) {
         hideKeyboard()
         let parent = self.parent as! NextSection1
-        if pubName.text == "", pubDesc.text == "", pubLink.text == "" {}
+        if pubName.text == "", pubDesc.text == "", pubLink.text == "", techSkills.text == "" {}
         else {
-            if pubName.text == "" {
+            if techSkills.text == "" {
+                AlertController.displayAlert(self, title: "Alert", message: "Technical Skills are required!")
+            }
+            else if pubName.text == "" {
                 AlertController.displayAlert(self, title: "Alert", message: "Publication Name is required!")
             }
             else{
+                parent.techSkills = techSkills.text!
                 parent.pubName = pubName.text!
                 parent.pubDesc = pubDesc.text!
                 parent.pubLink = pubLink.text!
+                saveToFirebase()
             }
         }
-        saveToFirebase()
     }
     
     func saveToFirebase() {
@@ -138,6 +143,7 @@ class NextSection2: UIViewController, UIImagePickerControllerDelegate, UINavigat
                     "Experience 3 Responsibilities":parent.e2Res,
                     "Experience 3 Start Year":parent.e2sYear,
                     "Experience 3 End Year":parent.e2eYear,
+                    "Technical Skills":parent.techSkills,
                     "Publication Name": parent.pubName,
                     "Publication Description":parent.pubDesc,
                     "Publication Link":parent.pubLink] as [String : Any]
@@ -150,7 +156,7 @@ class NextSection2: UIViewController, UIImagePickerControllerDelegate, UINavigat
         let fileName = parent.emailValue
         guard let image = imageView.image else {return}
         guard let imageData = UIImageJPEGRepresentation(image, 1) else { return }
-        let uploadImage = DatabaseService.shared.resumeImages.child(fileName)
+        let uploadImage = DatabaseService.shared.resumeImages.child(fileName+".jpg")
         let uploadTask = uploadImage.putData(imageData, metadata: nil) { (metadata, error) in
             self.activityIndicator.stopAnimating()
             self.performSegue(withIdentifier: "signupSegue", sender: nil)
@@ -173,6 +179,7 @@ class NextSection2: UIViewController, UIImagePickerControllerDelegate, UINavigat
     }
     
     func clearData() {
+        techSkills.text=""
         pubName.text=""
         pubDesc.text=""
         pubLink.text=""
@@ -187,9 +194,13 @@ class NextSection2: UIViewController, UIImagePickerControllerDelegate, UINavigat
     }
 
     func designUI() {
+        techSkills.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
         pubName.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
         pubDesc.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
         pubLink.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
+        techSkills.layer.cornerRadius = 5.0
+        techSkills.layer.masksToBounds = true
+        techSkills.layer.borderWidth = 2.0
         pubName.layer.cornerRadius = 5.0
         pubName.layer.masksToBounds = true
         pubName.layer.borderWidth = 2.0
@@ -211,7 +222,7 @@ class NextSection2: UIViewController, UIImagePickerControllerDelegate, UINavigat
         signupBtn.layer.borderWidth = 2
         signupBtn.layer.cornerRadius = 5.0
         signupBtn.layer.masksToBounds = true
-        imageView.layer.borderColor = UIColor.black.cgColor
+        imageView.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
         imageView.layer.borderWidth = 2
         imageView.layer.cornerRadius = self.imageView.frame.size.width / 2;
         imageView.layer.masksToBounds = true
