@@ -136,7 +136,7 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		F80B0C4C1FE8A5950074328A /* Registeration */ = {
+		F80B0C4C1FE8A5950074328A /* Registration */ = {
 			isa = PBXGroup;
 			children = (
 				F890930C1FE475D300C5A165 /* SignUp.swift */,
@@ -146,7 +146,7 @@
 				F8D0207C1FE5C3020043D5C0 /* NextSection1.swift */,
 				F8D0207E1FE5CF850043D5C0 /* NextSection2.swift */,
 			);
-			path = Registeration;
+			path = Registration;
 			sourceTree = "<group>";
 		};
 		F80B0C4D1FE8A60A0074328A /* Login */ = {
@@ -193,7 +193,7 @@
 			children = (
 				F80B0C4E1FE8A6230074328A /* Class Files */,
 				F80B0C4D1FE8A60A0074328A /* Login */,
-				F80B0C4C1FE8A5950074328A /* Registeration */,
+				F80B0C4C1FE8A5950074328A /* Registration */,
 				F8DED2631FE46C670096DA60 /* AppDelegate.swift */,
 				F890930E1FE475F000C5A165 /* MainView.swift */,
 				F8D020841FE60D5F0043D5C0 /* DataList.plist */,
