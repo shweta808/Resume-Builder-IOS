@@ -62,7 +62,7 @@ class ExperienceViewController: UIViewController {
                     self.setTextView(value: userObject?["Experience 1 Responsibilities"] as! String, sender: self.resp1)
 
                     self.setText(value: userObject?["Experience 2 Company Name"] as! String, sender: self.companyName2)
-                    //self.setText(value: userObject?["Experience 2 Company Address"] as! String, sender: self.companyAddr2)
+                    self.setText(value: userObject?["Experience 2 Company Address"] as! String, sender: self.companyAddr2)
                     self.setText(value: userObject?["Experience 2 Position"] as! String, sender: self.companyPosition2)
                     self.setTextView(value: userObject?["Experience 2 Responsibilities"] as! String, sender: self.resp2)
 

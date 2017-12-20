@@ -11,6 +11,7 @@ import Firebase
 
 class DatabaseService {
     
+    // Setting up references and paths to store data on firebase.
     static let shared = DatabaseService()
     private init() {}
     

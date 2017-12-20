@@ -20,8 +20,6 @@ class SignIn: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         designUI()
-
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,6 +27,7 @@ class SignIn: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    // Login into the app.
     @IBAction func loginPressed(_ sender: UIButton) {
         activityIndicator.startAnimating()
         guard let email = email.text,
@@ -50,6 +49,7 @@ class SignIn: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // Design of the textFields and buttons.
     func designUI() {
         email.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
         password.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
@@ -69,6 +69,16 @@ class SignIn: UIViewController, UITextFieldDelegate {
         registerBtn.layer.masksToBounds = true
     }
     
+    @IBAction func backgroundTap(_ sender: UIControl) {
+        hideKeyboard()
+    }
+    
+    // Hiding keyboard.
+    func hideKeyboard() {
+        view.endEditing(false)
+    }
+    
+    // For navigating through textFields.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
             nextField.becomeFirstResponder()

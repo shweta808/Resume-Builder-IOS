@@ -23,7 +23,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SignIn" customModule="Resume_Builder" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -112,6 +112,9 @@
                             <constraint firstItem="uj8-BL-m8t" firstAttribute="centerX" secondItem="4mc-QG-Vsr" secondAttribute="centerX" id="xca-Zp-H4F"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <action selector="backgroundTap:" destination="BYZ-38-t0r" eventType="touchDown" id="I8I-Hc-IP1"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="xBT-HZ-qXn" id="ZE8-lj-nJV"/>
@@ -1363,24 +1366,17 @@
                                     <action selector="e2eYearPressed:" destination="ig6-u3-Ydi" eventType="touchUpInside" id="4Ef-9K-uzZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6j-s4-sTN">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6j-s4-sTN">
                                 <rect key="frame" x="16" y="633" width="168" height="30"/>
                                 <color key="backgroundColor" red="0.40874786950000003" green="1" blue="0.43324254439999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="168" id="pQ0-qs-XDI"/>
+                                </constraints>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="save:" destination="ig6-u3-Ydi" eventType="touchUpInside" id="w1P-hB-Tnq"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sRz-md-xLo">
-                                <rect key="frame" x="191" y="633" width="165" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.6595802234" blue="0.55409575040000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="Clear/Cancel">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelPressed:" destination="ig6-u3-Ydi" eventType="touchUpInside" id="OgO-lP-ojp"/>
                                 </connections>
                             </button>
                             <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y9c-bQ-ZB4">
@@ -1395,6 +1391,16 @@
                                     <outlet property="delegate" destination="ig6-u3-Ydi" id="0h4-8f-wrW"/>
                                 </connections>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sRz-md-xLo">
+                                <rect key="frame" x="188" y="632" width="168" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.6595802234" blue="0.55409575040000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Clear/Cancel">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelPressed:" destination="ig6-u3-Ydi" eventType="touchUpInside" id="OgO-lP-ojp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1424,7 +1430,7 @@
                             <constraint firstItem="giT-nD-Tbp" firstAttribute="top" secondItem="nsz-Me-JPk" secondAttribute="topMargin" constant="11" id="Z5O-HK-tYA"/>
                             <constraint firstItem="a9E-lP-nRY" firstAttribute="leading" secondItem="nsz-Me-JPk" secondAttribute="leadingMargin" id="aE7-EZ-hDa"/>
                             <constraint firstItem="OQ3-6A-oCk" firstAttribute="trailing" secondItem="xQV-lV-eSt" secondAttribute="trailing" id="aQk-bG-cEU"/>
-                            <constraint firstItem="sRz-md-xLo" firstAttribute="leading" secondItem="B6j-s4-sTN" secondAttribute="trailing" constant="7" id="ad8-Is-mZI"/>
+                            <constraint firstItem="sRz-md-xLo" firstAttribute="leading" secondItem="B6j-s4-sTN" secondAttribute="trailing" constant="4" id="ad8-Is-mZI"/>
                             <constraint firstItem="xQV-lV-eSt" firstAttribute="leading" secondItem="B11-VT-mOa" secondAttribute="leading" id="atd-kk-XMZ"/>
                             <constraint firstItem="a9E-lP-nRY" firstAttribute="trailing" secondItem="nsz-Me-JPk" secondAttribute="trailingMargin" id="b1C-tg-uN7"/>
                             <constraint firstItem="B11-VT-mOa" firstAttribute="leading" secondItem="JMF-QG-TD5" secondAttribute="leading" id="bKK-PF-1N2"/>
@@ -1436,7 +1442,7 @@
                             <constraint firstItem="y47-tg-WQI" firstAttribute="top" secondItem="qSt-4E-05w" secondAttribute="bottom" constant="8" symbolic="YES" id="fh2-k8-MG9"/>
                             <constraint firstItem="Se3-nA-FfQ" firstAttribute="leading" secondItem="qSt-4E-05w" secondAttribute="leading" id="fwW-IJ-KFU"/>
                             <constraint firstItem="B11-VT-mOa" firstAttribute="top" secondItem="xQV-lV-eSt" secondAttribute="bottom" constant="8" symbolic="YES" id="gWb-bY-wb1"/>
-                            <constraint firstItem="B6j-s4-sTN" firstAttribute="baseline" secondItem="sRz-md-xLo" secondAttribute="baseline" id="hC5-pv-bAm"/>
+                            <constraint firstItem="B6j-s4-sTN" firstAttribute="baseline" secondItem="sRz-md-xLo" secondAttribute="baseline" constant="1" id="hC5-pv-bAm"/>
                             <constraint firstItem="CWo-2T-FJq" firstAttribute="top" secondItem="y47-tg-WQI" secondAttribute="bottom" constant="8" symbolic="YES" id="mPS-UE-sKh"/>
                             <constraint firstItem="JMF-QG-TD5" firstAttribute="leading" secondItem="B6j-s4-sTN" secondAttribute="leading" id="oD1-ot-nwh"/>
                             <constraint firstItem="vBm-0T-ENx" firstAttribute="top" secondItem="a9E-lP-nRY" secondAttribute="bottom" constant="8" symbolic="YES" id="oh3-HD-Sfe"/>

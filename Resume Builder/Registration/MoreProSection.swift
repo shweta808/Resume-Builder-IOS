@@ -37,6 +37,7 @@ class MoreProSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         designUI()
+        // Getting data from info file.
         let data = Bundle.main
         let dataList:String? = data.path(forResource: "DataList", ofType: "plist")
         if dataList != nil {
@@ -45,7 +46,6 @@ class MoreProSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             let tempY = (allData!["Year"]?.sorted())!
             years = years + tempY
         }
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,6 +53,7 @@ class MoreProSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         // Dispose of any resources that can be recreated.
     }
     
+    // Validation while saving data.
     @IBAction func save(_ sender: UIButton) {
         hideKeyboard()
         hidePicker()
@@ -108,6 +109,7 @@ class MoreProSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         hideView()
     }
     
+    // Navigating back and clearing data.
     @IBAction func cancelPressed(_ sender: UIButton) {
         hideKeyboard()
         hidePicker()
@@ -115,6 +117,7 @@ class MoreProSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         hideView()
     }
     
+    // Setting up pickerView.
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -132,7 +135,19 @@ class MoreProSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         case 0:
             if years[row] != "Select Year"{
                 p1sYearSelected = Int((years[row]))
-                p1sYearBtn.setTitle("Start Year:" + (years[row]), for: .normal)
+                let temp = Int((p1eYearBtn.titleLabel?.text)!.suffix(4))
+                if temp != nil {
+                    if p1sYearSelected! > temp! {
+                        AlertController.displayAlert(self, title: "Alert", message: "Start year can not be after End year!")
+                        p1sYearBtn.setTitle("Select Start Year", for: .normal)
+                    }
+                    else {
+                        p1sYearBtn.setTitle("Start Year:" + (years[row]), for: .normal)
+                    }
+                }
+                else {
+                    p1sYearBtn.setTitle("Start Year:" + (years[row]), for: .normal)
+                }
             }
             else {
                 p1sYearBtn.setTitle("Select Start Year", for: .normal)
@@ -140,7 +155,13 @@ class MoreProSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         case 1:
             if years[row] != "Select Year"{
                 p1eYearSelected = Int((years[row]))
-                p1eYearBtn.setTitle("End Year:" + (years[row]), for: .normal)
+                if p1sYearSelected! > p1eYearSelected! {
+                    AlertController.displayAlert(self, title: "Alert", message: "End year can not be before Start year!")
+                    p1eYearBtn.setTitle("Select End Year", for: .normal)
+                }
+                else {
+                    p1eYearBtn.setTitle("End Year: " + (years[row]), for: .normal)
+                }
             }
             else {
                 p1eYearBtn.setTitle("Select End Year", for: .normal)
@@ -148,7 +169,19 @@ class MoreProSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         case 2:
             if years[row] != "Select Year"{
                 p2sYearSelected = Int((years[row]))
-                p2sYearBtn.setTitle("Start Year:" + (years[row]), for: .normal)
+                let temp = Int((p2eYearBtn.titleLabel?.text)!.suffix(4))
+                if temp != nil {
+                    if p2sYearSelected! > temp! {
+                        AlertController.displayAlert(self, title: "Alert", message: "Start year can not be after End year!")
+                        p2sYearBtn.setTitle("Select Start Year", for: .normal)
+                    }
+                    else {
+                        p2sYearBtn.setTitle("Start Year:" + (years[row]), for: .normal)
+                    }
+                }
+                else {
+                    p2sYearBtn.setTitle("Start Year:" + (years[row]), for: .normal)
+                }
             }
             else {
                 p2sYearBtn.setTitle("Select Start Year", for: .normal)
@@ -156,7 +189,13 @@ class MoreProSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         case 3:
             if years[row] != "Select Year"{
                 p2eYearSelected = Int((years[row]))
-                p2eYearBtn.setTitle("End Year:" + (years[row]), for: .normal)
+                if p2sYearSelected! > p2eYearSelected! {
+                    AlertController.displayAlert(self, title: "Alert", message: "End year can not be before Start year!")
+                    p2eYearBtn.setTitle("Select End Year", for: .normal)
+                }
+                else {
+                    p2eYearBtn.setTitle("End Year: " + (years[row]), for: .normal)
+                }
             }
             else {
                 p2eYearBtn.setTitle("Select End Year", for: .normal)
@@ -174,7 +213,9 @@ class MoreProSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         title = NSAttributedString(string: data, attributes: [NSAttributedStringKey.foregroundColor:UIColor.white])
         return title
     }
-    
+    // pickerView setup end.
+
+    // Hiding view when cancel pressed.
     func hideView() {
         let parent = self.parent as! NextSection1
         parent.moreProjView.isHidden = true
@@ -185,35 +226,52 @@ class MoreProSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         yearPicker.isHidden = false
         yFlag = 0
     }
+    
     @IBAction func p1eYearPressed(_ sender: UIButton) {
+        if p1sYearBtn.titleLabel?.text == "Select Start Year" {
+            AlertController.displayAlert(self, title: "Alert", message: "Please select start year first!")
+        }
+        else {
+            yearPicker.isHidden = false
+            yFlag = 1
+        }
         hideKeyboard()
-        yearPicker.isHidden = false
-        yFlag = 1
     }
+    
     @IBAction func p2sYearPressed(_ sender: UIButton) {
         hideKeyboard()
         yFlag = 2
         yearPicker.isHidden = false
     }
+    
     @IBAction func p2eYearPressed(_ sender: UIButton) {
+        if p2sYearBtn.titleLabel?.text == "Select Start Year" {
+            AlertController.displayAlert(self, title: "Alert", message: "Please select start year first!")
+        }
+        else {
+            yFlag = 3
+            yearPicker.isHidden = false
+        }
         hideKeyboard()
-        yFlag = 3
-        yearPicker.isHidden = false
     }
     
+    // Hide keyboard and picker when user taps on the screen.
     @IBAction func backgroundTap(_ sender: UIControl) {
         hideKeyboard()
         hidePicker()
     }
     
+    // Hiding keyboard.
     func hideKeyboard() {
         view.endEditing(false)
     }
     
+    // Hiding picker.
     func hidePicker() {
         yearPicker.isHidden = true
     }
     
+    // Function to clear data.
     func clearData() {
         p1Name.text=""
         p1Desc.text=""
@@ -229,6 +287,7 @@ class MoreProSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         p2eYearBtn.setTitle("Select End Year", for: .normal)
     }
     
+    // Modifying view so that keyboard does not hide textFields.
     func textFieldDidBeginEditing(_ textField: UITextField) {
         switch textField.tag {
         case 4:
@@ -268,7 +327,9 @@ class MoreProSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         self.view.frame = (self.view.frame).offsetBy(dx: 0, dy: movement)
         UIView.commitAnimations()
     }
+    // Modifying view ends.
     
+    // Design for textFields and buttons.
     func designUI() {
         p1Name.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
         p1Desc.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
@@ -326,13 +387,19 @@ class MoreProSection: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         saveBtn.layer.borderWidth = 2
         saveBtn.layer.cornerRadius = 5.0
         saveBtn.layer.masksToBounds = true
+        yearPicker.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        yearPicker.layer.borderWidth = 2
+        yearPicker.layer.cornerRadius = 5.0
+        yearPicker.layer.masksToBounds = true
     }
     
+    // Hide picker when clicked on textFields.
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         hidePicker()
         return true
     }
     
+    // For navigating through textFields.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
             nextField.becomeFirstResponder()

@@ -9,6 +9,7 @@
 import UIKit
 
 class AlertController {
+    // Function to call alerts during some error.
     static func displayAlert(_ viewController: UIViewController, title: String, message: String) {
         let alert = UIAlertController(title:title, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
