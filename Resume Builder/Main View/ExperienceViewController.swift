@@ -9,8 +9,7 @@
 import UIKit
 import Firebase
 
-class ExperienceViewController: UIViewController, UITextFieldDelegate ,UIPickerViewDelegate, UIPickerViewDataSource{
-
+class ExperienceViewController: UIViewController, UITextFieldDelegate ,UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var eeYear1: UIButton!
@@ -33,27 +32,43 @@ class ExperienceViewController: UIViewController, UITextFieldDelegate ,UIPickerV
     @IBOutlet weak var companyPosition3: UITextField!
     @IBOutlet weak var resp3: UITextView!
 
-    @IBOutlet weak var yearPicker: UIDatePicker!
+    @IBOutlet weak var yearPicker: UIPickerView!
 
     var allData: Dictionary<String, Array<String>>?
     var allItems:Array<String>?
     var years:Array<String> = ["Select Year"]
-    var deparments:Array<String> = ["Select Department"]
-    var degrees:Array<String> = ["Select Degree"]
 
     var sYearSelected: Int?
     var eYearSelected: Int?
     var yFlag = 0
-
+    var e1sYearSelected: Int?
+    var e1eYearSelected: Int?
+    var e2sYearSelected: Int?
+    var e2eYearSelected: Int?
+    var e3sYearSelected: Int?
+    var e3eYearSelected: Int?
 
     @IBOutlet weak var sYearButton: UIButton!
     @IBOutlet weak var eYearButton: UIButton!
-
+    @IBOutlet weak var eYearButton3: UIButton!
+    @IBOutlet weak var sYearButton3: UIButton!
+    @IBOutlet weak var sYearButton2: UIButton!
+    @IBOutlet weak var eYearButton2: UIButton!
+    
     var ref: DatabaseReference!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         cancelBtn.isHidden = true
+        yearPicker.isHidden = true
+
+        sYearButton.isUserInteractionEnabled = false
+        eYearButton.isUserInteractionEnabled = false
+        sYearButton2.isUserInteractionEnabled = false
+        eYearButton2.isUserInteractionEnabled = false
+        sYearButton3.isUserInteractionEnabled = false
+        eYearButton3.isUserInteractionEnabled = false
+
         companyName1.isUserInteractionEnabled = false
         companyAddr1.isUserInteractionEnabled = false
         companyPosition1.isUserInteractionEnabled = false
@@ -76,13 +91,8 @@ class ExperienceViewController: UIViewController, UITextFieldDelegate ,UIPickerV
             allData = (NSDictionary.init(contentsOfFile: dataList!) as! Dictionary)
             allItems = allData?.keys.sorted()
             let tempY = (allData!["Year"]?.sorted())!
-            let tempDep = (allData!["Department"]?.sorted())!
-            let tempDeg = (allData!["Degree"]?.sorted())!
             years = years + tempY
-            deparments = deparments + tempDep
-            degrees = degrees + tempDeg
         }
-
         fetchData()
         designUI()
         // Do any additional setup after loading the view.
@@ -106,20 +116,37 @@ class ExperienceViewController: UIViewController, UITextFieldDelegate ,UIPickerV
                     //getting values
                     let userObject = user.value as? [String: AnyObject]
                     if userObject?["Email"] as? String == current_user {
-                    self.setText(value: userObject?["Experience 1 Company Name"] as! String, sender: self.companyName1)
-                    self.setText(value: userObject?["Experience 1 Company Address"] as! String, sender: self.companyAddr1)
-                    self.setText(value: userObject?["Experience 1 Position"] as! String, sender: self.companyPosition1)
-                    self.setTextView(value: userObject?["Experience 1 Responsibilities"] as! String, sender: self.resp1)
+                        self.setText(value: userObject?["Experience 1 Company Name"] as! String, sender: self.companyName1)
+                        self.setText(value: userObject?["Experience 1 Company Address"] as! String, sender: self.companyAddr1)
+                        self.setText(value: userObject?["Experience 1 Position"] as! String, sender: self.companyPosition1)
+                        self.setTextView(value: userObject?["Experience 1 Responsibilities"] as! String, sender: self.resp1)
+                        if userObject?["Experience 1 Start Year"] as! String != "" {
+                            self.setButtonTitle(value: userObject?["Experience 1 Start Year"] as! String, sender: self.sYearButton)
+                        }
+                        if userObject?["Experience 1 End Year"] as! String != "" {
+                            self.setButtonTitle(value: userObject?["Experience 1 End Year"] as! String, sender: self.eYearButton)
+                        }
+                        self.setText(value: userObject?["Experience 2 Company Name"] as! String, sender: self.companyName2)
+                        self.setText(value: userObject?["Experience 2 Company Address"] as! String, sender: self.companyAddr2)
+                        self.setText(value: userObject?["Experience 2 Position"] as! String, sender: self.companyPosition2)
+                        self.setTextView(value: userObject?["Experience 2 Responsibilities"] as! String, sender: self.resp2)
+                        if userObject?["Experience 2 Start Year"] as! String != "" {
+                            self.setButtonTitle(value: userObject?["Experience 2 Start Year"] as! String, sender: self.sYearButton2)
+                        }
+                        if userObject?["Experience 2 End Year"] as! String != "" {
+                            self.setButtonTitle(value: userObject?["Experience 2 End Year"] as! String, sender: self.eYearButton2)
+                        }
 
-                    self.setText(value: userObject?["Experience 2 Company Name"] as! String, sender: self.companyName2)
-                    self.setText(value: userObject?["Experience 2 Company Address"] as! String, sender: self.companyAddr2)
-                    self.setText(value: userObject?["Experience 2 Position"] as! String, sender: self.companyPosition2)
-                    self.setTextView(value: userObject?["Experience 2 Responsibilities"] as! String, sender: self.resp2)
-
-                    self.setText(value: userObject?["Experience 3 Company Name"] as! String, sender: self.companyName3)
-                    self.setText(value: userObject?["Experience 3 Company Address"] as! String, sender: self.companyAddr3)
-                    self.setText(value: userObject?["Experience 3 Position"] as! String, sender: self.companyPosition3)
-                    self.setTextView(value: userObject?["Experience 3 Responsibilities"] as! String, sender: self.resp3)
+                        self.setText(value: userObject?["Experience 3 Company Name"] as! String, sender: self.companyName3)
+                        self.setText(value: userObject?["Experience 3 Company Address"] as! String, sender: self.companyAddr3)
+                        self.setText(value: userObject?["Experience 3 Position"] as! String, sender: self.companyPosition3)
+                        self.setTextView(value: userObject?["Experience 3 Responsibilities"] as! String, sender: self.resp3)
+                        if userObject?["Experience 3 Start Year"] as! String != "" {
+                            self.setButtonTitle(value: userObject?["Experience 3 Start Year"] as! String, sender: self.sYearButton3)
+                        }
+                        if userObject?["Experience 3 End Year"] as! String != "" {
+                            self.setButtonTitle(value: userObject?["Experience 3 End Year"] as! String, sender: self.eYearButton3)
+                        }
                     }
                 }
             }
@@ -207,6 +234,10 @@ class ExperienceViewController: UIViewController, UITextFieldDelegate ,UIPickerV
         cancelBtn.layer.borderWidth = 2
         cancelBtn.layer.cornerRadius = 5.0
         cancelBtn.layer.masksToBounds = true
+        yearPicker.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        yearPicker.layer.borderWidth = 2
+        yearPicker.layer.cornerRadius = 5.0
+        yearPicker.layer.masksToBounds = true
     }
     
     // Modifying view so that keyboard does not hide textFields.
@@ -297,6 +328,10 @@ class ExperienceViewController: UIViewController, UITextFieldDelegate ,UIPickerV
         sender.text = value
     }
 
+    public func setButtonTitle(value:String , sender : UIButton){
+        sender.setTitle(value, for: UIControlState.normal)
+    }
+
 
     //Edit and Save data
 
@@ -331,16 +366,32 @@ class ExperienceViewController: UIViewController, UITextFieldDelegate ,UIPickerV
                             self.ref.child(key).updateChildValues(["Experience 1 Company Name": eCompanyName1 as Any])
                             self.ref.child(key).updateChildValues(["Experience 1 Position": eCompanyPosition1 as Any])
                             self.ref.child(key).updateChildValues(["Experience 1 Responsibilities": eResp1 as Any])
-
+                            if self.e1sYearSelected != nil {
+                                self.ref.child(key).updateChildValues(["Experience 1 Start Year": "Start Year:\(String(describing: self.e1sYearSelected!))"])
+                            }
+                            if self.e1eYearSelected != nil {
+                                self.ref.child(key).updateChildValues(["Experience 1 End Year": "End Year:\(String(describing: self.e1eYearSelected!))"])
+                            }
                             self.ref.child(key).updateChildValues(["Experience 2 Company Address": eCompanyAddr2 as Any])
                             self.ref.child(key).updateChildValues(["Experience 2 Company Name": eCompanyName2 as Any])
                             self.ref.child(key).updateChildValues(["Experience 2 Position": eCompanyPosition2 as Any])
                             self.ref.child(key).updateChildValues(["Experience 2 Responsibilities": eResp2 as Any])
-
+                            if self.e2sYearSelected != nil {
+                                self.ref.child(key).updateChildValues(["Experience 2 Start Year": "Start Year:\(String(describing: self.e2sYearSelected!))"])
+                            }
+                            if self.e2eYearSelected != nil {
+                                self.ref.child(key).updateChildValues(["Experience 2 End Year": "End Year:\(String(describing: self.e2eYearSelected!))"])
+                            }
                             self.ref.child(key).updateChildValues(["Experience 3 Company Address": eCompanyAddr3 as Any])
                             self.ref.child(key).updateChildValues(["Experience 3 Company Name": eCompanyName3 as Any])
                             self.ref.child(key).updateChildValues(["Experience 3 Position": eCompanyPosition3 as Any])
                             self.ref.child(key).updateChildValues(["Experience 3 Responsibilities": eResp3 as Any])
+                            if self.e3sYearSelected != nil {
+                                self.ref.child(key).updateChildValues(["Experience 3 Start Year": "Start Year:\(String(describing: self.e3sYearSelected!))"])
+                            }
+                            if self.e3eYearSelected != nil {
+                                self.ref.child(key).updateChildValues(["Experience 3 End Year": "End Year:\(String(describing: self.e3eYearSelected!))"])
+                            }
                         }
                     }
                 })
@@ -361,7 +412,14 @@ class ExperienceViewController: UIViewController, UITextFieldDelegate ,UIPickerV
             companyPosition3.isUserInteractionEnabled = false
             resp3.isUserInteractionEnabled = false
 
-             cancelBtn.isHidden = true
+            sYearButton.isUserInteractionEnabled = false
+            eYearButton.isUserInteractionEnabled = false
+            sYearButton2.isUserInteractionEnabled = false
+            eYearButton2.isUserInteractionEnabled = false
+            sYearButton3.isUserInteractionEnabled = false
+            eYearButton3.isUserInteractionEnabled = false
+            yearPicker.isHidden = true
+            cancelBtn.isHidden = true
         }
         else{
             self.editBtn.setTitle("Save", for: UIControlState.normal)
@@ -380,6 +438,13 @@ class ExperienceViewController: UIViewController, UITextFieldDelegate ,UIPickerV
             companyPosition3.isUserInteractionEnabled = true
             resp3.isUserInteractionEnabled = true
 
+            sYearButton.isUserInteractionEnabled = true
+            eYearButton.isUserInteractionEnabled = true
+            sYearButton2.isUserInteractionEnabled = true
+            eYearButton2.isUserInteractionEnabled = true
+            sYearButton3.isUserInteractionEnabled = true
+            eYearButton3.isUserInteractionEnabled = true
+
             cancelBtn.isHidden = false
         }
 
@@ -390,83 +455,192 @@ class ExperienceViewController: UIViewController, UITextFieldDelegate ,UIPickerV
     }
 
     //Date Picker implementation
-
     // Setting up pickerView.
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
 
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        switch pickerView {
-        case yearPicker: return years.count
-        default: return 0
-        }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
+        return years.count
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        switch pickerView {
-        case yearPicker: return years[row]
-        default: return ""
-        }
+        	return years[row]
     }
-
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        switch pickerView {
-        case yearPicker:
-            if yFlag == 0 {
-                if years[row] != "Select Year"{
-                    sYearSelected = Int((years[row]))
-                    let temp = Int((eYearButton.titleLabel?.text)!.suffix(4))
-                    if temp != nil {
-                        if sYearSelected! > temp! {
-                            AlertController.displayAlert(self, title: "Alert", message: "Start year can not be after End year!")
-                            sYearButton.setTitle("Select Start Year", for: .normal)
-                        }
-                        else {
-                            sYearButton.setTitle("Start Year:" + (years[row]), for: .normal)
-                        }
+        switch yFlag {
+        case 0:
+            if years[row] != "Select Year"{
+                e1sYearSelected = Int((years[row]))
+                let temp = Int((eYearButton.titleLabel?.text)!.suffix(4))
+                if temp != nil {
+                    if e1sYearSelected! > temp! {
+                        AlertController.displayAlert(self, title: "Alert", message: "Start year can not be after End year!")
+                        sYearButton.setTitle("Select Start Year", for: .normal)
                     }
                     else {
                         sYearButton.setTitle("Start Year:" + (years[row]), for: .normal)
                     }
                 }
                 else {
-                    sYearButton.setTitle("Select Start Year", for: .normal)
+                    sYearButton.setTitle("Start Year:" + (years[row]), for: .normal)
                 }
             }
             else {
-                if years[row] != "Select Year"{
-                    eYearSelected = Int((years[row]))
-                    if sYearSelected! > eYearSelected! {
-                        AlertController.displayAlert(self, title: "Alert", message: "End year can not be before Start year!")
-                        eYearButton.setTitle("Select End Year", for: .normal)
+                sYearButton.setTitle("Select Start Year", for: .normal)
+            }
+        case 1:
+            if years[row] != "Select Year"{
+                e1eYearSelected = Int((years[row]))
+                if e1sYearSelected! > e1eYearSelected! {
+                    AlertController.displayAlert(self, title: "Alert", message: "End year can not be before Start year!")
+                    eYearButton.setTitle("Select End Year", for: .normal)
+                }
+                else {
+                    eYearButton.setTitle("End Year: " + (years[row]), for: .normal)
+                }
+            }
+            else {
+                eYearButton.setTitle("Select End Year", for: .normal)
+            }
+        case 2:
+            if years[row] != "Select Year"{
+                e2sYearSelected = Int((years[row]))
+                let temp = Int((eYearButton2.titleLabel?.text)!.suffix(4))
+                if temp != nil {
+                    if e2sYearSelected! > temp! {
+                        AlertController.displayAlert(self, title: "Alert", message: "Start year can not be after End year!")
+                        sYearButton2.setTitle("Select Start Year", for: .normal)
                     }
                     else {
-                        eYearButton.setTitle("End Year: " + (years[row]), for: .normal)
+                        sYearButton2.setTitle("Start Year:" + (years[row]), for: .normal)
                     }
                 }
                 else {
-                    eYearButton.setTitle("Select End Year", for: .normal)
+                    sYearButton2.setTitle("Start Year:" + (years[row]), for: .normal)
                 }
             }
-            yearPicker.isHidden = true
+            else {
+                sYearButton2.setTitle("Select Start Year", for: .normal)
+            }
+        case 3:
+            if years[row] != "Select Year"{
+                e2eYearSelected = Int((years[row]))
+                if e2sYearSelected! > e2eYearSelected! {
+                    AlertController.displayAlert(self, title: "Alert", message: "End year can not be before Start year!")
+                    eYearButton2.setTitle("Select End Year", for: .normal)
+                }
+                else {
+                    eYearButton2.setTitle("End Year: " + (years[row]), for: .normal)
+                }
+            }
+            else {
+                eYearButton2.setTitle("Select End Year", for: .normal)
+            }
+        case 4:
+            if years[row] != "Select Year"{
+                e3sYearSelected = Int((years[row]))
+                let temp = Int((eYearButton3.titleLabel?.text)!.suffix(4))
+                if temp != nil {
+                    if e3sYearSelected! > temp! {
+                        AlertController.displayAlert(self, title: "Alert", message: "Start year can not be after End year!")
+                        sYearButton3.setTitle("Select Start Year", for: .normal)
+                    }
+                    else {
+                        sYearButton3.setTitle("Start Year:" + (years[row]), for: .normal)
+                    }
+                }
+                else {
+                    sYearButton3.setTitle("Start Year:" + (years[row]), for: .normal)
+                }
+            }
+            else {
+                sYearButton3.setTitle("Select Start Year", for: .normal)
+            }
+        case 5:
+            if years[row] != "Select Year"{
+                e3eYearSelected = Int((years[row]))
+                if e3sYearSelected! > e3eYearSelected! {
+                    AlertController.displayAlert(self, title: "Alert", message: "End year can not be before Start year!")
+                    eYearButton3.setTitle("Select End Year", for: .normal)
+                }
+                else {
+                    eYearButton3.setTitle("End Year: " + (years[row]), for: .normal)
+                }
+            }
+            else {
+                eYearButton3.setTitle("Select End Year", for: .normal)
+            }
         default:
             break
         }
-        //yearPicker.selectRow(0, inComponent: 0, animated: true)
+        yearPicker.isHidden = true
+        yearPicker.selectRow(0, inComponent: 0, animated: true)
     }
-
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        var data: String = ""
         var title: NSAttributedString?
-        switch pickerView {
-        case yearPicker:
-            data = years[row]
-        default:
-            break
-        }
+        let data = years[row]
         title = NSAttributedString(string: data, attributes: [NSAttributedStringKey.foregroundColor:UIColor.white])
         return title
     }
+
     // pickerView setup end.
+
+
+    //buttons pressed
+    @IBAction func e1sYearPressed(_ sender: UIButton) {
+        print("shweta")
+        hideKeyboard()
+        yearPicker.isHidden = false
+        yFlag = 0
+    }
+
+    @IBAction func e1eYearPressed(_ sender: UIButton) {
+        if sYearButton.titleLabel?.text == "Select Start Year" {
+            AlertController.displayAlert(self, title: "Alert", message: "Please select start year first!")
+        }
+        else {
+            yearPicker.isHidden = false
+            yFlag = 1
+        }
+        hideKeyboard()
+    }
+
+    @IBAction func e2sYearPressed(_ sender: UIButton) {
+        hideKeyboard()
+        yFlag = 2
+        yearPicker.isHidden = false
+    }
+
+    @IBAction func e2eYearPressed(_ sender: UIButton) {
+        if sYearButton2.titleLabel?.text == "Select Start Year" {
+            AlertController.displayAlert(self, title: "Alert", message: "Please select start year first!")
+        }
+        else {
+            yFlag = 3
+            yearPicker.isHidden = false
+        }
+        hideKeyboard()
+    }
+
+    @IBAction func e3sYearPressed(_ sender: UIButton) {
+        hideKeyboard()
+        yFlag = 2
+        yearPicker.isHidden = false
+    }
+
+    @IBAction func e3eYearPressed(_ sender: UIButton) {
+        if sYearButton3.titleLabel?.text == "Select Start Year" {
+            AlertController.displayAlert(self, title: "Alert", message: "Please select start year first!")
+        }
+        else {
+            yFlag = 3
+            yearPicker.isHidden = false
+        }
+        hideKeyboard()
+    }
+    // Hiding picker.
+    func hidePicker() {
+        yearPicker.isHidden = true
+    }
 }

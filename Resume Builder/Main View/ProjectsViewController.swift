@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ProjectsViewController: UIViewController, UITextFieldDelegate {
+class ProjectsViewController: UIViewController, UITextFieldDelegate,UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var editBtn: UIButton!
@@ -34,9 +34,32 @@ class ProjectsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var projectName3: UITextField!
     @IBOutlet weak var tech3: UITextField!
     @IBOutlet weak var org3: UITextField!
+    @IBOutlet weak var yearPicker: UIPickerView!
+
+    var allData: Dictionary<String, Array<String>>?
+    var allItems:Array<String>?
+    var years:Array<String> = ["Select Year"]
+
+    var sYearSelected: Int?
+    var eYearSelected: Int?
+    var yFlag = 0
+    var e1sYearSelected: Int?
+    var e1eYearSelected: Int?
+    var e2sYearSelected: Int?
+    var e2eYearSelected: Int?
+    var e3sYearSelected: Int?
+    var e3eYearSelected: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        yearPicker.isHidden = true
+
+        psYear1.isUserInteractionEnabled = false
+        peYear1.isUserInteractionEnabled = false
+        psYear2.isUserInteractionEnabled = false
+        peYear2.isUserInteractionEnabled = false
+        psYear3.isUserInteractionEnabled = false
+        peYear3.isUserInteractionEnabled = false
 
         projectName1.isUserInteractionEnabled = false
         projectDesc1.isUserInteractionEnabled = false
@@ -53,7 +76,17 @@ class ProjectsViewController: UIViewController, UITextFieldDelegate {
         org3.isUserInteractionEnabled = false
         tech3.isUserInteractionEnabled = false
         cancelBtn.isHidden = true
-        
+
+        // Getting data from info file.
+        let data = Bundle.main
+        let dataList:String? = data.path(forResource: "DataList", ofType: "plist")
+        if dataList != nil {
+            allData = (NSDictionary.init(contentsOfFile: dataList!) as! Dictionary)
+            allItems = allData?.keys.sorted()
+            let tempY = (allData!["Year"]?.sorted())!
+            years = years + tempY
+        }
+
         designUI()
         // Do any additional setup after loading the view.
         fetchData()
@@ -77,18 +110,38 @@ class ProjectsViewController: UIViewController, UITextFieldDelegate {
                     //getting values
                     let userObject = user.value as? [String: AnyObject]
                     if userObject?["Email"] as? String == current_user {
-                    self.setText(value: userObject?["Project 1 Name"] as! String, sender: self.projectName1)
-                    self.setTextView(value: userObject?["Project 1 Description"] as! String, sender: self.projectDesc1)
-                    self.setText(value: userObject?["Project 1 Organization"] as! String, sender: self.org1)
-                    self.setText(value: userObject?["Project 1 Technologies"] as! String, sender: self.tech1)
-                    self.setText(value: userObject?["Project 2 Name"] as! String, sender: self.projName2)
-                    self.setTextView(value: userObject?["Project 2 Description"] as! String, sender: self.projectDesc2)
-                    self.setText(value: userObject?["Project 2 Organization"] as! String, sender: self.org2)
-                    self.setText(value: userObject?["Project 2 Technologies"] as! String, sender: self.tech2)
-                    self.setText(value: userObject?["Project 3 Name"] as! String, sender: self.projectName3)
-                    self.setTextView(value: userObject?["Project 3 Description"] as! String, sender: self.projectDesc3)
-                    self.setText(value: userObject?["Project 3 Organization"] as! String, sender: self.org3)
-                    self.setText(value: userObject?["Project 3 Technologies"] as! String, sender: self.tech3)
+                        self.setText(value: userObject?["Project 1 Name"] as! String, sender: self.projectName1)
+                        self.setTextView(value: userObject?["Project 1 Description"] as! String, sender: self.projectDesc1)
+                        self.setText(value: userObject?["Project 1 Organization"] as! String, sender: self.org1)
+                        self.setText(value: userObject?["Project 1 Technologies"] as! String, sender: self.tech1)
+                        if userObject?["Project 1 Start Year"] as! String != "" {
+                            self.setButtonTitle(value: userObject?["Project 1 Start Year"] as! String, sender: self.psYear1)
+                        }
+                        if userObject?["Project 1 End Year"] as! String != "" {
+                            self.setButtonTitle(value: userObject?["Project 1 End Year"] as! String, sender: self.peYear1)
+                        }
+
+                        self.setText(value: userObject?["Project 2 Name"] as! String, sender: self.projName2)
+                        self.setTextView(value: userObject?["Project 2 Description"] as! String, sender: self.projectDesc2)
+                        self.setText(value: userObject?["Project 2 Organization"] as! String, sender: self.org2)
+                        self.setText(value: userObject?["Project 2 Technologies"] as! String, sender: self.tech2)
+                        if userObject?["Project 2 Start Year"] as! String != "" {
+                            self.setButtonTitle(value: userObject?["Project 2 Start Year"] as! String, sender: self.psYear2)
+                        }
+                        if userObject?["Experience 2 End Year"] as! String != "" {
+                            self.setButtonTitle(value: userObject?["Experience 2 End Year"] as! String, sender: self.peYear2)
+                        }
+
+                        self.setText(value: userObject?["Project 3 Name"] as! String, sender: self.projectName3)
+                        self.setTextView(value: userObject?["Project 3 Description"] as! String, sender: self.projectDesc3)
+                        self.setText(value: userObject?["Project 3 Organization"] as! String, sender: self.org3)
+                        self.setText(value: userObject?["Project 3 Technologies"] as! String, sender: self.tech3)
+                        if userObject?["Experience 3 Start Year"] as! String != "" {
+                            self.setButtonTitle(value: userObject?["Experience 3 Start Year"] as! String, sender: self.psYear3)
+                        }
+                        if userObject?["Experience 3 End Year"] as! String != "" {
+                            self.setButtonTitle(value: userObject?["Experience 3 End Year"] as! String, sender: self.peYear3)
+                        }
                     }}
             }
         })
@@ -175,6 +228,10 @@ class ProjectsViewController: UIViewController, UITextFieldDelegate {
         cancelBtn.layer.borderWidth = 2
         cancelBtn.layer.cornerRadius = 5.0
         cancelBtn.layer.masksToBounds = true
+        yearPicker.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        yearPicker.layer.borderWidth = 2
+        yearPicker.layer.cornerRadius = 5.0
+        yearPicker.layer.masksToBounds = true
     }
     
     // Modifying view so that keyboard does not hide textFields.
@@ -299,16 +356,32 @@ class ProjectsViewController: UIViewController, UITextFieldDelegate {
                             self.ref.child(key).updateChildValues(["Project 1 Name": eProjectName1 as Any])
                             self.ref.child(key).updateChildValues(["Project 1 Technologies": eProjectTech1 as Any])
                             self.ref.child(key).updateChildValues(["Project 1 Organization": eProjectOrg1 as Any])
-
+                            if self.e1sYearSelected != nil {
+                                self.ref.child(key).updateChildValues(["Project 1 Start Year": "Start Year:\(String(describing: self.e1sYearSelected!))"])
+                            }
+                            if self.e1eYearSelected != nil {
+                                self.ref.child(key).updateChildValues(["Project 1 End Year": "End Year:\(String(describing: self.e1eYearSelected!))"])
+                            }
                             self.ref.child(key).updateChildValues(["Project 2 Description": eProjectDesc2 as Any])
                             self.ref.child(key).updateChildValues(["Project 2 Name": eProjectName2 as Any])
                             self.ref.child(key).updateChildValues(["Project 2 Technologies": eProjectTech2 as Any])
                             self.ref.child(key).updateChildValues(["Project 2 Organization": eProjectOrg2 as Any])
-
+                            if self.e2sYearSelected != nil {
+                                self.ref.child(key).updateChildValues(["Project 2 Start Year": "Start Year:\(String(describing: self.e2sYearSelected!))"])
+                            }
+                            if self.e2eYearSelected != nil {
+                                self.ref.child(key).updateChildValues(["Project 2 End Year": "End Year:\(String(describing: self.e2eYearSelected!))"])
+                            }
                             self.ref.child(key).updateChildValues(["Project 3 Description": eProjectDesc3 as Any])
                             self.ref.child(key).updateChildValues(["Project 3 Name": eProjectName3 as Any])
                             self.ref.child(key).updateChildValues(["Project 3 Technologies": eProjectTech3 as Any])
                             self.ref.child(key).updateChildValues(["Project 3 Organization": eProjectOrg3 as Any])
+                            if self.e3sYearSelected != nil {
+                                self.ref.child(key).updateChildValues(["Project 3 Start Year": "Start Year:\(String(describing: self.e3sYearSelected!))"])
+                            }
+                            if self.e3eYearSelected != nil {
+                                self.ref.child(key).updateChildValues(["Project 3 End Year": "End Year:\(String(describing: self.e3eYearSelected!))"])
+                            }
                         }
                     }
                 })
@@ -328,6 +401,15 @@ class ProjectsViewController: UIViewController, UITextFieldDelegate {
             projectDesc3.isUserInteractionEnabled = false
             org3.isUserInteractionEnabled = false
             tech3.isUserInteractionEnabled = false
+
+            psYear1.isUserInteractionEnabled = false
+            peYear1.isUserInteractionEnabled = false
+            psYear2.isUserInteractionEnabled = false
+            peYear2.isUserInteractionEnabled = false
+            psYear3.isUserInteractionEnabled = false
+            peYear3.isUserInteractionEnabled = false
+            yearPicker.isHidden = true
+
             cancelBtn.isHidden = true
         }
         else{
@@ -347,6 +429,13 @@ class ProjectsViewController: UIViewController, UITextFieldDelegate {
             org3.isUserInteractionEnabled = true
             tech3.isUserInteractionEnabled = true
             cancelBtn.isHidden = false
+
+            psYear1.isUserInteractionEnabled = true
+            peYear1.isUserInteractionEnabled = true
+            psYear2.isUserInteractionEnabled = true
+            peYear2.isUserInteractionEnabled = true
+            psYear3.isUserInteractionEnabled = true
+            peYear3.isUserInteractionEnabled = true
         }
 
     }
@@ -355,4 +444,199 @@ class ProjectsViewController: UIViewController, UITextFieldDelegate {
         fetchData()
     }
 
+    //Picker implementation
+
+    //Date Picker implementation
+    // Setting up pickerView.
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
+        return years.count
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return years[row]
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch yFlag {
+        case 0:
+            if years[row] != "Select Year"{
+                e1sYearSelected = Int((years[row]))
+                let temp = Int((peYear1.titleLabel?.text)!.suffix(4))
+                if temp != nil {
+                    if e1sYearSelected! > temp! {
+                        AlertController.displayAlert(self, title: "Alert", message: "Start year can not be after End year!")
+                        psYear1.setTitle("Select Start Year", for: .normal)
+                    }
+                    else {
+                        psYear1.setTitle("Start Year:" + (years[row]), for: .normal)
+                    }
+                }
+                else {
+                    psYear1.setTitle("Start Year:" + (years[row]), for: .normal)
+                }
+            }
+            else {
+                psYear1.setTitle("Select Start Year", for: .normal)
+            }
+        case 1:
+            if years[row] != "Select Year"{
+                e1eYearSelected = Int((years[row]))
+                if e1sYearSelected! > e1eYearSelected! {
+                    AlertController.displayAlert(self, title: "Alert", message: "End year can not be before Start year!")
+                    peYear1.setTitle("Select End Year", for: .normal)
+                }
+                else {
+                    peYear1.setTitle("End Year: " + (years[row]), for: .normal)
+                }
+            }
+            else {
+                peYear1.setTitle("Select End Year", for: .normal)
+            }
+        case 2:
+            if years[row] != "Select Year"{
+                e2sYearSelected = Int((years[row]))
+                let temp = Int((peYear2.titleLabel?.text)!.suffix(4))
+                if temp != nil {
+                    if e2sYearSelected! > temp! {
+                        AlertController.displayAlert(self, title: "Alert", message: "Start year can not be after End year!")
+                        psYear2.setTitle("Select Start Year", for: .normal)
+                    }
+                    else {
+                        psYear2.setTitle("Start Year:" + (years[row]), for: .normal)
+                    }
+                }
+                else {
+                    psYear2.setTitle("Start Year:" + (years[row]), for: .normal)
+                }
+            }
+            else {
+                psYear2.setTitle("Select Start Year", for: .normal)
+            }
+        case 3:
+            if years[row] != "Select Year"{
+                e2eYearSelected = Int((years[row]))
+                if e2sYearSelected! > e2eYearSelected! {
+                    AlertController.displayAlert(self, title: "Alert", message: "End year can not be before Start year!")
+                    peYear2.setTitle("Select End Year", for: .normal)
+                }
+                else {
+                    peYear2.setTitle("End Year: " + (years[row]), for: .normal)
+                }
+            }
+            else {
+                peYear2.setTitle("Select End Year", for: .normal)
+            }
+        case 4:
+            if years[row] != "Select Year"{
+                e3sYearSelected = Int((years[row]))
+                let temp = Int((peYear3.titleLabel?.text)!.suffix(4))
+                if temp != nil {
+                    if e3sYearSelected! > temp! {
+                        AlertController.displayAlert(self, title: "Alert", message: "Start year can not be after End year!")
+                        psYear3.setTitle("Select Start Year", for: .normal)
+                    }
+                    else {
+                        psYear3.setTitle("Start Year:" + (years[row]), for: .normal)
+                    }
+                }
+                else {
+                    psYear3.setTitle("Start Year:" + (years[row]), for: .normal)
+                }
+            }
+            else {
+                psYear3.setTitle("Select Start Year", for: .normal)
+            }
+        case 5:
+            if years[row] != "Select Year"{
+                e3eYearSelected = Int((years[row]))
+                if e3sYearSelected! > e3eYearSelected! {
+                    AlertController.displayAlert(self, title: "Alert", message: "End year can not be before Start year!")
+                    peYear3.setTitle("Select End Year", for: .normal)
+                }
+                else {
+                    peYear3.setTitle("End Year: " + (years[row]), for: .normal)
+                }
+            }
+            else {
+                peYear3.setTitle("Select End Year", for: .normal)
+            }
+        default:
+            break
+        }
+        yearPicker.isHidden = true
+        yearPicker.selectRow(0, inComponent: 0, animated: true)
+    }
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        var title: NSAttributedString?
+        let data = years[row]
+        title = NSAttributedString(string: data, attributes: [NSAttributedStringKey.foregroundColor:UIColor.white])
+        return title
+    }
+
+    // pickerView setup end.
+
+
+    //buttons pressed
+    @IBAction func e1sYearPressed(_ sender: UIButton) {
+        hideKeyboard()
+        yearPicker.isHidden = false
+        yFlag = 0
+    }
+
+    @IBAction func e1eYearPressed(_ sender: UIButton) {
+        if psYear1.titleLabel?.text == "Select Start Year" {
+            AlertController.displayAlert(self, title: "Alert", message: "Please select start year first!")
+        }
+        else {
+            yearPicker.isHidden = false
+            yFlag = 1
+        }
+        hideKeyboard()
+    }
+
+    @IBAction func e2sYearPressed(_ sender: UIButton) {
+        hideKeyboard()
+        yFlag = 2
+        yearPicker.isHidden = false
+    }
+
+    @IBAction func e2eYearPressed(_ sender: UIButton) {
+        if psYear2.titleLabel?.text == "Select Start Year" {
+            AlertController.displayAlert(self, title: "Alert", message: "Please select start year first!")
+        }
+        else {
+            yFlag = 3
+            yearPicker.isHidden = false
+        }
+        hideKeyboard()
+    }
+
+    @IBAction func e3sYearPressed(_ sender: UIButton) {
+        hideKeyboard()
+        yFlag = 2
+        yearPicker.isHidden = false
+    }
+
+    @IBAction func e3eYearPressed(_ sender: UIButton) {
+        if psYear3.titleLabel?.text == "Select Start Year" {
+            AlertController.displayAlert(self, title: "Alert", message: "Please select start year first!")
+        }
+        else {
+            yFlag = 3
+            yearPicker.isHidden = false
+        }
+        hideKeyboard()
+    }
+    // Hiding picker.
+    func hidePicker() {
+        yearPicker.isHidden = true
+    }
+
+    public func setButtonTitle(value:String , sender : UIButton){
+        sender.setTitle(value, for: UIControlState.normal)
+    }
 }
+

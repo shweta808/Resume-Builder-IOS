@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class EducationViewController: UIViewController, UITextFieldDelegate {
+class EducationViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var edueYear: UIButton!
     @IBOutlet weak var edusYear: UIButton!
@@ -19,13 +19,51 @@ class EducationViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var univName: UITextField!
     @IBOutlet weak var gpa: UITextField!
     @IBOutlet weak var cancelBtn: UIButton!
+    @IBOutlet weak var degreePicker: UIPickerView!
+    @IBOutlet weak var yearPicker: UIPickerView!
+    @IBOutlet weak var deptPicker: UIPickerView!
+
+    var sYearSelected: Int?
+    var eYearSelected: Int?
+    var deptSelected: String?
+    var degSelected: String?
+    var yFlag = 0
+
+    var allData: Dictionary<String, Array<String>>?
+    var allItems:Array<String>?
+    var years:Array<String> = ["Select Year"]
+    var deparments:Array<String> = ["Select Department"]
+    var degrees:Array<String> = ["Select Degree"]
+
+
     var ref:DatabaseReference!
     override func viewDidLoad() {
         super.viewDidLoad()
+        yearPicker.isHidden = true
+        deptPicker.isHidden = true
+        degreePicker.isHidden = true
+
+        edueYear.isUserInteractionEnabled = false
+        edusYear.isUserInteractionEnabled = false
+        departmentBtn.isUserInteractionEnabled = false
+        degreeBtn.isUserInteractionEnabled = false
 
         univName.isUserInteractionEnabled = false
         gpa.isUserInteractionEnabled = false
         cancelBtn.isHidden = true
+
+        let data = Bundle.main
+        let dataList:String? = data.path(forResource: "DataList", ofType: "plist")
+        if dataList != nil {
+            allData = (NSDictionary.init(contentsOfFile: dataList!) as! Dictionary)
+            allItems = allData?.keys.sorted()
+            let tempY = (allData!["Year"]?.sorted())!
+            let tempDep = (allData!["Department"]?.sorted())!
+            let tempDeg = (allData!["Degree"]?.sorted())!
+            years = years + tempY
+            deparments = deparments + tempDep
+            degrees = degrees + tempDeg
+        }
 
         designUI()
         fetchData()
@@ -51,8 +89,20 @@ class EducationViewController: UIViewController, UITextFieldDelegate {
                     //getting values
                     let userObject = user.value as? [String: AnyObject]
                     if userObject?["Email"] as? String == current_user {
-                    self.setText(value: userObject?["University Name"] as! String, sender: self.univName)
-                    self.setText(value: userObject?["GPA"] as! String, sender: self.gpa)
+                        self.setText(value: userObject?["University Name"] as! String, sender: self.univName)
+                        self.setText(value: userObject?["GPA"] as! String, sender: self.gpa)
+                        if userObject?["Education Start Year"] as! String != "" {
+                            self.setButtonTitle(value: userObject?["Education Start Year"] as! String, sender: self.edusYear)
+                        }
+                        if userObject?["Education End Year"] as! String != "" {
+                            self.setButtonTitle(value: userObject?["Education End Year"] as! String, sender: self.edueYear)
+                        }
+                        if userObject?["Education Department"] as! String != "" {
+                            self.setButtonTitle(value: userObject?["Education Department"] as! String, sender: self.departmentBtn)
+                        }
+                        if userObject?["Education Degree"] as! String != "" {
+                            self.setButtonTitle(value: userObject?["Education Degree"] as! String, sender: self.degreeBtn)
+                        }
                     }}
             }
         })
@@ -145,6 +195,9 @@ class EducationViewController: UIViewController, UITextFieldDelegate {
     public func setText(value:String , sender : UITextField){
         sender.text = value
     }
+    public func setButtonTitle(value:String , sender : UIButton){
+        sender.setTitle(value, for: UIControlState.normal)
+    }
 
     //Edit and Save button
     @IBAction func editDetails(_ sender: UIButton) {
@@ -164,6 +217,19 @@ class EducationViewController: UIViewController, UITextFieldDelegate {
                             let key = (child as AnyObject).key as String
                             self.ref.child(key).updateChildValues(["University Name": eUnivname as Any])
                             self.ref.child(key).updateChildValues(["GPA": eGpa as Any])
+                            if self.sYearSelected != nil {
+                                self.ref.child(key).updateChildValues(["Education Start Year": "Start Year:\(String(describing: self.sYearSelected!))"])
+                            }
+                            if self.eYearSelected != nil {
+                                self.ref.child(key).updateChildValues(["Education End Year": "End Year:\(String(describing: self.eYearSelected!))"])
+                            }
+                            if self.deptSelected != nil {
+                                self.ref.child(key).updateChildValues(["Education Department": self.deptSelected!])
+                            }
+                            if self.degSelected != nil {
+                                self.ref.child(key).updateChildValues(["Education Degree": self.degSelected!])
+                            }
+
                         }
                     }
                 })
@@ -171,6 +237,10 @@ class EducationViewController: UIViewController, UITextFieldDelegate {
             self.editBtn.setTitle("Edit", for: UIControlState.normal)
             univName.isUserInteractionEnabled = false
             gpa.isUserInteractionEnabled = false
+            degreeBtn.isUserInteractionEnabled = false
+            departmentBtn.isUserInteractionEnabled = false
+            edusYear.isUserInteractionEnabled = false
+            edueYear.isUserInteractionEnabled = false
             cancelBtn.isHidden = true
         }
         else{
@@ -178,12 +248,157 @@ class EducationViewController: UIViewController, UITextFieldDelegate {
             univName.isUserInteractionEnabled = true
             gpa.isUserInteractionEnabled = true
             cancelBtn.isHidden = false
+            degreeBtn.isUserInteractionEnabled = true
+            departmentBtn.isUserInteractionEnabled = true
+            edusYear.isUserInteractionEnabled = true
+            edueYear.isUserInteractionEnabled = true
         }
 
     }
 
     @IBAction func cancelEdit(_ sender: UIButton) {
         fetchData()
+    }
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        switch pickerView {
+        case yearPicker: return years.count
+        case deptPicker: return deparments.count
+        case degreePicker: return degrees.count
+        default: return 0
+        }
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        switch pickerView {
+        case yearPicker: return years[row]
+        case deptPicker: return deparments[row]
+        case degreePicker: return degrees[row]
+        default: return ""
+        }
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch pickerView {
+        case yearPicker:
+            if yFlag == 0 {
+                if years[row] != "Select Year"{
+                    sYearSelected = Int((years[row]))
+                    let temp = Int((edueYear.titleLabel?.text)!.suffix(4))
+                    if temp != nil {
+                        if sYearSelected! > temp! {
+                            AlertController.displayAlert(self, title: "Alert", message: "Start year can not be after End year!")
+                            edusYear.setTitle("Select Start Year", for: .normal)
+                        }
+                        else {
+                            edusYear.setTitle("Start Year:" + (years[row]), for: .normal)
+                        }
+                    }
+                    else {
+                        edusYear.setTitle("Start Year:" + (years[row]), for: .normal)
+                    }
+                }
+                else {
+                    edusYear.setTitle("Select Start Year", for: .normal)
+                }
+            }
+            else {
+                if years[row] != "Select Year"{
+                    eYearSelected = Int((years[row]))
+                    if sYearSelected! > eYearSelected! {
+                        AlertController.displayAlert(self, title: "Alert", message: "End year can not be before Start year!")
+                        edueYear.setTitle("Select End Year", for: .normal)
+                    }
+                    else {
+                        edueYear.setTitle("End Year: " + (years[row]), for: .normal)
+                    }
+                }
+                else {
+                    edueYear.setTitle("Select End Year", for: .normal)
+                }
+            }
+            yearPicker.isHidden = true
+        case deptPicker:
+            if deparments[row] != "Select Department"{
+                deptSelected = deparments[row]
+                departmentBtn.setTitle(deparments[row], for: .normal)
+            }
+            else {
+                departmentBtn.setTitle("Select Department", for: .normal)
+            }
+            deptPicker.isHidden = true
+        case degreePicker:
+            if years[row] != "Select Degree"{
+                degSelected = degrees[row]
+                degreeBtn.setTitle(degrees[row], for: .normal)
+            }
+            else{
+                degreeBtn.setTitle("Select Degree", for: .normal)
+            }
+            degreePicker.isHidden = true
+        default:
+            break
+        }
+        yearPicker.selectRow(0, inComponent: 0, animated: true)
+        degreePicker.selectRow(0, inComponent: 0, animated: true)
+        deptPicker.selectRow(0, inComponent: 0, animated: true)
+    }
+
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        var data: String = ""
+        var title: NSAttributedString?
+        switch pickerView {
+        case yearPicker:
+            data = years[row]
+        case deptPicker:
+            data = deparments[row]
+        case degreePicker:
+            data = degrees[row]
+        default:
+            break
+        }
+        title = NSAttributedString(string: data, attributes: [NSAttributedStringKey.foregroundColor:UIColor.white])
+        return title
+    }
+    // pickerView setup end.
+
+    @IBAction func degreePressed(_ sender: UIButton) {
+        print("shweta")
+        hideKeyboard()
+        degreePicker.isHidden = false
+    }
+
+    @IBAction func departmentPressed(_ sender: UIButton) {
+        hideKeyboard()
+        deptPicker.isHidden = false
+    }
+
+    @IBAction func startYearPressed(_ sender: UIButton) {
+        hideKeyboard()
+        yFlag = 0
+        yearPicker.isHidden = false
+    }
+
+    @IBAction func endYearPressed(_ sender: UIButton) {
+        hideKeyboard()
+        if edusYear.titleLabel?.text == "Select Start Year" {
+            AlertController.displayAlert(self, title: "Alert", message: "Please select start year first!")
+        }
+        else {
+            yFlag = 1
+            yearPicker.isHidden = false
+        }
+    }
+
+    // Hiding picker.
+    func hidePicker() {
+        yearPicker.isHidden = true
+        degreePicker.isHidden = true
+        deptPicker.isHidden = true
     }
 
 }

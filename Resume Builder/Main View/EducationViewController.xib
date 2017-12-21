@@ -13,13 +13,16 @@
             <connections>
                 <outlet property="cancelBtn" destination="ZqH-83-cGB" id="9dd-s4-YTs"/>
                 <outlet property="degreeBtn" destination="ewM-Ym-bP9" id="Qgm-W6-ou3"/>
+                <outlet property="degreePicker" destination="ZaQ-tP-awh" id="iHJ-bO-mPZ"/>
                 <outlet property="departmentBtn" destination="Qc0-YG-vGl" id="75G-pK-pjG"/>
+                <outlet property="deptPicker" destination="lRV-CW-AfS" id="f11-vq-OVO"/>
                 <outlet property="editBtn" destination="G5C-zz-8qt" id="6oa-0A-RYr"/>
                 <outlet property="edueYear" destination="36m-wc-qOU" id="WaB-Iq-TIC"/>
                 <outlet property="edusYear" destination="du8-zL-HmX" id="K41-M2-HMi"/>
                 <outlet property="gpa" destination="sED-7m-nfS" id="V5M-q4-jAg"/>
                 <outlet property="univName" destination="cUk-K1-g5a" id="ner-6N-qpt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="yearPicker" destination="fLj-qg-exU" id="Y8j-a0-WuH"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -58,6 +61,9 @@
                     <state key="normal" title="Degree">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="degreePressed:" destination="-1" eventType="touchUpInside" id="pr7-gi-KF7"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qc0-YG-vGl">
                     <rect key="frame" x="6" y="126" width="363" height="30"/>
@@ -65,6 +71,9 @@
                     <state key="normal" title="Department">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="departmentPressed:" destination="-1" eventType="touchUpInside" id="R8I-Wa-hR5"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="du8-zL-HmX">
                     <rect key="frame" x="6" y="202" width="363" height="30"/>
@@ -72,6 +81,9 @@
                     <state key="normal" title="Start Year">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="startYearPressed:" destination="-1" eventType="touchUpInside" id="1hQ-ZD-0f4"/>
+                    </connections>
                 </button>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cUk-K1-g5a">
                     <rect key="frame" x="178" y="50" width="191" height="30"/>
@@ -99,6 +111,9 @@
                     <state key="normal" title="End Year">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="endYearPressed:" destination="-1" eventType="touchUpInside" id="TEd-50-TZe"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZqH-83-cGB">
                     <rect key="frame" x="34" y="16" width="64" height="30"/>
@@ -113,6 +128,33 @@
                         <action selector="cancelEdit:" destination="-1" eventType="touchUpInside" id="nHX-de-KoV"/>
                     </connections>
                 </button>
+                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZaQ-tP-awh">
+                    <rect key="frame" x="34" y="52" width="325" height="117"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.34349933290000001" green="0.53465144279999999" blue="0.70911326139999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="21K-oj-0Tf"/>
+                        <outlet property="delegate" destination="-1" id="nBN-md-1Mp"/>
+                    </connections>
+                </pickerView>
+                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lRV-CW-AfS">
+                    <rect key="frame" x="34" y="50" width="325" height="119"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.34349933290000001" green="0.53465144279999999" blue="0.70911326139999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Ryp-sw-aly"/>
+                        <outlet property="delegate" destination="-1" id="qpC-02-kLx"/>
+                    </connections>
+                </pickerView>
+                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fLj-qg-exU">
+                    <rect key="frame" x="34" y="50" width="325" height="119"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.34349933290000001" green="0.53465144279999999" blue="0.70911326139999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="6WH-J4-aGa"/>
+                        <outlet property="delegate" destination="-1" id="C4z-Qw-C5Q"/>
+                    </connections>
+                </pickerView>
             </subviews>
             <color key="backgroundColor" red="0.92043796850000004" green="0.95799394500000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
