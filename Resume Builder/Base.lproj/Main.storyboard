@@ -133,7 +133,7 @@
         <scene sceneID="CoN-WA-NcL">
             <objects>
                 <viewController id="WDh-O3-3Cg" customClass="MainView" customModule="Resume_Builder" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="aqW-R4-pWN">
+                    <view key="view" contentMode="scaleToFill" id="aqW-R4-pWN" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -210,8 +210,11 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.92043796850000004" green="0.95799394500000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="YIw-oq-KSn"/>
+                        <connections>
+                            <action selector="backgroundTap:" destination="WDh-O3-3Cg" eventType="touchDown" id="fbe-uC-yxh"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="hRt-EW-cXg" id="RED-Dz-z4z"/>

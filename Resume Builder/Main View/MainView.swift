@@ -139,7 +139,14 @@ class MainView: UIViewController {
         segmentedControl.setTitleTextAttributes(textAttributeNormal, for: .normal)
         segmentedControl.setTitleTextAttributes(textAttributeSelected, for: .selected)
     }
-
+    @IBAction func backgroundTap(_ sender: UIControl) {
+        hideKeyboard()
+    }
+    
+    func hideKeyboard() {
+        view.endEditing(false)
+    }
+    
     public func setProfile(Name:String , Email:String ,Contact:String){
         self.nameText.text = Name
         self.emailText.text = Email

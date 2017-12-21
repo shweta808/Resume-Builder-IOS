@@ -9,17 +9,19 @@
 import UIKit
 import Firebase
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UITextFieldDelegate {
 
     var ref: DatabaseReference!
     @IBOutlet weak var techSkillsText: UITextView!
     @IBOutlet weak var profSummaryText: UITextView!
     @IBOutlet weak var editBtn: UIButton!
+    @IBOutlet weak var cancelBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         designUI()
-        // Do any additional setup after loading the view.
+        techSkillsText.delegate = self as? UITextViewDelegate
+        profSummaryText.delegate = self as? UITextViewDelegate
         fetchData()
     }
 
@@ -63,11 +65,33 @@ class ProfileViewController: UIViewController {
         editBtn.layer.borderWidth = 2
         editBtn.layer.cornerRadius = 5.0
         editBtn.layer.masksToBounds = true
+        cancelBtn.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        cancelBtn.layer.borderWidth = 2
+        cancelBtn.layer.cornerRadius = 5.0
+        cancelBtn.layer.masksToBounds = true
     }
 
     public func setProfileDetails(proffSummary:String,techSkills:String){
         self.profSummaryText.text = proffSummary
         self.techSkillsText.text = techSkills
+    }
+    
+    @IBAction func backgroundTap(_ sender: UIControl) {
+        hideKeyboard()
+    }
+    
+    func hideKeyboard() {
+        view.endEditing(false)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        }
+        else {
+            textField.resignFirstResponder()
+        }
+        return false
     }
 
 }

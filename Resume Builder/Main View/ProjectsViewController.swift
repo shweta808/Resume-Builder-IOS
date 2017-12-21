@@ -9,8 +9,9 @@
 import UIKit
 import Firebase
 
-class ProjectsViewController: UIViewController {
+class ProjectsViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var editBtn: UIButton!
     @IBOutlet weak var psYear1: UIButton!
     @IBOutlet weak var peYear1: UIButton!
@@ -153,8 +154,93 @@ class ProjectsViewController: UIViewController {
         peYear3.layer.borderWidth = 2
         peYear3.layer.cornerRadius = 5.0
         peYear3.layer.masksToBounds = true
+        cancelBtn.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        cancelBtn.layer.borderWidth = 2
+        cancelBtn.layer.cornerRadius = 5.0
+        cancelBtn.layer.masksToBounds = true
     }
-
+    
+    // Modifying view so that keyboard does not hide textFields.
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        switch textField.tag {
+        case 3:
+            moveTextField(textField: textField, moveDistance: -190, up: true)
+        case 4:
+            moveTextField(textField: textField, moveDistance: -210, up: true)
+        case 5:
+            moveTextField(textField: textField, moveDistance: -230, up: true)
+        case 6:
+            moveTextField(textField: textField, moveDistance: -250, up: true)
+        case 7:
+            moveTextField(textField: textField, moveDistance: -270, up: true)
+        case 8:
+            moveTextField(textField: textField, moveDistance: -290, up: true)
+        case 9:
+            moveTextField(textField: textField, moveDistance: -310, up: true)
+        case 10:
+            moveTextField(textField: textField, moveDistance: -330, up: true)
+        case 11:
+            moveTextField(textField: textField, moveDistance: -350, up: true)
+        default:
+            break
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        switch textField.tag {
+        case 3:
+            moveTextField(textField: textField, moveDistance: -190, up: false)
+        case 4:
+            moveTextField(textField: textField, moveDistance: -210, up: false)
+        case 5:
+            moveTextField(textField: textField, moveDistance: -230, up: false)
+        case 6:
+            moveTextField(textField: textField, moveDistance: -250, up: false)
+        case 7:
+            moveTextField(textField: textField, moveDistance: -270, up: false)
+        case 8:
+            moveTextField(textField: textField, moveDistance: -290, up: false)
+        case 9:
+            moveTextField(textField: textField, moveDistance: -310, up: false)
+        case 10:
+            moveTextField(textField: textField, moveDistance: -330, up: false)
+        case 11:
+            moveTextField(textField: textField, moveDistance: -350, up: false)
+        default:
+            break
+        }
+    }
+    
+    func moveTextField(textField: UITextField, moveDistance: Int, up: Bool) {
+        let moveDuration = 0.3
+        let movement: CGFloat = CGFloat(up ? moveDistance: -moveDistance)
+        UIView.beginAnimations("animateTF", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(moveDuration)
+        self.view.frame = (self.view.frame).offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
+    }
+    // Modifying view ends.
+    
+    // For navigating through textFields.
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        }
+        else {
+            textField.resignFirstResponder()
+        }
+        return false
+    }
+    
+    @IBAction func backgroundTap(_ sender: UIControl) {
+        hideKeyboard()
+    }
+    
+    func hideKeyboard() {
+        view.endEditing(false)
+    }
+    
     public func setText(value:String , sender : UITextField){
         sender.text = value
     }
