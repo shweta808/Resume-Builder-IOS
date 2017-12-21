@@ -29,6 +29,8 @@ class ProfileViewController: UIViewController {
     }
     
     public func fetchData() {
+        let user = Auth.auth().currentUser
+        let current_user = user?.email
         ref = Database.database().reference().child("Resume Data")
         //observing the data changes
         ref.observe(DataEventType.value, with: { (snapshot) in
@@ -38,9 +40,11 @@ class ProfileViewController: UIViewController {
                 for user in snapshot.children.allObjects as! [DataSnapshot] {
                     //getting values
                     let userObject = user.value as? [String: AnyObject]
-                    let proffSummary  = userObject?["Professional Summary"]
-                    let techSkills = userObject?["Technical Skills"]
-                    self.setProfileDetails(proffSummary:proffSummary as! String ,techSkills:techSkills as! String)
+                    if userObject?["Email"] as? String == current_user {
+                        let proffSummary  = userObject?["Professional Summary"]
+                        let techSkills = userObject?["Technical Skills"]
+                        self.setProfileDetails(proffSummary:proffSummary as! String ,techSkills:techSkills as! String)
+                    }
                 }
             }
         })

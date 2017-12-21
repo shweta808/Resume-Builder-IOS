@@ -12,9 +12,9 @@ import Firebase
 class MainView: UIViewController {
 
 
-    @IBOutlet weak var superView: UIView!
     var subViews:[UIView]!
 
+    @IBOutlet weak var superView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var nameText: UITextField!
@@ -67,6 +67,8 @@ class MainView: UIViewController {
     }
 
     public func fetchData() {
+        let user = Auth.auth().currentUser
+        let current_user = user?.email
         activityIndicator.startAnimating()
         ref = DatabaseService.shared.resumeData
         //ref = Database.database().reference().child("Resume Data")
@@ -78,14 +80,14 @@ class MainView: UIViewController {
                 for user in snapshot.children.allObjects as! [DataSnapshot] {
                     //getting values
                     let userObject = user.value as? [String: AnyObject]
-                    let Name  = userObject?["Name"]
-                    let Email = userObject?["Email"]
-                    let Contact = userObject?["Contact"]
-                    self.filename = userObject?["Email"] as? String
-                    self.setProfile(Name:Name as! String ,Email:Email as! String,Contact:Contact as! String)
-                    self.fetchImage()
-                    //creating artist object with model and fetched values
-                    //appending it to list
+                    if userObject?["Email"] as? String == current_user {
+                        let Name  = userObject?["Name"]
+                        let Email = userObject?["Email"]
+                        let Contact = userObject?["Contact"]
+                        self.filename = userObject?["Email"] as? String
+                        self.setProfile(Name:Name as! String ,Email:Email as! String,Contact:Contact as! String)
+                        self.fetchImage()
+                    }
                 }
             }
         })

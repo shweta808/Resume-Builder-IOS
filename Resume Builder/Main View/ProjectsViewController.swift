@@ -47,6 +47,8 @@ class ProjectsViewController: UIViewController {
     }
     
     public func fetchData() {
+        let user = Auth.auth().currentUser
+        let current_user = user?.email
         ref = Database.database().reference().child("Resume Data")
         //observing the data changes
         ref.observe(DataEventType.value, with: { (snapshot) in
@@ -56,6 +58,7 @@ class ProjectsViewController: UIViewController {
                 for user in snapshot.children.allObjects as! [DataSnapshot] {
                     //getting values
                     let userObject = user.value as? [String: AnyObject]
+                    if userObject?["Email"] as? String == current_user {
                     self.setText(value: userObject?["Project 1 Name"] as! String, sender: self.projectName1)
                     self.setTextView(value: userObject?["Project 1 Description"] as! String, sender: self.projectDesc1)
                     self.setText(value: userObject?["Project 1 Organization"] as! String, sender: self.org1)
@@ -68,7 +71,7 @@ class ProjectsViewController: UIViewController {
                     self.setTextView(value: userObject?["Project 3 Description"] as! String, sender: self.projectDesc3)
                     self.setText(value: userObject?["Project 3 Organization"] as! String, sender: self.org3)
                     self.setText(value: userObject?["Project 3 Technologies"] as! String, sender: self.tech3)
-                }
+                    }}
             }
         })
     }

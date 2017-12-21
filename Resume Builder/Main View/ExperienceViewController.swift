@@ -47,6 +47,8 @@ class ExperienceViewController: UIViewController {
     }
 
     public func fetchData() {
+        let user = Auth.auth().currentUser
+        let current_user = user?.email
         ref = Database.database().reference().child("Resume Data")
         //observing the data changes
         ref.observe(DataEventType.value, with: { (snapshot) in
@@ -56,6 +58,7 @@ class ExperienceViewController: UIViewController {
                 for user in snapshot.children.allObjects as! [DataSnapshot] {
                     //getting values
                     let userObject = user.value as? [String: AnyObject]
+                    if userObject?["Email"] as? String == current_user {
                     self.setText(value: userObject?["Experience 1 Company Name"] as! String, sender: self.companyName1)
                     self.setText(value: userObject?["Experience 1 Company Address"] as! String, sender: self.companyAddr1)
                     self.setText(value: userObject?["Experience 1 Position"] as! String, sender: self.companyPosition1)
@@ -70,6 +73,7 @@ class ExperienceViewController: UIViewController {
                     self.setText(value: userObject?["Experience 3 Company Address"] as! String, sender: self.companyAddr3)
                     self.setText(value: userObject?["Experience 3 Position"] as! String, sender: self.companyPosition3)
                     self.setTextView(value: userObject?["Experience 3 Responsibilities"] as! String, sender: self.resp3)
+                    }
                 }
             }
         })
