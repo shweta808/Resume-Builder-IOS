@@ -41,6 +41,7 @@ class SignIn: UIViewController, UITextFieldDelegate {
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             guard error == nil else{
                 AlertController.displayAlert(self, title: "Error", message: error!.localizedDescription)
+                self.activityIndicator.stopAnimating()
                 return
             }
             guard let user = user else { return }
