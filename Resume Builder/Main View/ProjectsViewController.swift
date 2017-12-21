@@ -37,6 +37,23 @@ class ProjectsViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        projectName1.isUserInteractionEnabled = false
+        projectDesc1.isUserInteractionEnabled = false
+        org1.isUserInteractionEnabled = false
+        tech1.isUserInteractionEnabled = false
+
+        projName2.isUserInteractionEnabled = false
+        projectDesc2.isUserInteractionEnabled = false
+        org2.isUserInteractionEnabled = false
+        tech2.isUserInteractionEnabled = false
+
+        projectName3.isUserInteractionEnabled = false
+        projectDesc3.isUserInteractionEnabled = false
+        org3.isUserInteractionEnabled = false
+        tech3.isUserInteractionEnabled = false
+        cancelBtn.isHidden = true
+        
         designUI()
         // Do any additional setup after loading the view.
         fetchData()
@@ -249,6 +266,93 @@ class ProjectsViewController: UIViewController, UITextFieldDelegate {
         sender.text = value
     }
 
-    
+    //Edit and save data
+
+    @IBAction func editDetails(_ sender: UIButton) {
+        if editBtn.currentTitle == "Save" {
+            let eProjectName1 = projectName1.text
+            let eProjectOrg1 = org1.text
+            let eProjectTech1 = tech1.text
+            let eProjectDesc1 = projectDesc1.text
+
+            let eProjectName2 = projName2.text
+            let eProjectOrg2 = org2.text
+            let eProjectTech2 = tech2.text
+            let eProjectDesc2 = projectDesc2.text
+
+            let eProjectName3 = projectName3.text
+            let eProjectOrg3 = org3.text
+            let eProjectTech3 = tech3.text
+            let eProjectDesc3 = projectDesc3.text
+
+            let user = Auth.auth().currentUser
+            let current_user = user?.email
+
+            ref.queryOrdered(byChild: "Email").queryEqual(toValue: current_user)
+                .observe(.value, with: { snapshot in
+                    if ( snapshot.value is NSNull ) {
+                        print("Email not found")
+                    } else {
+                        for child in snapshot.children {
+                            let key = (child as AnyObject).key as String
+                            self.ref.child(key).updateChildValues(["Project 1 Description": eProjectDesc1 as Any])
+                            self.ref.child(key).updateChildValues(["Project 1 Name": eProjectName1 as Any])
+                            self.ref.child(key).updateChildValues(["Project 1 Technologies": eProjectTech1 as Any])
+                            self.ref.child(key).updateChildValues(["Project 1 Organization": eProjectOrg1 as Any])
+
+                            self.ref.child(key).updateChildValues(["Project 2 Description": eProjectDesc2 as Any])
+                            self.ref.child(key).updateChildValues(["Project 2 Name": eProjectName2 as Any])
+                            self.ref.child(key).updateChildValues(["Project 2 Technologies": eProjectTech2 as Any])
+                            self.ref.child(key).updateChildValues(["Project 2 Organization": eProjectOrg2 as Any])
+
+                            self.ref.child(key).updateChildValues(["Project 3 Description": eProjectDesc3 as Any])
+                            self.ref.child(key).updateChildValues(["Project 3 Name": eProjectName3 as Any])
+                            self.ref.child(key).updateChildValues(["Project 3 Technologies": eProjectTech3 as Any])
+                            self.ref.child(key).updateChildValues(["Project 3 Organization": eProjectOrg3 as Any])
+                        }
+                    }
+                })
+
+            self.editBtn.setTitle("Edit", for: UIControlState.normal)
+            projectName1.isUserInteractionEnabled = false
+            projectDesc1.isUserInteractionEnabled = false
+            org1.isUserInteractionEnabled = false
+            tech1.isUserInteractionEnabled = false
+
+            projName2.isUserInteractionEnabled = false
+            projectDesc2.isUserInteractionEnabled = false
+            org2.isUserInteractionEnabled = false
+            tech2.isUserInteractionEnabled = false
+
+            projectName3.isUserInteractionEnabled = false
+            projectDesc3.isUserInteractionEnabled = false
+            org3.isUserInteractionEnabled = false
+            tech3.isUserInteractionEnabled = false
+            cancelBtn.isHidden = true
+        }
+        else{
+            self.editBtn.setTitle("Save", for: UIControlState.normal)
+            projectName1.isUserInteractionEnabled = true
+            projectDesc1.isUserInteractionEnabled = true
+            org1.isUserInteractionEnabled = true
+            tech1.isUserInteractionEnabled = true
+
+            projName2.isUserInteractionEnabled = true
+            projectDesc2.isUserInteractionEnabled = true
+            org2.isUserInteractionEnabled = true
+            tech2.isUserInteractionEnabled = true
+
+            projectName3.isUserInteractionEnabled = true
+            projectDesc3.isUserInteractionEnabled = true
+            org3.isUserInteractionEnabled = true
+            tech3.isUserInteractionEnabled = true
+            cancelBtn.isHidden = false
+        }
+
+    }
+
+    @IBAction func cancelEdit(_ sender: UIButton) {
+        fetchData()
+    }
 
 }

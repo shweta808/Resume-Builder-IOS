@@ -11,10 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EducationViewController" customModule="Resume_Builder" customModuleProvider="target">
             <connections>
-                <outlet property="cancelBtn" destination="ZqH-83-cGB" id="Qr8-b5-B3H"/>
+                <outlet property="cancelBtn" destination="ZqH-83-cGB" id="9dd-s4-YTs"/>
                 <outlet property="degreeBtn" destination="ewM-Ym-bP9" id="Qgm-W6-ou3"/>
                 <outlet property="departmentBtn" destination="Qc0-YG-vGl" id="75G-pK-pjG"/>
-                <outlet property="editBtn" destination="G5C-zz-8qt" id="mWd-20-Bch"/>
+                <outlet property="editBtn" destination="G5C-zz-8qt" id="6oa-0A-RYr"/>
                 <outlet property="edueYear" destination="36m-wc-qOU" id="WaB-Iq-TIC"/>
                 <outlet property="edusYear" destination="du8-zL-HmX" id="K41-M2-HMi"/>
                 <outlet property="gpa" destination="sED-7m-nfS" id="V5M-q4-jAg"/>
@@ -33,6 +33,9 @@
                     <state key="normal" title="Edit">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="editDetails:" destination="-1" eventType="touchUpInside" id="22b-x4-dfw"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="University Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k9Q-Yz-bYh">
                     <rect key="frame" x="6" y="55" width="164" height="21"/>
@@ -106,6 +109,9 @@
                     <state key="normal" title="Cancel">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="cancelEdit:" destination="-1" eventType="touchUpInside" id="nHX-de-KoV"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.92043796850000004" green="0.95799394500000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

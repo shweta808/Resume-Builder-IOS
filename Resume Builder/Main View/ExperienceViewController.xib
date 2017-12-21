@@ -13,7 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExperienceViewController" customModule="Resume_Builder" customModuleProvider="target">
             <connections>
-                <outlet property="cancelBtn" destination="k3j-1Z-pqe" id="4af-NW-Tay"/>
+                <outlet property="cancelBtn" destination="k3j-1Z-pqe" id="u5W-OZ-G88"/>
                 <outlet property="companyAddr1" destination="rwO-nE-TYn" id="Tv3-wL-970"/>
                 <outlet property="companyAddr2" destination="tAM-Qo-2MY" id="moZ-FP-Qp8"/>
                 <outlet property="companyAddr3" destination="9mR-IT-ukd" id="gdd-8t-az8"/>
@@ -23,7 +23,8 @@
                 <outlet property="companyPosition1" destination="pGR-gn-5DS" id="jFP-sP-ctT"/>
                 <outlet property="companyPosition2" destination="pe6-4m-zGM" id="J0l-33-bHA"/>
                 <outlet property="companyPosition3" destination="ade-tE-mmz" id="g7z-Yl-dM4"/>
-                <outlet property="editBtn" destination="aAR-Ud-qMa" id="0Ow-qS-DfA"/>
+                <outlet property="eYearButton" destination="vc0-NV-cQZ" id="BXx-66-dm9"/>
+                <outlet property="editBtn" destination="aAR-Ud-qMa" id="GkJ-9Y-qlb"/>
                 <outlet property="eeYear1" destination="vc0-NV-cQZ" id="l8e-RQ-H9c"/>
                 <outlet property="eeYear2" destination="5ca-ls-w5r" id="Hyt-k4-24A"/>
                 <outlet property="eeYear3" destination="yDG-yR-U4Q" id="M6c-77-zPd"/>
@@ -33,7 +34,9 @@
                 <outlet property="resp1" destination="umi-t3-3BI" id="C6g-Se-SOG"/>
                 <outlet property="resp2" destination="Lmi-Fd-pOB" id="uFW-30-kwX"/>
                 <outlet property="resp3" destination="Jbu-Cr-6wt" id="Xv4-Fh-yeB"/>
+                <outlet property="sYearButton" destination="9Jc-Qx-dpv" id="kzw-Wu-vaa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="yearPicker" destination="egb-f5-2yQ" id="cip-eh-cUz"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -141,6 +144,9 @@
                                     <state key="normal" title="Edit">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="editDetails:" destination="-1" eventType="touchUpInside" id="9lm-ph-bIf"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRX-qv-Fi2">
                                     <rect key="frame" x="6" y="299" width="164" height="24"/>
@@ -318,7 +324,17 @@
                                     <state key="normal" title="Cancel">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="cancelEdit:" destination="-1" eventType="touchUpInside" id="jgR-bE-vco"/>
+                                    </connections>
                                 </button>
+                                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="egb-f5-2yQ">
+                                    <rect key="frame" x="8" y="72" width="361" height="151"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <date key="date" timeIntervalSinceReferenceDate="535541661.19148302">
+                                        <!--2017-12-21 09:34:21 +0000-->
+                                    </date>
+                                </datePicker>
                             </subviews>
                             <color key="backgroundColor" red="0.92043796850000004" green="0.95799394500000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>

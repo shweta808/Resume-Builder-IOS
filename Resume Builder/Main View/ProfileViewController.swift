@@ -19,6 +19,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        cancelBtn.isHidden = true
         designUI()
         techSkillsText.delegate = self as? UITextViewDelegate
         profSummaryText.delegate = self as? UITextViewDelegate
@@ -92,6 +93,47 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             textField.resignFirstResponder()
         }
         return false
+    }
+
+    //edit and save changes
+
+    @IBAction func editDetails(_ sender: UIButton) {
+        if editBtn.currentTitle == "Save" {
+            let eProffSummary = profSummaryText.text
+            let eTechSkill = techSkillsText.text
+
+            let user = Auth.auth().currentUser
+            let current_user = user?.email
+
+            ref.queryOrdered(byChild: "Email").queryEqual(toValue: current_user)
+                .observe(.value, with: { snapshot in
+                    if ( snapshot.value is NSNull ) {
+                        print("Email not found")
+                    } else {
+                        for child in snapshot.children {
+                            let key = (child as AnyObject).key as String
+                            self.ref.child(key).updateChildValues(["Professional Summary": eProffSummary as Any])
+                            self.ref.child(key).updateChildValues(["Technical Skills": eTechSkill as Any])
+                        }
+                    }
+                })
+
+            self.editBtn.setTitle("Edit", for: UIControlState.normal)
+            profSummaryText.isUserInteractionEnabled = false
+            techSkillsText.isUserInteractionEnabled = false
+            cancelBtn.isHidden = true
+        }
+        else{
+            self.editBtn.setTitle("Save", for: UIControlState.normal)
+            profSummaryText.isUserInteractionEnabled = true
+            techSkillsText.isUserInteractionEnabled = true
+            cancelBtn.isHidden = false
+        }
+
+    }
+
+    @IBAction func cancelEdit(_ sender: UIButton) {
+        fetchData()
     }
 
 }

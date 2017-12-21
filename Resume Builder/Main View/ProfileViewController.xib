@@ -11,10 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="Resume_Builder" customModuleProvider="target">
             <connections>
-                <outlet property="cancelBtn" destination="ILI-UB-4ce" id="Rww-SQ-Ihb"/>
-                <outlet property="editBtn" destination="6a5-9u-5Kv" id="Rhc-BI-jPQ"/>
-                <outlet property="profSummaryText" destination="9IO-Fp-lVI" id="DSH-fT-iF4"/>
-                <outlet property="techSkillsText" destination="Pvm-IG-dDf" id="YaK-Ps-6Cl"/>
+                <outlet property="cancelBtn" destination="ILI-UB-4ce" id="COR-8Y-xzD"/>
+                <outlet property="editBtn" destination="6a5-9u-5Kv" id="fEj-5g-sI8"/>
+                <outlet property="profSummaryText" destination="9IO-Fp-lVI" id="SrH-0b-YnM"/>
+                <outlet property="techSkillsText" destination="Pvm-IG-dDf" id="aC1-Rp-8DT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -56,6 +56,9 @@
                                     <state key="normal" title="Edit">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="editDetails:" destination="-1" eventType="touchUpInside" id="EQo-ls-q6F"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Technical Skills:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZyF-Un-SoI">
                                     <rect key="frame" x="6" y="229" width="362" height="21"/>
@@ -75,6 +78,9 @@
                                     <state key="normal" title="Cancel">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="cancelEdit:" destination="-1" eventType="touchUpInside" id="ALu-t9-YF5"/>
+                                    </connections>
                                 </button>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Pvm-IG-dDf">
                                     <rect key="frame" x="6" y="258" width="363" height="139"/>

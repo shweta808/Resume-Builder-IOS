@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ExperienceViewController: UIViewController, UITextFieldDelegate {
+class ExperienceViewController: UIViewController, UITextFieldDelegate ,UIPickerViewDelegate, UIPickerViewDataSource{
 
 
     @IBOutlet weak var cancelBtn: UIButton!
@@ -33,10 +33,56 @@ class ExperienceViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var companyPosition3: UITextField!
     @IBOutlet weak var resp3: UITextView!
 
+    @IBOutlet weak var yearPicker: UIDatePicker!
+
+    var allData: Dictionary<String, Array<String>>?
+    var allItems:Array<String>?
+    var years:Array<String> = ["Select Year"]
+    var deparments:Array<String> = ["Select Department"]
+    var degrees:Array<String> = ["Select Degree"]
+
+    var sYearSelected: Int?
+    var eYearSelected: Int?
+    var yFlag = 0
+
+
+    @IBOutlet weak var sYearButton: UIButton!
+    @IBOutlet weak var eYearButton: UIButton!
+
     var ref: DatabaseReference!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        cancelBtn.isHidden = true
+        companyName1.isUserInteractionEnabled = false
+        companyAddr1.isUserInteractionEnabled = false
+        companyPosition1.isUserInteractionEnabled = false
+        resp1.isUserInteractionEnabled = false
+
+        companyName2.isUserInteractionEnabled = false
+        companyAddr2.isUserInteractionEnabled = false
+        companyPosition2.isUserInteractionEnabled = false
+        resp2.isUserInteractionEnabled = false
+
+        companyName3.isUserInteractionEnabled = false
+        companyAddr3.isUserInteractionEnabled = false
+        companyPosition3.isUserInteractionEnabled = false
+        resp3.isUserInteractionEnabled = false
+
+        // Getting data from info file.
+        let data = Bundle.main
+        let dataList:String? = data.path(forResource: "DataList", ofType: "plist")
+        if dataList != nil {
+            allData = (NSDictionary.init(contentsOfFile: dataList!) as! Dictionary)
+            allItems = allData?.keys.sorted()
+            let tempY = (allData!["Year"]?.sorted())!
+            let tempDep = (allData!["Department"]?.sorted())!
+            let tempDeg = (allData!["Degree"]?.sorted())!
+            years = years + tempY
+            deparments = deparments + tempDep
+            degrees = degrees + tempDeg
+        }
+
         fetchData()
         designUI()
         // Do any additional setup after loading the view.
@@ -250,4 +296,177 @@ class ExperienceViewController: UIViewController, UITextFieldDelegate {
     public func setTextView(value:String , sender : UITextView){
         sender.text = value
     }
+
+
+    //Edit and Save data
+
+    @IBAction func editDetails(_ sender: UIButton) {
+        if editBtn.currentTitle == "Save" {
+            let eCompanyName1 = companyName1.text
+            let eCompanyAddr1 = companyAddr1.text
+            let eCompanyPosition1 = companyPosition1.text
+            let eResp1 = resp1.text
+
+            let eCompanyName2 = companyName2.text
+            let eCompanyAddr2 = companyAddr2.text
+            let eCompanyPosition2 = companyPosition2.text
+            let eResp2 = resp2.text
+
+            let eCompanyName3 = companyName3.text
+            let eCompanyAddr3 = companyAddr3.text
+            let eCompanyPosition3 = companyPosition3.text
+            let eResp3 = resp3.text
+
+            let user = Auth.auth().currentUser
+            let current_user = user?.email
+
+            ref.queryOrdered(byChild: "Email").queryEqual(toValue: current_user)
+                .observe(.value, with: { snapshot in
+                    if ( snapshot.value is NSNull ) {
+                        print("Email not found")
+                    } else {
+                        for child in snapshot.children {
+                            let key = (child as AnyObject).key as String
+                            self.ref.child(key).updateChildValues(["Experience 1 Company Address": eCompanyAddr1 as Any])
+                            self.ref.child(key).updateChildValues(["Experience 1 Company Name": eCompanyName1 as Any])
+                            self.ref.child(key).updateChildValues(["Experience 1 Position": eCompanyPosition1 as Any])
+                            self.ref.child(key).updateChildValues(["Experience 1 Responsibilities": eResp1 as Any])
+
+                            self.ref.child(key).updateChildValues(["Experience 2 Company Address": eCompanyAddr2 as Any])
+                            self.ref.child(key).updateChildValues(["Experience 2 Company Name": eCompanyName2 as Any])
+                            self.ref.child(key).updateChildValues(["Experience 2 Position": eCompanyPosition2 as Any])
+                            self.ref.child(key).updateChildValues(["Experience 2 Responsibilities": eResp2 as Any])
+
+                            self.ref.child(key).updateChildValues(["Experience 3 Company Address": eCompanyAddr3 as Any])
+                            self.ref.child(key).updateChildValues(["Experience 3 Company Name": eCompanyName3 as Any])
+                            self.ref.child(key).updateChildValues(["Experience 3 Position": eCompanyPosition3 as Any])
+                            self.ref.child(key).updateChildValues(["Experience 3 Responsibilities": eResp3 as Any])
+                        }
+                    }
+                })
+
+            self.editBtn.setTitle("Edit", for: UIControlState.normal)
+            companyName1.isUserInteractionEnabled = false
+            companyAddr1.isUserInteractionEnabled = false
+            companyPosition1.isUserInteractionEnabled = false
+            resp1.isUserInteractionEnabled = false
+
+            companyName2.isUserInteractionEnabled = false
+            companyAddr2.isUserInteractionEnabled = false
+            companyPosition2.isUserInteractionEnabled = false
+            resp2.isUserInteractionEnabled = false
+
+            companyName3.isUserInteractionEnabled = false
+            companyAddr3.isUserInteractionEnabled = false
+            companyPosition3.isUserInteractionEnabled = false
+            resp3.isUserInteractionEnabled = false
+
+             cancelBtn.isHidden = true
+        }
+        else{
+            self.editBtn.setTitle("Save", for: UIControlState.normal)
+            companyName1.isUserInteractionEnabled = true
+            companyAddr1.isUserInteractionEnabled = true
+            companyPosition1.isUserInteractionEnabled = true
+            resp1.isUserInteractionEnabled = true
+
+            companyName2.isUserInteractionEnabled = true
+            companyAddr2.isUserInteractionEnabled = true
+            companyPosition2.isUserInteractionEnabled = true
+            resp2.isUserInteractionEnabled = true
+
+            companyName3.isUserInteractionEnabled = true
+            companyAddr3.isUserInteractionEnabled = true
+            companyPosition3.isUserInteractionEnabled = true
+            resp3.isUserInteractionEnabled = true
+
+            cancelBtn.isHidden = false
+        }
+
+    }
+
+    @IBAction func cancelEdit(_ sender: UIButton) {
+        fetchData()
+    }
+
+    //Date Picker implementation
+
+    // Setting up pickerView.
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        switch pickerView {
+        case yearPicker: return years.count
+        default: return 0
+        }
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        switch pickerView {
+        case yearPicker: return years[row]
+        default: return ""
+        }
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch pickerView {
+        case yearPicker:
+            if yFlag == 0 {
+                if years[row] != "Select Year"{
+                    sYearSelected = Int((years[row]))
+                    let temp = Int((eYearButton.titleLabel?.text)!.suffix(4))
+                    if temp != nil {
+                        if sYearSelected! > temp! {
+                            AlertController.displayAlert(self, title: "Alert", message: "Start year can not be after End year!")
+                            sYearButton.setTitle("Select Start Year", for: .normal)
+                        }
+                        else {
+                            sYearButton.setTitle("Start Year:" + (years[row]), for: .normal)
+                        }
+                    }
+                    else {
+                        sYearButton.setTitle("Start Year:" + (years[row]), for: .normal)
+                    }
+                }
+                else {
+                    sYearButton.setTitle("Select Start Year", for: .normal)
+                }
+            }
+            else {
+                if years[row] != "Select Year"{
+                    eYearSelected = Int((years[row]))
+                    if sYearSelected! > eYearSelected! {
+                        AlertController.displayAlert(self, title: "Alert", message: "End year can not be before Start year!")
+                        eYearButton.setTitle("Select End Year", for: .normal)
+                    }
+                    else {
+                        eYearButton.setTitle("End Year: " + (years[row]), for: .normal)
+                    }
+                }
+                else {
+                    eYearButton.setTitle("Select End Year", for: .normal)
+                }
+            }
+            yearPicker.isHidden = true
+        default:
+            break
+        }
+        //yearPicker.selectRow(0, inComponent: 0, animated: true)
+    }
+
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        var data: String = ""
+        var title: NSAttributedString?
+        switch pickerView {
+        case yearPicker:
+            data = years[row]
+        default:
+            break
+        }
+        title = NSAttributedString(string: data, attributes: [NSAttributedStringKey.foregroundColor:UIColor.white])
+        return title
+    }
+    // pickerView setup end.
 }

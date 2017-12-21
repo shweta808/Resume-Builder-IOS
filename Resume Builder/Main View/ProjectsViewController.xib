@@ -11,8 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProjectsViewController" customModule="Resume_Builder" customModuleProvider="target">
             <connections>
-                <outlet property="cancelBtn" destination="G2b-Pk-d1f" id="LGX-P2-vDJ"/>
-                <outlet property="editBtn" destination="tIS-J0-VeZ" id="AST-Wr-0k7"/>
+                <outlet property="cancelBtn" destination="G2b-Pk-d1f" id="fat-dh-WwD"/>
+                <outlet property="editBtn" destination="tIS-J0-VeZ" id="UqK-WM-RzA"/>
                 <outlet property="org1" destination="QKp-GG-2Uz" id="wgx-ZE-04m"/>
                 <outlet property="org2" destination="gFq-SX-QgL" id="0vf-lg-uzP"/>
                 <outlet property="org3" destination="QrM-xK-Mz5" id="5w3-7d-5YR"/>
@@ -63,6 +63,9 @@
                                     <state key="normal" title="Edit">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="editDetails:" destination="-1" eventType="touchUpInside" id="SjV-q8-0g6"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLV-vc-uCM">
                                     <rect key="frame" x="6" y="169" width="172" height="21"/>
@@ -306,6 +309,9 @@
                                     <state key="normal" title="Cancel">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="cancelEdit:" destination="-1" eventType="touchUpInside" id="WPV-AL-u34"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxk-Vc-vYB">
                                     <rect key="frame" x="201" y="493" width="168" height="30"/>

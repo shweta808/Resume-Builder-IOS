@@ -22,6 +22,11 @@ class EducationViewController: UIViewController, UITextFieldDelegate {
     var ref:DatabaseReference!
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        univName.isUserInteractionEnabled = false
+        gpa.isUserInteractionEnabled = false
+        cancelBtn.isHidden = true
+
         designUI()
         fetchData()
         // Do any additional setup after loading the view.
@@ -139,6 +144,46 @@ class EducationViewController: UIViewController, UITextFieldDelegate {
 
     public func setText(value:String , sender : UITextField){
         sender.text = value
+    }
+
+    //Edit and Save button
+    @IBAction func editDetails(_ sender: UIButton) {
+        if editBtn.currentTitle == "Save" {
+            let eUnivname = univName.text
+            let eGpa = gpa.text
+
+            let user = Auth.auth().currentUser
+            let current_user = user?.email
+
+            ref.queryOrdered(byChild: "Email").queryEqual(toValue: current_user)
+                .observe(.value, with: { snapshot in
+                    if ( snapshot.value is NSNull ) {
+                        print("Email not found")
+                    } else {
+                        for child in snapshot.children {
+                            let key = (child as AnyObject).key as String
+                            self.ref.child(key).updateChildValues(["University Name": eUnivname as Any])
+                            self.ref.child(key).updateChildValues(["GPA": eGpa as Any])
+                        }
+                    }
+                })
+
+            self.editBtn.setTitle("Edit", for: UIControlState.normal)
+            univName.isUserInteractionEnabled = false
+            gpa.isUserInteractionEnabled = false
+            cancelBtn.isHidden = true
+        }
+        else{
+            self.editBtn.setTitle("Save", for: UIControlState.normal)
+            univName.isUserInteractionEnabled = true
+            gpa.isUserInteractionEnabled = true
+            cancelBtn.isHidden = false
+        }
+
+    }
+
+    @IBAction func cancelEdit(_ sender: UIButton) {
+        fetchData()
     }
 
 }
