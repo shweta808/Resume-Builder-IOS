@@ -184,6 +184,9 @@
                                 <state key="normal" title="Email">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="sendEmail:" destination="WDh-O3-3Cg" eventType="touchUpInside" id="J8X-G9-dzf"/>
+                                </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Qde-Op-C6A">
                                 <rect key="frame" x="0.0" y="283" width="375" height="29"/>
@@ -219,7 +222,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="hRt-EW-cXg" id="RED-Dz-z4z"/>
                         <outlet property="contactText" destination="7Yp-aU-KPJ" id="AoP-Mx-hjg"/>
-                        <outlet property="emailBtn" destination="bf2-5M-Uer" id="Bhe-IC-XCT"/>
+                        <outlet property="emailBtn" destination="bf2-5M-Uer" id="ZSB-Yj-Fgu"/>
                         <outlet property="emailText" destination="Mrr-NT-fYb" id="XXC-ps-Ns6"/>
                         <outlet property="imageView" destination="XGZ-08-X7H" id="LdN-cd-MHQ"/>
                         <outlet property="logoutBtn" destination="9FR-Dz-3c1" id="LGf-mn-6Ne"/>
@@ -1623,6 +1626,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bw7-Ve-0JT"/>
-        <segue reference="3RO-6a-8cI"/>
+        <segue reference="7GQ-VJ-s2A"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -138,7 +138,7 @@ class ProjectsViewController: UIViewController, UITextFieldDelegate,UIPickerView
                         else {
                             self.psYear2.setTitle("Start Year", for: .normal)
                         }
-                        if userObject?["Experience 2 End Year"] as! String != "" {
+                        if userObject?["Project 2 End Year"] as! String != "" {
                             self.setButtonTitle(value: userObject?["Experience 2 End Year"] as! String, sender: self.peYear2)
                         }
                         else {
@@ -148,14 +148,14 @@ class ProjectsViewController: UIViewController, UITextFieldDelegate,UIPickerView
                         self.setTextView(value: userObject?["Project 3 Description"] as! String, sender: self.projectDesc3)
                         self.setText(value: userObject?["Project 3 Organization"] as! String, sender: self.org3)
                         self.setText(value: userObject?["Project 3 Technologies"] as! String, sender: self.tech3)
-                        if userObject?["Experience 3 Start Year"] as! String != "" {
-                            self.setButtonTitle(value: userObject?["Experience 3 Start Year"] as! String, sender: self.psYear3)
+                        if userObject?["Project 3 Start Year"] as! String != "" {
+                            self.setButtonTitle(value: userObject?["Project 3 Start Year"] as! String, sender: self.psYear3)
                         }
                         else {
                             self.psYear3.setTitle("Start Year", for: .normal)
                         }
-                        if userObject?["Experience 3 End Year"] as! String != "" {
-                            self.setButtonTitle(value: userObject?["Experience 3 End Year"] as! String, sender: self.peYear3)
+                        if userObject?["Project 3 End Year"] as! String != "" {
+                            self.setButtonTitle(value: userObject?["Project 3 End Year"] as! String, sender: self.peYear3)
                         }
                         else {
                             self.peYear3.setTitle("End Year", for: .normal)

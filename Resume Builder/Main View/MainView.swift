@@ -8,8 +8,9 @@
 
 import UIKit
 import Firebase
+import MessageUI
 
-class MainView: UIViewController {
+class MainView: UIViewController , MFMailComposeViewControllerDelegate {
 
 
     var subViews:[UIView]!
@@ -23,7 +24,8 @@ class MainView: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var logoutBtn: UIButton!
     @IBOutlet weak var emailBtn: UIButton!
-    
+
+    var html: String?
     var ref: DatabaseReference!
     var filename: String?
 
@@ -44,6 +46,7 @@ class MainView: UIViewController {
         }
         superView.bringSubview(toFront: subViews[0])
         designUI()
+        convertDatatoHtml()
         //Fetch name, email-id and position from database
         fetchData()
     }
@@ -152,5 +155,157 @@ class MainView: UIViewController {
         self.emailText.text = Email
         self.contactText.text = Contact
     }
+
+    public func convertDatatoHtml(){
+
+        let user = Auth.auth().currentUser
+        let current_user = user?.email
+        ref = Database.database().reference().child("Resume Data")
+        //observing the data changes
+        ref.observe(DataEventType.value, with: { (snapshot) in
+            //if the reference have some values
+            if snapshot.childrenCount > 0 {
+                //iterating through all the values
+                for user in snapshot.children.allObjects as! [DataSnapshot] {
+                    //getting values
+                    let userObject = user.value as? [String: AnyObject]
+                    if userObject?["Email"] as? String == current_user {
+                        self.html = """
+                        <html>
+                        <head>
+                        <title>Resume</title>
+                        </head>
+                        <body>
+                        <h3><center>\(userObject?["Name"] as! String)</center></h3>
+                        <p><center>\(userObject?["Address"] as! String)|\(userObject?["Contact"] as! String)</center></p>
+                        <p><h3><u>Education</u></h3></p>
+                        <p><b>\(userObject?["Education Degree"] as! String):</b>\(userObject?["Education Department"] as! String),\(userObject?["University Name"] as! String),\(userObject?["GPA"] as! String)
+                        <b>\(userObject?["Education Start Year"] as! String)-\(userObject?["Education End Year"] as! String)</b></p>
+                        <p><h3><u>Technical Skills</u></h3></p>
+                        <p>\(userObject?["Technical Skills"] as! String)</p>
+                        <p><h3><u>Experience</u></h3></p>
+                        <p><u><b>\(userObject?["Experience 1 Company Name"] as! String),\(userObject?["Experience 1 Company Address"] as! String)</b></u>
+                        <u><b>\(userObject?["Experience 1 Start Year"] as! String)-\(userObject?["Experience 1 End Year"] as! String)</b></u></p>
+                        <p><b>\(userObject?["Experience 1 Position"] as! String)</b></p>
+                        <p>\(userObject?["Experience 1 Responsibilities"] as! String)</p>
+
+                        <p><u><b>\(userObject?["Experience 2 Company Name"] as! String),\(userObject?["Experience 2 Company Address"] as! String)</b></u>
+                        <u><b>\(userObject?["Experience 2 Start Year"] as! String)-\(userObject?["Experience 2 End Year"] as! String)</b></u></p>
+                        <p><b>\(userObject?["Experience 2 Position"] as! String)</b></p>
+                        <p>\(userObject?["Experience 2 Responsibilities"] as! String)</p>
+
+                        <p><u><b>\(userObject?["Experience 3 Company Name"] as! String),\(userObject?["Experience 3 Company Address"] as! String)</b></u>
+                        <u><b>\(userObject?["Experience 3 Start Year"] as! String)-\(userObject?["Experience 3 End Year"] as! String)</b></u></p>
+                        <p><b>\(userObject?["Experience 3 Position"] as! String)</b></p>
+                        <p>\(userObject?["Experience 3 Responsibilities"] as! String)</p>
+                        <p><h3><u>Academic Projects</u></h3></p>
+                        <p><u><b>\(userObject?["Project 1 Organization"] as! String)</b></u>
+                        <u><b>\(userObject?["Project 1 Start Year"] as! String)-\(userObject?["Project 1 End Year"] as! String)</b></u></p>
+                        <p><b>\(userObject?["Project 1 Name"] as! String)</b></p>
+                        <ul><li>\(userObject?["Project 1 Description"] as! String)</li>
+                        <li>\(userObject?["Project 1 Technologies"] as! String)</li>
+                        </ul>
+
+                        <p><u><b>\(userObject?["Project 2 Organization"] as! String)</b></u>
+                        <u><b>\(userObject?["Project 2 Start Year"] as! String)-\(userObject?["Project 2 End Year"] as! String)</b></u></p>
+                        <p><b>\(userObject?["Project 2 Name"] as! String)</b></p>
+                        <ul><li>\(userObject?["Project 2 Description"] as! String)</li>
+                        <li>\(userObject?["Project 2 Technologies"] as! String)</li>
+                        </ul>
+
+                        <p><u><b>\(userObject?["Project 3 Organization"] as! String)</b></u>
+                        <u><b>\(userObject?["Project 3 Start Year"] as! String)-\(userObject?["Project 3 End Year"] as! String)</b></u></p>
+                        <p><b>\(userObject?["Project 3 Name"] as! String)</b></p>
+                        <ul><li>\(userObject?["Project 3 Description"] as! String)</li>
+                        <li>\(userObject?["Project 3 Technologies"] as! String)</li>
+                        </ul>
+                        </body>
+                        </html>
+"""
+                    }
+                }
+            }
+        })
+    }
+
+    public func createPDF() {
+        print(html!)
+        let fmt = UIMarkupTextPrintFormatter(markupText: html!)
+        let render = UIPrintPageRenderer()
+        render.addPrintFormatter(fmt, startingAtPageAt: 0)
+
+        // 3. Assign paperRect and printableRect
+
+        let page = CGRect(x: 0, y: 0, width: 595.2, height: 841.8) // A4, 72 dpi
+        //let printable = CGRect.insetBy(page)
+
+        render.setValue(page, forKey: "paperRect")
+        render.setValue(page, forKey: "printableRect")
+
+        // 4. Create PDF context and draw
+
+        let pdfData = NSMutableData()
+        UIGraphicsBeginPDFContextToData(pdfData, CGRect(x: 0, y: 0, width: 0, height: 0), nil)
+
+        for i in 1...render.numberOfPages {
+            UIGraphicsBeginPDFPage();
+            let bounds = UIGraphicsGetPDFContextBounds()
+            render.drawPage(at: i - 1, in: bounds)
+        }
+
+        UIGraphicsEndPDFContext();
+
+        // 5. Save PDF file
+
+        // let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let filemgr = FileManager.default
+
+        let dirPaths = filemgr.urls(for: .documentDirectory, in: .userDomainMask)
+
+        let docsDir = dirPaths[0].path
+        print(docsDir)
+        pdfData.write(toFile: "\(docsDir)/Resume.pdf", atomically: true)
+    }
+
+    @IBAction func sendEmail (_ sender: UIButton) {
+        createPDF()
+        
+        //Check to see the device can send email.
+        if( MFMailComposeViewController.canSendMail() )
+        {
+            let mailComposer = MFMailComposeViewController()
+            mailComposer.mailComposeDelegate = self
+
+            //Set to recipients
+            mailComposer.setToRecipients(["shahaneshweta@gmail.com"])
+
+            //Set the subject
+            mailComposer.setSubject("Resume")
+
+            //set mail body
+            mailComposer.setMessageBody("Hi,", isHTML: true)
+            let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+                if let fileData = NSData(contentsOfFile: "\(documentsPath)/Resume.pdf")
+                {
+                    mailComposer.addAttachmentData(fileData as Data, mimeType: "application/pdf", fileName: "Resume.pdf")
+                }
+
+            //this will compose and present mail to user
+            self.present(mailComposer, animated: true, completion: nil)
+        }
+        else
+        {
+            print("email is not supported")
+        }
+    }
+
+    private func mailComposeController(controller: MFMailComposeViewController,
+                               didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        // Check the result or perform other tasks.
+
+        // Dismiss the mail compose view controller.
+        controller.dismiss(animated: true, completion: nil)
+    }
+
 
 }
