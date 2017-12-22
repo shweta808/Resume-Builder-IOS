@@ -143,7 +143,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITextViewDe
                         }
                     }
                 })
-
             self.editBtn.setTitle("Edit", for: UIControlState.normal)
             profSummaryText.isUserInteractionEnabled = false
             techSkillsText.isUserInteractionEnabled = false

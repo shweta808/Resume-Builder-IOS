@@ -105,7 +105,6 @@ class MainView: UIViewController , MFMailComposeViewControllerDelegate {
                 self.activityIndicator.stopAnimating()
             }
         }
-        //imageTask.resume()
     }
     
     func designUI() {
@@ -269,21 +268,27 @@ class MainView: UIViewController , MFMailComposeViewControllerDelegate {
 
     @IBAction func sendEmail (_ sender: UIButton) {
         createPDF()
-        
+        let mailComposeViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            AlertController.displayAlert(self, title: "Error", message: "E-mail not sent!")
+        }
+    }
+    
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
         //Check to see the device can send email.
-        if( MFMailComposeViewController.canSendMail() )
-        {
             let mailComposer = MFMailComposeViewController()
             mailComposer.mailComposeDelegate = self
 
             //Set to recipients
-            mailComposer.setToRecipients(["shahaneshweta@gmail.com"])
+            mailComposer.setToRecipients([""])
 
             //Set the subject
             mailComposer.setSubject("Resume")
 
             //set mail body
-            mailComposer.setMessageBody("Hi,", isHTML: true)
+            mailComposer.setMessageBody("Hi,\n PFA Resume.", isHTML: true)
             let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
                 if let fileData = NSData(contentsOfFile: "\(documentsPath)/Resume.pdf")
                 {
@@ -291,19 +296,11 @@ class MainView: UIViewController , MFMailComposeViewControllerDelegate {
                 }
 
             //this will compose and present mail to user
-            self.present(mailComposer, animated: true, completion: nil)
-        }
-        else
-        {
-            print("email is not supported")
-        }
+            return mailComposer
     }
 
-    private func mailComposeController(controller: MFMailComposeViewController,
-                               didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-        // Check the result or perform other tasks.
-
-        // Dismiss the mail compose view controller.
+    // MARK: MFMailComposeViewControllerDelegate Method
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }
 

@@ -18,6 +18,7 @@
 		0360CC041FE763C50024CFF7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0360CC031FE763C50024CFF7 /* User.swift */; };
 		5595AC8BD4AF1B799B628EDB /* Pods_Resume_BuilderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67C4AD0DB93F68DE41B378D7 /* Pods_Resume_BuilderTests.framework */; };
 		65CA1EDE2008DD5AE634A496 /* Pods_Resume_BuilderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87D46490D61B41837DEB04AF /* Pods_Resume_BuilderUITests.framework */; };
+		F803F4AE1FECC360009447D5 /* NextSection2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F803F4AD1FECC360009447D5 /* NextSection2.swift */; };
 		F809328C1FE687DF004F45B7 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F809328B1FE687DF004F45B7 /* DatabaseService.swift */; };
 		F8432BCA1FE4ABE2004DA63D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8432BC91FE4ABE2004DA63D /* GoogleService-Info.plist */; };
 		F8432BCB1FE4ABE2004DA63D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8432BC91FE4ABE2004DA63D /* GoogleService-Info.plist */; };
@@ -76,6 +77,7 @@
 		8965E0AEE8F22AEA3DBC0D5C /* Pods-Resume BuilderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Resume BuilderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Resume BuilderTests/Pods-Resume BuilderTests.release.xcconfig"; sourceTree = "<group>"; };
 		8D88B2448949E9F3364D5E35 /* Pods-Resume BuilderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Resume BuilderUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Resume BuilderUITests/Pods-Resume BuilderUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9D5345916663033AD452219E /* Pods-Resume BuilderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Resume BuilderUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Resume BuilderUITests/Pods-Resume BuilderUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F803F4AD1FECC360009447D5 /* NextSection2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextSection2.swift; sourceTree = "<group>"; };
 		F809328B1FE687DF004F45B7 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		F8432BC91FE4ABE2004DA63D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F8432BCD1FE4AE5A004DA63D /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				F8D020801FE5CFA80043D5C0 /* MoreProSection.swift */,
 				F8D020821FE5CFE50043D5C0 /* MoreExpSection.swift */,
 				F8D0207C1FE5C3020043D5C0 /* NextSection1.swift */,
+				F803F4AD1FECC360009447D5 /* NextSection2.swift */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -567,6 +570,7 @@
 				0360CBF91FE70DB10024CFF7 /* ExperienceViewController.swift in Sources */,
 				F8D0207D1FE5C3020043D5C0 /* NextSection1.swift in Sources */,
 				F8DED2661FE46C670096DA60 /* SignIn.swift in Sources */,
+				F803F4AE1FECC360009447D5 /* NextSection2.swift in Sources */,
 				F8432BCE1FE4AE5A004DA63D /* AlertController.swift in Sources */,
 				F890930F1FE475F000C5A165 /* MainView.swift in Sources */,
 				F8D020831FE5CFE50043D5C0 /* MoreExpSection.swift in Sources */,
