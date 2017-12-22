@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import MessageUI
 
-class MainView: UIViewController , MFMailComposeViewControllerDelegate{
+class MainView: UIViewController , MFMailComposeViewControllerDelegate {
 
 
     var subViews:[UIView]!
@@ -176,7 +176,7 @@ class MainView: UIViewController , MFMailComposeViewControllerDelegate{
                         <title>Resume</title>
                         </head>
                         <body>
-                        <h3><center>Resume</center></h3>
+                        <h3><center>\(userObject?["Name"] as! String)</center></h3>
                         <p><center>\(userObject?["Address"] as! String)|\(userObject?["Contact"] as! String)</center></p>
                         <p><h3><u>Education</u></h3></p>
                         <p><b>\(userObject?["Education Degree"] as! String):</b>\(userObject?["Education Department"] as! String),\(userObject?["University Name"] as! String),\(userObject?["GPA"] as! String)
@@ -297,13 +297,14 @@ class MainView: UIViewController , MFMailComposeViewControllerDelegate{
         {
             print("email is not supported")
         }
-        func mailComposeController(controller: MFMailComposeViewController,
-                                           didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-            // Check the result or perform other tasks.
+    }
 
-            // Dismiss the mail compose view controller.
-            controller.dismiss(animated: true, completion: nil)
-        }
+    private func mailComposeController(controller: MFMailComposeViewController,
+                               didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        // Check the result or perform other tasks.
+
+        // Dismiss the mail compose view controller.
+        controller.dismiss(animated: true, completion: nil)
     }
 
 
