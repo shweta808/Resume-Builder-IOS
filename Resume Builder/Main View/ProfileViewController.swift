@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ProfileViewController: UIViewController, UITextFieldDelegate {
+class ProfileViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
 
     var ref: DatabaseReference!
     @IBOutlet weak var techSkillsText: UITextView!
@@ -19,10 +19,12 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        profSummaryText.isUserInteractionEnabled = false
+        techSkillsText.isUserInteractionEnabled = false
         cancelBtn.isHidden = true
         designUI()
-        techSkillsText.delegate = self as? UITextViewDelegate
-        profSummaryText.delegate = self as? UITextViewDelegate
+        techSkillsText.delegate = self
+        profSummaryText.delegate = self
         fetchData()
     }
 
@@ -52,6 +54,30 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             }
         })
     }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        let textField = UITextField()
+        if textView.tag == 1 {
+            moveTextField(textField: textField, moveDistance: -250, up: true)
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        let textField = UITextField()
+        if textView.tag == 1 {
+            moveTextField(textField: textField, moveDistance: -250, up: false)
+        }
+    }
+    func moveTextField(textField: UITextField, moveDistance: Int, up: Bool) {
+        let moveDuration = 0.3
+        let movement: CGFloat = CGFloat(up ? moveDistance: -moveDistance)
+        UIView.beginAnimations("animateTF", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(moveDuration)
+        self.view.frame = (self.view.frame).offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
+    }
+    
     
     func designUI() {
         profSummaryText.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
@@ -129,10 +155,13 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             techSkillsText.isUserInteractionEnabled = true
             cancelBtn.isHidden = false
         }
-
     }
 
     @IBAction func cancelEdit(_ sender: UIButton) {
+        self.editBtn.setTitle("Edit", for: UIControlState.normal)
+        profSummaryText.isUserInteractionEnabled = false
+        techSkillsText.isUserInteractionEnabled = false
+        cancelBtn.isHidden = true
         fetchData()
     }
 

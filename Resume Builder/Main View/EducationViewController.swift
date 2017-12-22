@@ -94,8 +94,14 @@ class EducationViewController: UIViewController, UITextFieldDelegate, UIPickerVi
                         if userObject?["Education Start Year"] as! String != "" {
                             self.setButtonTitle(value: userObject?["Education Start Year"] as! String, sender: self.edusYear)
                         }
+                        else {
+                            self.edusYear.setTitle("Start Year", for: .normal)
+                        }
                         if userObject?["Education End Year"] as! String != "" {
                             self.setButtonTitle(value: userObject?["Education End Year"] as! String, sender: self.edueYear)
+                        }
+                        else {
+                            self.edueYear.setTitle("End Year", for: .normal)
                         }
                         if userObject?["Education Department"] as! String != "" {
                             self.setButtonTitle(value: userObject?["Education Department"] as! String, sender: self.departmentBtn)
@@ -141,6 +147,18 @@ class EducationViewController: UIViewController, UITextFieldDelegate, UIPickerVi
         cancelBtn.layer.borderWidth = 2
         cancelBtn.layer.cornerRadius = 5.0
         cancelBtn.layer.masksToBounds = true
+        degreePicker.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        degreePicker.layer.borderWidth = 2
+        degreePicker.layer.cornerRadius = 5.0
+        degreePicker.layer.masksToBounds = true
+        deptPicker.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        deptPicker.layer.borderWidth = 2
+        deptPicker.layer.cornerRadius = 5.0
+        deptPicker.layer.masksToBounds = true
+        yearPicker.layer.borderColor = UIColor(red: 0, green: 63/255, blue: 173/255, alpha: 1.0).cgColor
+        yearPicker.layer.borderWidth = 2
+        yearPicker.layer.cornerRadius = 5.0
+        yearPicker.layer.masksToBounds = true
     }
     
     // Modifying view so that keyboard does not hide textFields.
@@ -185,6 +203,7 @@ class EducationViewController: UIViewController, UITextFieldDelegate, UIPickerVi
     }
     
     @IBAction func backgroundTap(_ sender: Any) {
+        hidePicker()
         hideKeyboard()
     }
     
@@ -253,10 +272,17 @@ class EducationViewController: UIViewController, UITextFieldDelegate, UIPickerVi
             edusYear.isUserInteractionEnabled = true
             edueYear.isUserInteractionEnabled = true
         }
-
     }
 
     @IBAction func cancelEdit(_ sender: UIButton) {
+        self.editBtn.setTitle("Edit", for: UIControlState.normal)
+        univName.isUserInteractionEnabled = false
+        gpa.isUserInteractionEnabled = false
+        degreeBtn.isUserInteractionEnabled = false
+        departmentBtn.isUserInteractionEnabled = false
+        edusYear.isUserInteractionEnabled = false
+        edueYear.isUserInteractionEnabled = false
+        cancelBtn.isHidden = true
         fetchData()
     }
 
@@ -367,7 +393,6 @@ class EducationViewController: UIViewController, UITextFieldDelegate, UIPickerVi
     // pickerView setup end.
 
     @IBAction func degreePressed(_ sender: UIButton) {
-        print("shweta")
         hideKeyboard()
         degreePicker.isHidden = false
     }
@@ -385,7 +410,7 @@ class EducationViewController: UIViewController, UITextFieldDelegate, UIPickerVi
 
     @IBAction func endYearPressed(_ sender: UIButton) {
         hideKeyboard()
-        if edusYear.titleLabel?.text == "Select Start Year" {
+        if edusYear.titleLabel?.text == "Select Start Year" || edusYear.titleLabel?.text == "Start Year" {
             AlertController.displayAlert(self, title: "Alert", message: "Please select start year first!")
         }
         else {
@@ -399,6 +424,12 @@ class EducationViewController: UIViewController, UITextFieldDelegate, UIPickerVi
         yearPicker.isHidden = true
         degreePicker.isHidden = true
         deptPicker.isHidden = true
+    }
+    
+    // Hide picker when clicked on textFields.
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        hidePicker()
+        return true
     }
 
 }

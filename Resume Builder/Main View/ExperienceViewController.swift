@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ExperienceViewController: UIViewController, UITextFieldDelegate ,UIPickerViewDelegate, UIPickerViewDataSource {
+class ExperienceViewController: UIViewController, UITextFieldDelegate ,UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate {
 
     @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var eeYear1: UIButton!
@@ -61,7 +61,9 @@ class ExperienceViewController: UIViewController, UITextFieldDelegate ,UIPickerV
         super.viewDidLoad()
         cancelBtn.isHidden = true
         yearPicker.isHidden = true
-
+        resp1.delegate = self
+        resp2.delegate = self
+        resp3.delegate = self
         sYearButton.isUserInteractionEnabled = false
         eYearButton.isUserInteractionEnabled = false
         sYearButton2.isUserInteractionEnabled = false
@@ -97,6 +99,46 @@ class ExperienceViewController: UIViewController, UITextFieldDelegate ,UIPickerV
         designUI()
         // Do any additional setup after loading the view.
     }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        let textField = UITextField()
+        switch textView.tag {
+            case 3:
+                moveTextField(textField: textField, moveDistance: -190, up: true)
+            case 7:
+                moveTextField(textField: textField, moveDistance: -300, up: true)
+            case 11:
+                moveTextField(textField: textField, moveDistance: -250, up: true)
+            default:
+                break
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        let textField = UITextField()
+        switch textView.tag {
+            case 3:
+                moveTextField(textField: textField, moveDistance: -190, up: false)
+            case 7:
+                moveTextField(textField: textField, moveDistance: -300, up: false)
+            case 11:
+                moveTextField(textField: textField, moveDistance: -250, up: false)
+            default:
+                break
+        }
+    }
+    
+    func moveTextField(textField: UITextField, moveDistance: Int, up: Bool) {
+        let moveDuration = 0.3
+        let movement: CGFloat = CGFloat(up ? moveDistance: -moveDistance)
+        UIView.beginAnimations("animateTF", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(moveDuration)
+        self.view.frame = (self.view.frame).offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
+    }
+    // Modifying view ends.
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -123,8 +165,14 @@ class ExperienceViewController: UIViewController, UITextFieldDelegate ,UIPickerV
                         if userObject?["Experience 1 Start Year"] as! String != "" {
                             self.setButtonTitle(value: userObject?["Experience 1 Start Year"] as! String, sender: self.sYearButton)
                         }
+                        else {
+                            self.sYearButton.setTitle("Start Year", for: .normal)
+                        }
                         if userObject?["Experience 1 End Year"] as! String != "" {
                             self.setButtonTitle(value: userObject?["Experience 1 End Year"] as! String, sender: self.eYearButton)
+                        }
+                        else {
+                            self.eYearButton.setTitle("End Year", for: .normal)
                         }
                         self.setText(value: userObject?["Experience 2 Company Name"] as! String, sender: self.companyName2)
                         self.setText(value: userObject?["Experience 2 Company Address"] as! String, sender: self.companyAddr2)
@@ -133,10 +181,15 @@ class ExperienceViewController: UIViewController, UITextFieldDelegate ,UIPickerV
                         if userObject?["Experience 2 Start Year"] as! String != "" {
                             self.setButtonTitle(value: userObject?["Experience 2 Start Year"] as! String, sender: self.sYearButton2)
                         }
+                        else {
+                            self.sYearButton2.setTitle("Start Year", for: .normal)
+                        }
                         if userObject?["Experience 2 End Year"] as! String != "" {
                             self.setButtonTitle(value: userObject?["Experience 2 End Year"] as! String, sender: self.eYearButton2)
                         }
-
+                        else {
+                            self.eYearButton2.setTitle("End Year", for: .normal)
+                        }
                         self.setText(value: userObject?["Experience 3 Company Name"] as! String, sender: self.companyName3)
                         self.setText(value: userObject?["Experience 3 Company Address"] as! String, sender: self.companyAddr3)
                         self.setText(value: userObject?["Experience 3 Position"] as! String, sender: self.companyPosition3)
@@ -144,8 +197,14 @@ class ExperienceViewController: UIViewController, UITextFieldDelegate ,UIPickerV
                         if userObject?["Experience 3 Start Year"] as! String != "" {
                             self.setButtonTitle(value: userObject?["Experience 3 Start Year"] as! String, sender: self.sYearButton3)
                         }
+                        else {
+                            self.sYearButton3.setTitle("Start Year", for: .normal)
+                        }
                         if userObject?["Experience 3 End Year"] as! String != "" {
                             self.setButtonTitle(value: userObject?["Experience 3 End Year"] as! String, sender: self.eYearButton3)
+                        }
+                        else {
+                            self.eYearButton3.setTitle("End Year", for: .normal)
                         }
                     }
                 }
@@ -290,16 +349,6 @@ class ExperienceViewController: UIViewController, UITextFieldDelegate ,UIPickerV
             break
         }
     }
-    
-    func moveTextField(textField: UITextField, moveDistance: Int, up: Bool) {
-        let moveDuration = 0.3
-        let movement: CGFloat = CGFloat(up ? moveDistance: -moveDistance)
-        UIView.beginAnimations("animateTF", context: nil)
-        UIView.setAnimationBeginsFromCurrentState(true)
-        UIView.setAnimationDuration(moveDuration)
-        self.view.frame = (self.view.frame).offsetBy(dx: 0, dy: movement)
-        UIView.commitAnimations()
-    }
     // Modifying view ends.
     
     // For navigating through textFields.
@@ -313,7 +362,14 @@ class ExperienceViewController: UIViewController, UITextFieldDelegate ,UIPickerV
         return false
     }
     
+    // Hide picker when clicked on textFields.
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        hidePicker()
+        return true
+    }
+    
     @IBAction func backgroundTap(_ sender: UIControl) {
+        hidePicker()
         hideKeyboard()
     }
     
@@ -451,6 +507,29 @@ class ExperienceViewController: UIViewController, UITextFieldDelegate ,UIPickerV
     }
 
     @IBAction func cancelEdit(_ sender: UIButton) {
+        self.editBtn.setTitle("Edit", for: UIControlState.normal)
+        companyName1.isUserInteractionEnabled = true
+        companyAddr1.isUserInteractionEnabled = true
+        companyPosition1.isUserInteractionEnabled = true
+        resp1.isUserInteractionEnabled = true
+        
+        companyName2.isUserInteractionEnabled = true
+        companyAddr2.isUserInteractionEnabled = true
+        companyPosition2.isUserInteractionEnabled = true
+        resp2.isUserInteractionEnabled = true
+        
+        companyName3.isUserInteractionEnabled = true
+        companyAddr3.isUserInteractionEnabled = true
+        companyPosition3.isUserInteractionEnabled = true
+        resp3.isUserInteractionEnabled = true
+        
+        sYearButton.isUserInteractionEnabled = true
+        eYearButton.isUserInteractionEnabled = true
+        sYearButton2.isUserInteractionEnabled = true
+        eYearButton2.isUserInteractionEnabled = true
+        sYearButton3.isUserInteractionEnabled = true
+        eYearButton3.isUserInteractionEnabled = true
+        cancelBtn.isHidden = true
         fetchData()
     }
 
@@ -577,6 +656,7 @@ class ExperienceViewController: UIViewController, UITextFieldDelegate ,UIPickerV
         yearPicker.isHidden = true
         yearPicker.selectRow(0, inComponent: 0, animated: true)
     }
+    
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         var title: NSAttributedString?
         let data = years[row]
@@ -589,19 +669,22 @@ class ExperienceViewController: UIViewController, UITextFieldDelegate ,UIPickerV
 
     //buttons pressed
     @IBAction func e1sYearPressed(_ sender: UIButton) {
-        print("shweta")
         hideKeyboard()
         yearPicker.isHidden = false
+        yearPicker.frame.origin.x = esYear1.frame.origin.x
+        yearPicker.frame.origin.y = esYear1.frame.origin.y
         yFlag = 0
     }
 
     @IBAction func e1eYearPressed(_ sender: UIButton) {
-        if sYearButton.titleLabel?.text == "Select Start Year" {
+        if sYearButton.titleLabel?.text == "Select Start Year" || sYearButton.titleLabel?.text == "Start Year"{
             AlertController.displayAlert(self, title: "Alert", message: "Please select start year first!")
         }
         else {
             yearPicker.isHidden = false
             yFlag = 1
+            yearPicker.frame.origin.x = esYear1.frame.origin.x
+            yearPicker.frame.origin.y = esYear1.frame.origin.y
         }
         hideKeyboard()
     }
@@ -609,36 +692,45 @@ class ExperienceViewController: UIViewController, UITextFieldDelegate ,UIPickerV
     @IBAction func e2sYearPressed(_ sender: UIButton) {
         hideKeyboard()
         yFlag = 2
+        yearPicker.frame.origin.x = esYear2.frame.origin.x
+        yearPicker.frame.origin.y = esYear2.frame.origin.y
         yearPicker.isHidden = false
     }
 
     @IBAction func e2eYearPressed(_ sender: UIButton) {
-        if sYearButton2.titleLabel?.text == "Select Start Year" {
+        if sYearButton2.titleLabel?.text == "Select Start Year" || sYearButton2.titleLabel?.text == "Start Year" {
             AlertController.displayAlert(self, title: "Alert", message: "Please select start year first!")
         }
         else {
             yFlag = 3
             yearPicker.isHidden = false
+            yearPicker.frame.origin.x = esYear2.frame.origin.x
+            yearPicker.frame.origin.y = esYear2.frame.origin.y
         }
         hideKeyboard()
     }
 
     @IBAction func e3sYearPressed(_ sender: UIButton) {
         hideKeyboard()
-        yFlag = 2
+        yFlag = 4
         yearPicker.isHidden = false
+        yearPicker.frame.origin.x = esYear2.frame.origin.x
+        yearPicker.frame.origin.y = esYear2.frame.origin.y
     }
 
     @IBAction func e3eYearPressed(_ sender: UIButton) {
-        if sYearButton3.titleLabel?.text == "Select Start Year" {
+        if sYearButton3.titleLabel?.text == "Select Start Year" || sYearButton3.titleLabel?.text == "Start Year" {
             AlertController.displayAlert(self, title: "Alert", message: "Please select start year first!")
         }
         else {
-            yFlag = 3
+            yFlag = 5
             yearPicker.isHidden = false
+            yearPicker.frame.origin.x = esYear2.frame.origin.x
+            yearPicker.frame.origin.y = esYear2.frame.origin.y
         }
         hideKeyboard()
     }
+    
     // Hiding picker.
     func hidePicker() {
         yearPicker.isHidden = true

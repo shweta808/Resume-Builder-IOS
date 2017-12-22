@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ProjectsViewController: UIViewController, UITextFieldDelegate,UIPickerViewDelegate, UIPickerViewDataSource {
+class ProjectsViewController: UIViewController, UITextFieldDelegate,UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate {
 
     @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var editBtn: UIButton!
@@ -53,7 +53,9 @@ class ProjectsViewController: UIViewController, UITextFieldDelegate,UIPickerView
     override func viewDidLoad() {
         super.viewDidLoad()
         yearPicker.isHidden = true
-
+        projectDesc1.delegate = self
+        projectDesc2.delegate = self
+        projectDesc3.delegate = self
         psYear1.isUserInteractionEnabled = false
         peYear1.isUserInteractionEnabled = false
         psYear2.isUserInteractionEnabled = false
@@ -117,10 +119,15 @@ class ProjectsViewController: UIViewController, UITextFieldDelegate,UIPickerView
                         if userObject?["Project 1 Start Year"] as! String != "" {
                             self.setButtonTitle(value: userObject?["Project 1 Start Year"] as! String, sender: self.psYear1)
                         }
+                        else {
+                            self.psYear1.setTitle("Start Year", for: .normal)
+                        }
                         if userObject?["Project 1 End Year"] as! String != "" {
                             self.setButtonTitle(value: userObject?["Project 1 End Year"] as! String, sender: self.peYear1)
                         }
-
+                        else {
+                            self.peYear1.setTitle("End Year", for: .normal)
+                        }
                         self.setText(value: userObject?["Project 2 Name"] as! String, sender: self.projName2)
                         self.setTextView(value: userObject?["Project 2 Description"] as! String, sender: self.projectDesc2)
                         self.setText(value: userObject?["Project 2 Organization"] as! String, sender: self.org2)
@@ -128,10 +135,15 @@ class ProjectsViewController: UIViewController, UITextFieldDelegate,UIPickerView
                         if userObject?["Project 2 Start Year"] as! String != "" {
                             self.setButtonTitle(value: userObject?["Project 2 Start Year"] as! String, sender: self.psYear2)
                         }
+                        else {
+                            self.psYear2.setTitle("Start Year", for: .normal)
+                        }
                         if userObject?["Experience 2 End Year"] as! String != "" {
                             self.setButtonTitle(value: userObject?["Experience 2 End Year"] as! String, sender: self.peYear2)
                         }
-
+                        else {
+                            self.peYear2.setTitle("End Year", for: .normal)
+                        }
                         self.setText(value: userObject?["Project 3 Name"] as! String, sender: self.projectName3)
                         self.setTextView(value: userObject?["Project 3 Description"] as! String, sender: self.projectDesc3)
                         self.setText(value: userObject?["Project 3 Organization"] as! String, sender: self.org3)
@@ -139,13 +151,58 @@ class ProjectsViewController: UIViewController, UITextFieldDelegate,UIPickerView
                         if userObject?["Experience 3 Start Year"] as! String != "" {
                             self.setButtonTitle(value: userObject?["Experience 3 Start Year"] as! String, sender: self.psYear3)
                         }
+                        else {
+                            self.psYear3.setTitle("Start Year", for: .normal)
+                        }
                         if userObject?["Experience 3 End Year"] as! String != "" {
                             self.setButtonTitle(value: userObject?["Experience 3 End Year"] as! String, sender: self.peYear3)
+                        }
+                        else {
+                            self.peYear3.setTitle("End Year", for: .normal)
                         }
                     }}
             }
         })
     }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        let textField = UITextField()
+        switch textView.tag {
+        case 3:
+            moveTextField(textField: textField, moveDistance: -190, up: true)
+        case 7:
+            moveTextField(textField: textField, moveDistance: -300, up: true)
+        case 11:
+            moveTextField(textField: textField, moveDistance: -250, up: true)
+        default:
+            break
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        let textField = UITextField()
+        switch textView.tag {
+        case 3:
+            moveTextField(textField: textField, moveDistance: -190, up: false)
+        case 7:
+            moveTextField(textField: textField, moveDistance: -300, up: false)
+        case 11:
+            moveTextField(textField: textField, moveDistance: -250, up: false)
+        default:
+            break
+        }
+    }
+    
+    func moveTextField(textField: UITextField, moveDistance: Int, up: Bool) {
+        let moveDuration = 0.3
+        let movement: CGFloat = CGFloat(up ? moveDistance: -moveDistance)
+        UIView.beginAnimations("animateTF", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(moveDuration)
+        self.view.frame = (self.view.frame).offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
+    }
+    // Modifying view ends.
     
     func designUI() {
         projectName1.layer.borderColor = UIColor(red: 0.33, green: 0.54, blue: 0.70, alpha: 1.0).cgColor
@@ -284,16 +341,6 @@ class ProjectsViewController: UIViewController, UITextFieldDelegate,UIPickerView
             break
         }
     }
-    
-    func moveTextField(textField: UITextField, moveDistance: Int, up: Bool) {
-        let moveDuration = 0.3
-        let movement: CGFloat = CGFloat(up ? moveDistance: -moveDistance)
-        UIView.beginAnimations("animateTF", context: nil)
-        UIView.setAnimationBeginsFromCurrentState(true)
-        UIView.setAnimationDuration(moveDuration)
-        self.view.frame = (self.view.frame).offsetBy(dx: 0, dy: movement)
-        UIView.commitAnimations()
-    }
     // Modifying view ends.
     
     // For navigating through textFields.
@@ -308,6 +355,7 @@ class ProjectsViewController: UIViewController, UITextFieldDelegate,UIPickerView
     }
     
     @IBAction func backgroundTap(_ sender: UIControl) {
+        hidePicker()
         hideKeyboard()
     }
     
@@ -442,6 +490,30 @@ class ProjectsViewController: UIViewController, UITextFieldDelegate,UIPickerView
 
     @IBAction func cancelEdit(_ sender: UIButton) {
         fetchData()
+        self.editBtn.setTitle("Edit", for: UIControlState.normal)
+        projectName1.isUserInteractionEnabled = false
+        projectDesc1.isUserInteractionEnabled = false
+        org1.isUserInteractionEnabled = false
+        tech1.isUserInteractionEnabled = false
+        
+        projName2.isUserInteractionEnabled = false
+        projectDesc2.isUserInteractionEnabled = false
+        org2.isUserInteractionEnabled = false
+        tech2.isUserInteractionEnabled = false
+        
+        projectName3.isUserInteractionEnabled = false
+        projectDesc3.isUserInteractionEnabled = false
+        org3.isUserInteractionEnabled = false
+        tech3.isUserInteractionEnabled = false
+        
+        psYear1.isUserInteractionEnabled = false
+        peYear1.isUserInteractionEnabled = false
+        psYear2.isUserInteractionEnabled = false
+        peYear2.isUserInteractionEnabled = false
+        psYear3.isUserInteractionEnabled = false
+        peYear3.isUserInteractionEnabled = false
+        yearPicker.isHidden = true
+        cancelBtn.isHidden = true
     }
 
     //Picker implementation
@@ -584,15 +656,19 @@ class ProjectsViewController: UIViewController, UITextFieldDelegate,UIPickerView
         hideKeyboard()
         yearPicker.isHidden = false
         yFlag = 0
+        yearPicker.frame.origin.x = psYear1.frame.origin.x
+        yearPicker.frame.origin.y = psYear1.frame.origin.y
     }
 
     @IBAction func e1eYearPressed(_ sender: UIButton) {
-        if psYear1.titleLabel?.text == "Select Start Year" {
+        if psYear1.titleLabel?.text == "Select Start Year" || psYear1.titleLabel?.text == "Start Year" {
             AlertController.displayAlert(self, title: "Alert", message: "Please select start year first!")
         }
         else {
             yearPicker.isHidden = false
             yFlag = 1
+            yearPicker.frame.origin.x = psYear1.frame.origin.x
+            yearPicker.frame.origin.y = psYear1.frame.origin.y
         }
         hideKeyboard()
     }
@@ -601,32 +677,40 @@ class ProjectsViewController: UIViewController, UITextFieldDelegate,UIPickerView
         hideKeyboard()
         yFlag = 2
         yearPicker.isHidden = false
+        yearPicker.frame.origin.x = psYear2.frame.origin.x
+        yearPicker.frame.origin.y = psYear2.frame.origin.y
     }
 
     @IBAction func e2eYearPressed(_ sender: UIButton) {
-        if psYear2.titleLabel?.text == "Select Start Year" {
+        if psYear2.titleLabel?.text == "Select Start Year" || psYear2.titleLabel?.text == "Start Year" {
             AlertController.displayAlert(self, title: "Alert", message: "Please select start year first!")
         }
         else {
             yFlag = 3
             yearPicker.isHidden = false
+            yearPicker.frame.origin.x = psYear2.frame.origin.x
+            yearPicker.frame.origin.y = psYear2.frame.origin.y
         }
         hideKeyboard()
     }
 
     @IBAction func e3sYearPressed(_ sender: UIButton) {
         hideKeyboard()
-        yFlag = 2
+        yFlag = 4
         yearPicker.isHidden = false
+        yearPicker.frame.origin.x = psYear2.frame.origin.x
+        yearPicker.frame.origin.y = psYear2.frame.origin.y
     }
 
     @IBAction func e3eYearPressed(_ sender: UIButton) {
-        if psYear3.titleLabel?.text == "Select Start Year" {
+        if psYear3.titleLabel?.text == "Select Start Year" || psYear3.titleLabel?.text == "Start Year"{
             AlertController.displayAlert(self, title: "Alert", message: "Please select start year first!")
         }
         else {
-            yFlag = 3
+            yFlag = 5
             yearPicker.isHidden = false
+            yearPicker.frame.origin.x = psYear2.frame.origin.x
+            yearPicker.frame.origin.y = psYear2.frame.origin.y
         }
         hideKeyboard()
     }
@@ -637,6 +721,12 @@ class ProjectsViewController: UIViewController, UITextFieldDelegate,UIPickerView
 
     public func setButtonTitle(value:String , sender : UIButton){
         sender.setTitle(value, for: UIControlState.normal)
+    }
+    
+    // Hide picker when clicked on textFields.
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        hidePicker()
+        return true
     }
 }
 
